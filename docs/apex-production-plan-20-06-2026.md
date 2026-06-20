@@ -5,6 +5,7 @@
 >
 > **Tasarım otoritesi (öncelik sırasıyla):** `local/design-rules.md` (kesin kurallar) → `docs/reference/apex-design-system.md` (Cinematic Brutalism / "Asphalt & Carbon" anayasası) → `local/skills/taste-skills/skills/brutalist-skill` + `local/skills/ui-ux-pro-max` (anti-slop, niş, özgün görünüm). Tüm frontend fazları bu üçlü ile üretildi/incelendi.
 >
+>
 > **Fikir/sistem referansı (harici repo, context):** `docs/additional-projects-ideas/F1 Race Replay/f1-race-replay-main/` — Tom Shaw'ın MIT-lisanslı F1 Race Replay (Python/FastF1) projesi. Kod taşınmaz (farklı stack); **veri modeli, analitik sistem ve UX fikirleri** referanstır. Hangi fikrin nereye uygulandığı §1.5'te eşlenir; ilgili adımlarda `[REF: f1-race-replay]` etiketiyle işaretlidir.
 
 ---
@@ -245,6 +246,8 @@ Bu plan sıfırdan başlamıyor — sağlam bir temel var. Aşağıdakiler **bit
 
 ### 2.3 Pilot numarası hero (Cinematic Brutalism) (🤖 AGENT)
 
+> 🎨 **FE-3 ile yapılacak:** `frontend-design` + `impeccable` + `design-motion-principles` (bkz. başlık FE-3 notu).
+
 - [ ] 🤖 `/drivers/[id]` hero'sunu design-system §5.4'e taşı: devasa pilot numarası `Bebas Neue clamp(8rem,25vw,16rem)`, gradient `--team-secondary → --team-accent`, arka katman opacity ~0.15 dekoratif + üstte okunur tam-renk versiyon.
 - [ ] 🤖 Sezon değişince numara + renk **motion narrative 800ms** CSS variable geçişi; `prefers-reduced-motion` → instant swap (design-rules §6, apex-design-system §5).
 - [ ] 🤖 `brutalist-skill` §3.1: tracking negatif/tight, leading sıkı, uppercase — viewport-bleeding numeral.
@@ -272,6 +275,8 @@ Bu plan sıfırdan başlamıyor — sağlam bir temel var. Aşağıdakiler **bit
 > **Amaç:** Tasarımı "AI-üretimi" görünümünden çıkar; niş, özgün, sinematik-brütalist bir iş. Layout·renk·animasyon·geçiş·hover·grid hepsi gözden geçirilir.
 > **Otorite:** `local/design-rules.md` (kesin) + `docs/reference/apex-design-system.md` (Asphalt & Carbon) + `brutalist-skill` (Industrial/Tactical Telemetry) + `ui-ux-pro-max` (anti-slop) + `frontend-design` (signature element, restraint).
 > **Kim:** Frontend. **Risk:** Orta (görsel; her değişiklik Playwright ile doğrulanır).
+>
+> 🎨 **FE-3 ile yapılacak:** Bu fazın tamamı `frontend-design` + `impeccable` + `design-motion-principles` skill üçlüsü kullanılarak yapılacak (bkz. başlık FE-3 notu). `impeccable` ile design-tell taraması, `design-motion-principles` ile motion audit, `frontend-design` ile distinctive yön.
 
 ### 3.0 Tasarım okuması (frontend-design "Design Read") (🤖 AGENT)
 
@@ -322,6 +327,8 @@ Bu plan sıfırdan başlamıyor — sağlam bir temel var. Aşağıdakiler **bit
 
 > **Amaç:** Veriyi sinematik biçimde görselleştir — ama her animasyon motive. (`APEX_MASTER_PLAN` Faz 5'in özü, ama Faz 3 parlatmasının üstüne.)
 > **Kim:** Frontend. **Risk:** Orta. **Kural:** `prefers-reduced-motion` → statik render her zaman.
+>
+> 🎨 **FE-3 ile yapılacak:** `frontend-design` + `impeccable` + `design-motion-principles` (bkz. başlık FE-3 notu). Özellikle animasyonlar `design-motion-principles` audit modundan geçecek (janky → kasıtlı).
 
 - [ ] 🤖 **Gap-to-leader viz** (`/season`): lidere puan farkı yatay bar, takım rengi, IntersectionObserver ile soldan dolar, `IBM Plex Mono` sağa hizalı. Reduced-motion → statik.
 - [ ] 🤖 **Puan evrimi grafiği** (`/season`): round-bazlı kümülatif puan, top-5 pilot, Recharts (mevcut dependency). Veri için gerekiyorsa `standings_history` snapshot türet. Reduced-motion → statik.
@@ -452,6 +459,7 @@ Her faz sonunda agent şu formatta rapor verir:
 | Frontend kesin kurallar | `local/design-rules.md` |
 | Tasarım anayasası (Asphalt & Carbon) | `docs/reference/apex-design-system.md` |
 | Anti-slop / niş görünüm skill | `local/skills/taste-skills/skills/brutalist-skill`, `local/skills/ui-ux-pro-max` |
+| Frontend skill üçlüsü (FE-3) | `frontend-design` (resmi) + `local/skills/impeccable` + `local/skills/design-motion-principles`; yardımcı: `local/skills/graphify` |
 | Geçmiş hatalar & mimari kararlar | `docs/reference/PROJECT_LESSONS_AND_ROADMAP.md` |
 | Proje dizin haritası | `docs/reference/proje-dizini.md` |
 | F1 temporal tek kaynak | `lib/f1Calendar.ts` (`getF1Context()`) |
