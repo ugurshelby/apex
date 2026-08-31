@@ -9,9 +9,16 @@ const eslintConfig = defineConfig([
   globalIgnores([
     // Default ignores of eslint-config-next:
     ".next/**",
+    ".vercel/**",
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Monorepo siblings / vendored skills — not part of the Next.js app surface.
+    ".superpowers/**",
+    "mobile/**",
+    "old-versions-valuable-files/**",
+    "pre-plans/**",
+    "docs/apex-old-version-valuable-files/**",
   ]),
 ]);
 
