@@ -345,7 +345,6 @@ Last verified: 2026-10-01
 | `PRODUCT.md` | Users, purpose, brand, accessibility target | Current as a product statement. Accessibility is a target, not a measured result |
 | `ROADMAP.md` | Four production phases: legal, SEO, UI, release | Aspirational. Several phase-1 pages exist, but placeholder emails and the analytics consent gap mean phase 1 is not met. No phase is checked off |
 | `PROJECT_TREE.md` | Generated tree, including `.next` and tool folders | Snapshot, not a source of truth. Do not treat it as the map |
-| `.agents/rules/apex-anayasa.md` | Third copy of the same constitution | Same |
 | `design/design.md` | Separate design note at repo `design/` | Not read line by line. Not the file the master plan cites as the design authority (`docs/design/apex-design-language.md`) |
 
 ### Logs
@@ -493,23 +492,10 @@ These items are not done. Order follows section 10.
 
 ---
 
-## 12. Proposed agent rules (branch and commit permissions, migration safety checks, forbidden actions, verification before reporting done; written as short enforceable rules)
+## 12. Agent rules
 
 Last verified: 2026-10-01
 
-
-1. Do not commit, push, deploy, or open a pull request unless the current user message explicitly asks for that action.
-2. Stay on the current branch unless the user asks for a new one. Do not commit to `main` if the user asked for a branch.
-3. Do not edit, rename, or delete application code when the task says analysis only. One new doc is allowed only when the task names that file.
-4. Never print, log, or commit secret values. In docs, list environment variable names only. Do not commit `.env.local`, `.env.local.append`, or `.env.sentry-build-plugin`.
-5. Database changes are new files in `supabase/migrations/` with a timestamp prefix. Do not edit a migration that has already been applied. Do not run `supabase db push` or paste SQL into production without an explicit user request in the current task.
-6. Do not hardcode a season year, a driver roster, or a team roster. Read them through `lib/f1Calendar.ts` and the snapshot layer.
-7. Do not add official Formula 1, team, or sponsor logos, or photographs that have no license record in the same change.
-8. Do not add a second production hostname constant. The only origin is `getSiteUrl()`, and its fallback must be the live host.
-9. Cron handlers must keep `isCronAuthorized` and must fail closed.
-10. Before saying a code change is done, run the smallest related Vitest file, then `npm run lint`. Run `npm run build` when the change touches routes, `next.config.ts`, data-reading pages, or migrations. Report the command and the pass or fail count. Do not start a second `next build` while one is running.
-11. Do not treat `docs/reference/proje-dizini.md`, `docs/PLAN.md`, or the sentence “components were deleted on 2026-06-21” as the current tree.
-12. Do not update git config, do not force-push, and do not skip hooks unless the user explicitly asks.
 
 ---
 
