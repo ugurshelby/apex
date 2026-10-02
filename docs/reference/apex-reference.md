@@ -66,7 +66,7 @@ The web app is a working Next.js product, not a skeleton and not an idea with li
 
 ## 3. Architecture (stack, structure, data flow, directory map)
 
-Last verified: 2026-10-01
+Last verified: 2026-10-02
 
 ### Stack
 
@@ -125,7 +125,7 @@ Paths below were confirmed by file search or `Test-Path` on 2026-10-01.
 | `supabase/migrations/` | 8 SQL migrations. `supabase/config.toml` exists |
 | `scripts/` | `seed-f1-history.ts`, `seed-stories.ts`, `sync-f1-scheduled.ts`, `verify-seed-coverage.ts`, `dedupe-f1-snapshots.ts` |
 | `tests/` | 22 Vitest files. `vitest.config.ts` includes only `tests/**/*.test.ts` |
-| `public/stories/` | 124 files still present (ledger: `docs/reference/stories-assets-ledger.md`). `public/drivers` and `public/teams` are absent [VERIFIED: `Test-Path` and file count] |
+| `public/stories/` | 56 files (124 before the 2026-10-02 deletion of 68 unreferenced files; ledger: `docs/reference/stories-assets-ledger.md`). `public/drivers` and `public/teams` are absent [VERIFIED: `Test-Path` and file count] |
 | `stories-images/` | 59 files. Local export noted in `stories-images/README.md` |
 | `.github/workflows/` | `sync-f1-race-aware.yml`, `sync-news.yml`, `notify-sessions.yml` |
 | `mobile/` | Expo app on disk only. Gitignored. Not in git |
@@ -371,7 +371,7 @@ Logs older than 15 days were removed from the tree on purpose (`c23acc2`). They 
 | `docs/reference/mimari.md` | Backend architecture | Useful on stack and the single temporal source. Says Playwright is the e2e tool and that Vercel has 3 crons. Playwright does not run. GitHub crons are easy to miss if this is the only map. Header has no 2026-10 date |
 | `docs/reference/PROJECT_LESSONS_AND_ROADMAP.md` | Incident list and “do not break” rules. Header 2026-06-10. Live URL is the five host | Valuable as history. **Stale as operations.** Open items include a history backfill and a disabled GitHub schedule that later logs say were done. Asset paths it mandates (`public/drivers/{season}/`) were removed. It says the home page calls live RSS; `app/[locale]/page.tsx` calls `getLatestNews` |
 | `docs/reference/stories-assets-ledger.md` | Read-only per-file inventory of `public/stories` (references, source, license, type) | Current (2026-10-02). Generated; regenerate when files change |
-| `docs/reference/anthology-gorsel-temin.md` | How anthology images were obtained | Not fully read. Related to the 124 files still in `public/stories`. Treat as a sourcing note, not a license ledger |
+| `docs/reference/anthology-gorsel-temin.md` | How anthology images were obtained | Not fully read. Related to the files in `public/stories`. Its per-story counts predate the 2026-10-02 deletion of unreferenced files. Treat as a sourcing note, not a license ledger |
 | `docs/reference/web-iyilestirme-onerileri-2026-07-05.md` | Improvement notes. Describes a `PROD_SITE_URL` bug against the five host | Historical. The fallback bug class still exists, now with the seven host |
 | `docs/vision/technical.md` | Agent technical summary | Current (top half rewritten 2026-10-01) |
 | `docs/vision/skills.md` | Skill trigger list referenced by the constitutions | Not a product spec. Skill packs under `.agents/skills` and `local/skills` are vendored |
@@ -418,7 +418,7 @@ The web-only June/July specs were deleted on 2026-10-01 after checking that the 
 - `docs/superpowers/specs/2026-07-13-mobile-bugfix-and-features-design.md`
 - `docs/superpowers/specs/2026-06-25-mobile-app-design.md`
 
-`design/boxbox-mobile/screens-spec.md` and `design/stitch-design-pack/DESIGN.md` are the same class of design exploration.
+`design/boxbox-mobile/screens-spec.md` and `design/stitch-design-pack/DESIGN.md` are the same class of design exploration. The 15 third-party app screenshots that were in `design/boxbox-mobile/screenshots/` were deleted on 2026-10-02 (owner decision; the repo is public).
 
 ### Vendored skill and tool docs (not project source)
 
@@ -480,7 +480,7 @@ Last verified: 2026-10-02
 2. Is the current Vercel project still on the Hobby plan? The daily cron design assumes yes. That was not visible from the repo.
 3. After the move to `project-anthology-eight`, are `NEXT_PUBLIC_SITE_URL`, `CRON_SECRET` or `CRON_SECRET_KEY`, Upstash, Groq, Gemini, and Sentry set on that Vercel project? The 2026-10-01 log said the site URL and the GitHub secret/variable were still pending. The public canonical is already eight. The dashboard was not opened.
 4. What is the GitHub Actions `SITE_URL` variable today? If it is still five or seven, hourly sync and push notifications are calling a dead host.
-5. Should the 124 files in `public/stories` stay? The grid photo-free decision did not list them. There is no license ledger in the repo.
+5. `public/stories` stays (owner, 2026-10-02) and the 68 unreferenced files were deleted. Still open: whether the remaining 56 files may be used (no license record); to be discussed.
 6. Are `privacy@apexstats.example`, `dmca@apexstats.example`, and `contact@apexstats.example` intentional placeholders? If a real address exists, it is not in the legal pages. Was the privacy text reviewed by anyone who can approve a KVKK notice? The repo does not say.
 7. Is the Expo app in `mobile/` still a product? It is on disk and gitignored, so `main` does not contain it.
 8. Is `feat/apex-frontend-rebuild` still needed, or is it an abandoned branch?
