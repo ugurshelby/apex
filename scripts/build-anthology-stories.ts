@@ -1680,7 +1680,8 @@ function main() {
   const targetFile = resolve(__dirname, '../data/stories/content.ts');
   const code = `/**
  * Tracked source of truth for the 17 F1 Anthology stories.
- * Authored in accordance with the editorial style guide & Editorial Constitution.
+ * Authored in accordance with the editorial style guide
+ * (Editorial Constitution: page prosody, cold opening thresholds, witness-led climaxes).
  * Dual-language supported: English longform journalism + Turkish "ev sesi".
  */
 import type { StoryContentRecord } from './types';

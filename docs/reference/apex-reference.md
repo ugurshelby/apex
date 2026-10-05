@@ -338,7 +338,7 @@ The 2026-10-01 log says production `sync-f1` and `sync-news` were checked after 
 
 ## 9. Documentation inventory (every doc, rule file, log: purpose, up to date or stale, duplicate or conflicting, applied plans that should be deleted)
 
-Last verified: 2026-10-02
+Last verified: 2026-10-05
 
 “Up to date” means it matches the code and the live host on 2026-10-01. “Stale” means a claim in it is false now.
 
