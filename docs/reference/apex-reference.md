@@ -124,7 +124,7 @@ Paths below were confirmed by file search or `Test-Path` on 2026-10-06.
 | Path | Role |
 |---|---|
 | `app/[locale]/` | Pages: home, season, season year, round, drivers, teams, grid, circuits, news, news id, anthology, glossary, disclaimer, privacy, terms, dmca |
-| `app/api/` | 13 route handlers: four crons, `f1-season`, `live-timing`, `news`, `push/register`, season, circuit, driver career, team career |
+| `app/api/` | 15 route handlers: five crons (`sync-news`, `sync-f1`, `sync-radio`, `notify-sessions`, `sync-media`), `f1-season`, `live-timing`, `news`, `media`, `push/register`, season, circuit, driver career, team career |
 | `app/sitemap.ts`, `app/robots.ts` | Crawl surface |
 | `components/` | UI. 89 modules: layout, home, season, news, profile, anthology, glossary, legal, media |
 | `lib/` | `data/`, `f1/`, `news/`, `api/`, `security/csp.ts`, `seo.ts`, `cronAuth.ts`, `rateLimit.ts`, `supabase.ts`, `f1Calendar.ts`, `f1Ingest.ts` |
@@ -138,7 +138,7 @@ Paths below were confirmed by file search or `Test-Path` on 2026-10-06.
 | `public/` | Client runtime assets: `brand/` (logos), `circuits/` (25 SVGs), `tyres/` (11 SVGs), `glossary-icons/` (20 webp), `stories/` (56 PNGs in 17 story folders; ledger: `docs/reference/stories-assets-ledger.md`). Cleaned of duplicate or unreferenced assets [VERIFIED: 2026-10-06] |
 | `assets/` | Build-time datasets and source assets: `brand/`, `data/`, `f1-circuits/`, `raw-glossary-icons/`, `scripts/`, `icons/` |
 | `stories-images/` | Retired on 2026-10-06 (100% duplicate of `public/stories/`; backed up to `backup/pre-asset-cleanup-20261006` and removed from git) |
-| `.github/workflows/` | `sync-f1-race-aware.yml`, `sync-news.yml`, `notify-sessions.yml` |
+| `.github/workflows/` | `sync-f1-race-aware.yml`, `sync-news.yml`, `notify-sessions.yml`, `sync-media.yml` |
 | `mobile/` | Expo app on disk only. Gitignored. Not in git |
 | `docs/`, `logs/`, `design/` | Documentation and a separate design folder |
 | `railway/`, `pre-plans/` | Not on disk [VERIFIED: `Test-Path`]. Older docs still mention them |
@@ -166,6 +166,7 @@ Later migrations [VERIFIED: each file]:
 | `20260929000002_circuit_weather.sql` | `circuit_weather`. Public read. Comment says only the upcoming or current race is kept |
 | `20260929000003_news_cache_tr.sql` | `news_cache.title_tr`, `description_tr` |
 | `20260929000004_news_stories.sql` | `news_stories`. Public read. Service-role write. 7-day retention is described in the SQL comment |
+| `20261006000001_media_assets.sql` | `media_assets` + `media_sync_state`, RLS (anon reads only `resolved` and not `rejected` rows), column-level `GRANT` (diagnostic columns private), public `media` Storage bucket. In the repo, **not applied live** (owner go-ahead needed). See `docs/reference/media-sistemi.md` |
 
 `f1_snapshots` stores Ergast-shaped JSON. Season-level rows use `round IS NULL`. Allowed `source` values in the initial check are `f1db`, `jolpica`, `openf1` [VERIFIED: initial SQL].
 
@@ -202,9 +203,10 @@ GitHub Actions [VERIFIED: the three YAML files]:
 |---|---|---|
 | `sync-f1-race-aware.yml` | hourly, plus `workflow_dispatch` | `npx tsx@4.22.4 scripts/sync-f1-scheduled.ts` (no `npm ci` since 2026-10-01), which calls `sync-f1?scope=live` only when a session window is due |
 | `sync-news.yml` | minute 7 of every hour, plus dispatch | `curl` to `/api/cron/sync-news` with Bearer `CRON_SECRET_KEY`, 420s max |
+| `sync-media.yml` | minute 17 of every hour, plus dispatch | `curl` to `/api/cron/sync-media` with Bearer `CRON_SECRET_KEY`, 320s max. The route answers 200 `skipped` until the media migration is applied. Not in `vercel.json` because Hobby crons run once a day [VERIFIED: workflow and route files; not yet run in GitHub Actions] |
 | `notify-sessions.yml` | every 10 minutes, plus dispatch | `curl` to `/api/cron/notify-sessions` |
 
-All four cron routes call `isCronAuthorized` [VERIFIED: grep of `app/api/**/route.ts`]. On 2026-10-05, all four routes (`sync-news`, `sync-f1`, `sync-radio`, `notify-sessions`) returned HTTP 401 when accessed without authorization [VERIFIED: live curl]. `maxDuration` is 300s for sync-f1, sync-news, and sync-radio, and 60s for notify-sessions [VERIFIED: those files]. GitHub Actions runs on 2026-10-05 completed successfully for notify-sessions, sync-f1 race-aware, and sync-news [VERIFIED: `gh run list`].
+All five cron routes (`sync-media` added 2026-10-06) call `isCronAuthorized` [VERIFIED: grep of `app/api/**/route.ts`]. On 2026-10-05, the four routes that existed then (`sync-news`, `sync-f1`, `sync-radio`, `notify-sessions`) returned HTTP 401 when accessed without authorization [VERIFIED: live curl]. `maxDuration` is 300s for sync-f1, sync-news, and sync-radio, and 60s for notify-sessions [VERIFIED: those files]. GitHub Actions runs on 2026-10-05 completed successfully for notify-sessions, sync-f1 race-aware, and sync-news [VERIFIED: `gh run list`].
 
 The YAML comments say Vercel Hobby allows one cron run per day, which is why the finer jobs moved to GitHub Actions [VERIFIED: workflow comments]. The actual Vercel plan on the current account was not opened [UNVERIFIED: no Vercel dashboard access in this pass].
 
@@ -384,6 +386,7 @@ Logs older than 15 days were removed from the tree on purpose (`c23acc2`). They 
 | `docs/vision/skills.md` | Skill trigger list referenced by the constitutions | Reference |
 | `docs/reference/apex-reference.md` | Master living reference and measurement baseline | Current (2026-10-06) |
 | `docs/reference/mimari.md` | Backend architecture and clockwork data flow | Current (2026-10-06) |
+| `docs/reference/media-sistemi.md` | Media (image) system: sources, license gate, DB model, API contract, frontend rules, placeholder brief, operations | Current (2026-10-06). Code and migration are in the repo; the migration is not yet applied live |
 | `docs/reference/muhendislik-dersleri.md` | Incident list, traps, and “do not break” rules (renamed from `PROJECT_LESSONS_AND_ROADMAP.md`) | Historical engineering memory |
 | `docs/reference/stories-assets-ledger.md` | Read-only per-file inventory of `public/stories` (references, source, license, type) | Current (2026-10-02) |
 | `docs/reference/anthology-image-map.md` | Canonical mapping of 17 stories to 57 image assets | Current (moved from `docs/` root) |
