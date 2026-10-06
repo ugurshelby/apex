@@ -408,7 +408,7 @@ Other general reference essays in `docs/design/` (`premium-design-philosophy.md`
 - Deleted on 2026-10-01: `docs/PLAN.md`, `docs/plans/i18n-architecture.md`, `docs/plans/news-ui-brief.md`, `docs/plans/news-stories-ui-handoff.md`, `docs/plans/driver-hero-visual-redesign.md`, `docs/reference/proje-dizini.md`.
 - Deleted on 2026-10-06 (Docs refinement procedure): `docs/reference/anthology-gorsel-temin.md`, `docs/reference/web-iyilestirme-onerileri-2026-07-05.md`, `docs/anthology-ingestion-report.md`, `docs/anthology-missing-assets-download-list.md`, `docs/anthology-image-remap-audit.md`, `docs/superpowers/`, and `old-versions-valuable-files/`.
 - Retired on 2026-10-06: `ROADMAP.md` (root roadmap retired after transferring open items into `docs/plans/master-plan.md` Priority 8).
-- `docs/plans/master-plan.md` is the single live checklist; cleaned of all completed items on 2026-10-06, keeping only vision-prioritized open tasks. `docs/plans/acil-eylem-plani.md` is preserved intact as the primary developer directive.
+- `docs/plans/master-plan.md` is the single live checklist and primary developer directive; integrated all tasks and vision points from `docs/plans/acil-eylem-plani.md` on 2026-10-06 and retired the separate file. Organized into prioritized phases with verified test and build baselines.
 
 ---
 

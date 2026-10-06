@@ -135,8 +135,7 @@ Hobby planda günde 1 cron → yarış haftası için **read-layer staleness** v
 |---------------|------------|
 | Temel Vizyon & Amaç | `docs/vision/apex-vision.md` |
 | Tasarım Sistemi (Master SSOT) | `docs/design/apex-design.md` |
-| Canlı Plan & Açık İşler | `docs/plans/master-plan.md` |
-| Acil Eylem Planı (Geliştirici Direktifleri) | `docs/plans/acil-eylem-plani.md` |
+| Canlı Plan & Geliştirici Direktifleri | `docs/plans/master-plan.md` |
 | Sistem Referansı & Ölçümler | `docs/reference/apex-reference.md` |
 | Backend & Veri Mimarisi | `docs/reference/mimari.md` |
 | Operasyonel Prosedürler | `docs/procedures.md` |
