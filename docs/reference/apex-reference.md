@@ -389,7 +389,7 @@ Logs older than 15 days were removed from the tree on purpose (`c23acc2`). They 
 | `docs/vision/skills.md` | Skill trigger list referenced by the constitutions | Reference |
 | `docs/reference/apex-reference.md` | Master living reference and measurement baseline | Current (2026-10-06) |
 | `docs/reference/mimari.md` | Backend architecture and clockwork data flow | Current (2026-10-06) |
-| `docs/reference/media-sistemi.md` | Media (image) system: sources, license gate, DB model, API contract, frontend rules, placeholder brief, operations | Current (2026-10-06). Migration applied live 2026-10-06; code not deployed yet (uncommitted) |
+| `docs/reference/media-sistemi.md` | Media (image) system: sources, license gate, DB model, API contract, frontend rules, placeholder brief, operations | Current (2026-10-06). Migration applied and code deployed 2026-10-06; `media_assets` is empty until the first `sync-media` run |
 | `docs/reference/yaris-hafta-sonu-dogrulama.md` | Race-weekend live verification runbook (live timing, sync/settled/SWR, push window, JSON-LD, CWV, Sentry), 2026 calendar, pass criteria | Current (2026-10-06). Delete when every item is closed |
 | `docs/reference/muhendislik-dersleri.md` | Incident list, traps, and “do not break” rules (renamed from `PROJECT_LESSONS_AND_ROADMAP.md`) | Historical engineering memory |
 | `docs/reference/stories-assets-ledger.md` | Read-only per-file inventory of `public/stories` (references, source, license, type) | Current (2026-10-02) |
