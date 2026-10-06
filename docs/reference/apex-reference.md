@@ -349,11 +349,8 @@ Last verified: 2026-10-05
 
 | File | Purpose | Status |
 |---|---|---|
-| `README.md` | Setup, routes, env table, stack, live URL | Current (corrected 2026-10-01) |
-| `PRODUCT.md` | Users, purpose, brand, accessibility target | Current as a product statement. Accessibility is a target, not a measured result |
-| `ROADMAP.md` | Four production phases: legal, SEO, UI, release | Aspirational. Several phase-1 pages exist, but placeholder emails and the analytics consent gap mean phase 1 is not met. No phase is checked off |
-| `PROJECT_TREE.md` | Generated tree, including `.next` and tool folders | Snapshot, not a source of truth. Do not treat it as the map |
-| `design/design.md` | Separate design note at repo `design/` | Not read line by line. Not the file the master plan cites as the design authority (`docs/design/apex-design-language.md`) |
+| `README.md` | Setup, routes, env table, stack, live URL | Current (2026-10-06) |
+
 
 ### Logs
 
@@ -391,6 +388,8 @@ Logs older than 15 days were removed from the tree on purpose (`c23acc2`). They 
 | File | Purpose | Status |
 |---|---|---|
 | `docs/README.md` | Master documentation map and navigation index | Current (2026-10-06) |
+| `docs/PRODUCT.md` | Official product showcase and overview document (moved from root to `docs/PRODUCT.md`) | Current (2026-10-06) |
+| `docs/DENETIM.md` | Mission and gaps brownfield audit report (moved from root to `docs/DENETIM.md`) | Active audit reference (2026-10-05) |
 | `docs/procedures.md` | Repeatable operational and maintenance procedures (Procedures 1–8) | Current (Procedure 8 added 2026-10-06) |
 | `stories-images/README.md` | Export count: 57 images, 17 stories | Local export note |
 
@@ -407,6 +406,7 @@ Other general reference essays in `docs/design/` (`premium-design-philosophy.md`
 
 - Deleted on 2026-10-01: `docs/PLAN.md`, `docs/plans/i18n-architecture.md`, `docs/plans/news-ui-brief.md`, `docs/plans/news-stories-ui-handoff.md`, `docs/plans/driver-hero-visual-redesign.md`, `docs/reference/proje-dizini.md`.
 - Deleted on 2026-10-06 (Docs refinement procedure): `docs/reference/anthology-gorsel-temin.md`, `docs/reference/web-iyilestirme-onerileri-2026-07-05.md`, `docs/anthology-ingestion-report.md`, `docs/anthology-missing-assets-download-list.md`, `docs/anthology-image-remap-audit.md`, `docs/superpowers/`, and `old-versions-valuable-files/`.
+- Retired on 2026-10-06: `ROADMAP.md` (root roadmap retired after transferring open items into `docs/plans/master-plan.md` Priority 8).
 - `docs/plans/master-plan.md` is the single live checklist; cleaned of all completed items on 2026-10-06, keeping only vision-prioritized open tasks. `docs/plans/acil-eylem-plani.md` is preserved intact as the primary developer directive.
 
 ---
