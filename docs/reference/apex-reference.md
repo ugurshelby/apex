@@ -426,7 +426,7 @@ Logs older than 15 days were removed from the tree on purpose (`c23acc2`). They 
 
 ### docs/design
 
-Last verified: 2026-10-09
+Last verified: 2026-10-10
 
 
 On 2026-10-05, conflicting design essays (`design-styles/`, `colours/`, `typography/`, `trends/`, `design-techniques/`, `design.md/`) and unapproved skill directories were consolidated and removed. The single approved skill directory is `docs/design/skills/` containing the 5-layer orchestrated skills: `apple-design` (foundational), `high-end-visual-design` + `minimalist-ui` (execution), `industrial-brutalist-ui` (filtered telemetry), `react-view-transitions` (motion), and `ui-ux-pro-max` + `accesslint-audit` (quality audit).
