@@ -424,7 +424,6 @@ Logs older than 15 days were removed from the tree on purpose (`c23acc2`). They 
 |---|---|---|
 | `docs/README.md` | Master documentation map and navigation index | Current (2026-10-06) |
 | `docs/PRODUCT.md` | Official product showcase and overview document (moved from root to `docs/PRODUCT.md`) | Current (2026-10-06) |
-| `docs/DENETIM.md` | Mission and gaps brownfield audit report (moved from root to `docs/DENETIM.md`) | Active audit reference (2026-10-05) |
 | `docs/procedures.md` | Repeatable operational and maintenance procedures (Procedures 1–8) | Current (Procedure 8 added 2026-10-06) |
 
 ### docs/design

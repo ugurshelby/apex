@@ -22,7 +22,6 @@
 docs/
 ├── README.md                           # Bu dosya — Dokümantasyon ana indeksi ve haritası
 ├── PRODUCT.md                          # Proje ve ürün tanıtım vitrini (Her refactoring/freshness sonrası güncellenir)
-├── DENETIM.md                          # Misyon ve Eksiklikler Denetim Raporu (Brownfield analizi)
 ├── procedures.md                       # 8 adet tekrarlanabilir operasyonel ve bakım prosedürü
 │
 ├── vision/                             # Vizyon, Misyon ve Teknik Temeller
