@@ -27,7 +27,7 @@ No file in the repo states a business owner, a company, or a revenue model. Thos
 
 ## 2. Current state summary (what works, what is broken, what is half-built; measured, not described)
 
-Last verified: 2026-10-08
+Last verified: 2026-10-08 (CI line: 2026-10-26)
 
 The web app is a working Next.js product, not a skeleton and not an idea with little code. `components/` contains 95+ `.ts`/`.tsx` files and `app/[locale]/` contains 22 `page.tsx` files [VERIFIED: file search].
 
@@ -69,7 +69,7 @@ The web app is a working Next.js product, not a skeleton and not an idea with li
 - `docs/plans/master-plan.md` previously had unchecked items: tablet breakpoint (WEB-UI.4), season layout (WEB-UI.5), list template (WEB-UI.6), and detail template (WEB-UI.7) were measured in Chromium on 2026-10-05 and marked verified (0 overflow across 375/768/1280px). Lighthouse (WEB-UI.8), permanent 2026 Jolpica snapshot fill, live-race end-to-end check, i18n phase-6 QA, and mobile store release stay open.
 - Playwright is a devDependency and is used for headless browser audits [VERIFIED: 2026-10-05 audit].
 - `mobile/` exists on disk (Expo ~56, React Native 0.85.3) and is gitignored. `git ls-files mobile` returned 0 tracked files [VERIFIED]. It is not part of the git tree that `main` deploys. Mobile scripts were not run.
-- `.github/workflows/ci.yml` (added 2026-10-01) runs `npm ci`, lint, `tsc --noEmit`, `npm test`, `npm run build` on pull requests to `main`, on the Node in `.nvmrc` (24). It has not run on GitHub yet [UNVERIFIED]; the same commands were run locally on Node 22 with placeholder Supabase env. The other three workflows only call cron endpoints.
+- `.github/workflows/ci.yml` runs `npm ci`, `npm audit --omit=dev --audit-level=high`, lint, `tsc --noEmit`, `npm test`, `npm run build` on pull requests to `main` and on pushes to `main` and `wip/**`, on the Node in `.nvmrc` (24). Green on `wip/deps-2026-10` (run 40324388109, 2026-10-26: 75 files, 758 tests). `.github/workflows/security-audit.yml` runs the same production audit weekly (Monday 06:00 UTC) and on dispatch. The other three workflows only call cron endpoints.
 - Node: this machine is v22.18.0. `package.json` `engines` and `.nvmrc` say 24. GitHub Actions `sync-f1-race-aware.yml` uses Node 22 [VERIFIED]. Tests and the build passed on Node 22 anyway.
 
 `project-anthology-seven.vercel.app` is down (404). Older docs still name `project-anthology-five.vercel.app` [VERIFIED: `docs/reference/muhendislik-dersleri.md`]. The log of 2026-09-29 says the five project was deleted by the owner [VERIFIED: `logs/2026-09-29.md`]. The five host was not requested in this pass.
@@ -78,7 +78,7 @@ The web app is a working Next.js product, not a skeleton and not an idea with li
 
 ## 3. Architecture (stack, structure, data flow, directory map)
 
-Last verified: 2026-10-02 (home page path: 2026-10-12)
+Last verified: 2026-10-02 (home page path: 2026-10-12; stack versions: 2026-10-26)
 
 ### Stack
 
@@ -86,7 +86,7 @@ Last verified: 2026-10-02 (home page path: 2026-10-12)
 
 | Layer | What is in the repo |
 |---|---|
-| Web | Next.js 16.2.7 App Router, React 19.2.4, TypeScript 5 (`strict: true` in `tsconfig.json`) |
+| Web | Next.js 16.4.2 App Router, React 19.2.4, TypeScript 5 (`strict: true` in `tsconfig.json`) |
 | UI | Tailwind CSS 4, Framer Motion 12 |
 | i18n | `next-intl` 4. Locales `en` (no prefix) and `tr` (`/tr/...`) via `i18n/routing.ts`. Locale proxy is `proxy.ts` (Next.js 16 proxy convention, not `middleware.ts`) |
 | Data | Supabase PostgreSQL through `@supabase/supabase-js`. Anon client for reads, service-role client for writes [VERIFIED: `lib/supabase.ts`] |
@@ -242,7 +242,7 @@ Daily Vercel runs and the hourly GitHub runs both hit `sync-news` and `sync-f1`.
 ### Deployment and branches
 
 - Current shipping branch is `main`, even with `origin/main` [VERIFIED: `git status` at the start of this analysis].
-- No workflow deploys the site; `ci.yml` only checks pull requests [VERIFIED].
+- No workflow deploys the site; `ci.yml` only checks (pull requests, pushes to `main` and `wip/**`) [VERIFIED 2026-10-26].
 - Docs say Vercel deploys the web app [VERIFIED: `README.md`]. The git event that triggers that deploy was not read from a Vercel project setting [UNVERIFIED].
 - `railway/` was removed. The 2026-09-29 log says the Railway cron was never deployed and was replaced by GitHub Actions [VERIFIED: log plus `Test-Path railway` is false].
 
@@ -299,15 +299,15 @@ Placeholder legal mailboxes mean a privacy or DMCA request sent from the site go
 
 ## 6. Quality gates (tests, lint, build, typecheck: what exists, what actually passes)
 
-Last verified: 2026-10-01 (current numbers: section 2, 2026-10-08)
+Last verified: 2026-10-01 (current numbers: section 2, 2026-10-08; versions and CI row: 2026-10-26)
 
 | Gate | Exists | This run (2026-10-01, Node v22.18.0, npm 10.9.3, `node_modules` already present) |
 |---|---|---|
-| `npm test` | Yes. Vitest, node environment, 30s timeout, `tests/**/*.test.ts` | Pass. 178/178 |
+| `npm test` | Yes. Vitest 5, node environment, 30s timeout, `tests/**/*.test.ts` | Pass. 178/178 |
 | `npx tsc --noEmit` | No npm script. `tsconfig.json` has `strict` and `noEmit` | Pass. Exit 0 |
 | `npm run build` | Yes. `next build`. `build:vercel` is the same command | Pass. Exit 0. Sentry upload skipped (`Project not found`). `metadataBase` warned as `http://localhost:3000` during this local build. Route table included static legal pages, ISR anthology/circuits/news/teams/glossary, and dynamic home, season, entity, and API routes |
 | Playwright | Dependency only | Not run. No config |
-| CI on pull request | Yes, `.github/workflows/ci.yml` (2026-10-01) | Not yet run on GitHub [UNVERIFIED]. Whether branch protection requires it is an owner/GitHub setting |
+| CI on pull request and push (`main`, `wip/**`) | Yes, `.github/workflows/ci.yml` | Green on `wip/deps-2026-10` (2026-10-26, run 40324388109). Whether branch protection requires it is an owner/GitHub setting |
 | `npm ci` from a clean tree | Not run | [UNVERIFIED] whether a clean install matches the lockfile on Node 24, which is what `engines` asks for |
 
 The build’s own TypeScript step also finished (“Finished TypeScript in 2.2min”) [VERIFIED: build log].
