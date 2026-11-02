@@ -77,7 +77,8 @@ export function SeasonRail({ years, selected, hrefTemplate, className = '' }: Pr
 
       <div
         ref={scroller}
-        className="relative flex min-w-0 flex-1 gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        // Edge fade (owner 2026-11-02): years scrolled under the arrow buttons fade out instead of being cut off.
+        className="relative flex min-w-0 flex-1 gap-3 overflow-x-auto pb-1 [mask-image:linear-gradient(to_right,transparent,black_20px,black_calc(100%-20px),transparent)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
         {decades.map((group) => (

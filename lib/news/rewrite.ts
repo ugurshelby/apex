@@ -68,6 +68,9 @@ function buildPrompt(stories: RewriteSource[][]): string {
     '- "the sport" means Formula 1: write "Formula 1" / "F1", never "Sport".',
     '- Both headlines use sentence case (only the first word and proper names capitalised), never Title Case.',
     `- Turkish: attach suffixes to foreign names with an apostrophe and vowel harmony as pronounced ("Austin'de", "Perez'in"); translate every English word into Turkish (or explain it briefly). Established F1 terms (pole, pit stop, DRS, FP1) may stay; "qualifying" is "sıralama turları", never "nitelik".`,
+    // Seen 2026-10-31: "steyrlere çağrıldı", "Mexico FP2'de", "tests as potential replacement" → "yerini alabilir".
+    '- Turkish F1 vocabulary: "stewards" is "hakemler" (never "steyr"); country and city names in Turkish ("Meksika", "Meksika Şehri", "Abu Dabi", "Brezilya").',
+    '- Keep hedges: if a source says "could", "may", "potential", "reportedly" or "tests", the headline stays hedged ("…olabilir", "…iddiası", "…test etti"); never turn a possibility into a fact.',
     '',
     `There are ${stories.length} independent stories below. Write one brief per story.`,
     'same_story only applies to stories with several sources; for a story with a single source always return true.',
