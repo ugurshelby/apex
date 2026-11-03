@@ -125,6 +125,9 @@ vi.mock('@/lib/f1/provisionalSync', () => ({
   syncProvisionalFromOpenF1: async () => ({ status: 'no-race', round: null }),
   syncProvisionalSessionFromOpenF1: async () => ({ status: 'no-session', round: null }),
 }));
+vi.mock('@/lib/f1/raceEventsSync', () => ({
+  syncRaceEventsFromOpenF1: async () => ({ status: 'no-race', round: null }),
+}));
 
 const CALENDAR: CalendarRace[] = [
   {

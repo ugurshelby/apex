@@ -329,3 +329,39 @@ export async function fetchChampionshipDrivers(sessionKey: number): Promise<Open
 export async function fetchChampionshipTeams(sessionKey: number): Promise<OpenF1ChampionshipTeam[]> {
   return openf1Fetch<OpenF1ChampionshipTeam>('championship_teams', { session_key: sessionKey });
 }
+
+// ── Race events (Faz 21.1): race control messages and lap-by-lap order ──────
+
+export interface OpenF1RaceControl {
+  date: string;
+  driver_number: number | null;
+  lap_number: number | null;
+  /** "Flag", "SafetyCar", "SessionStatus", "Other", "Drs"… */
+  category: string;
+  flag: string | null;
+  scope: string | null;
+  sector: number | null;
+  message: string;
+  meeting_key: number;
+  session_key: number;
+}
+
+export interface OpenF1Lap {
+  driver_number: number;
+  lap_number: number;
+  /** Null on some first laps and laps OpenF1 could not time. */
+  date_start: string | null;
+  lap_duration: number | null;
+  is_pit_out_lap: boolean | null;
+  session_key: number;
+}
+
+/** Race control messages of a session: flags, safety car, stewards' decisions. */
+export async function fetchRaceControl(sessionKey: number): Promise<OpenF1RaceControl[]> {
+  return openf1Fetch<OpenF1RaceControl>('race_control', { session_key: sessionKey });
+}
+
+/** Every lap of every driver in a session (start time and duration). */
+export async function fetchLaps(sessionKey: number): Promise<OpenF1Lap[]> {
+  return openf1Fetch<OpenF1Lap>('laps', { session_key: sessionKey });
+}

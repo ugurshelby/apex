@@ -17,8 +17,11 @@
  * - Then OpenF1 provisional `qualifying` and `sprint` classifications for the
  *   latest weekend (about 30 min after the session; same replace rule).
  *
+ * - Then OpenF1 race events for the race that just finished: race control
+ *   messages and lap-by-lap order (lib/f1/raceEventsSync.ts, Faz 21.1).
+ *
  * Response shape: { source, scope, season, upserted, skipped, settled, provisional,
- *   provisionalSessions: { qualifying, sprint }, errors, durationMs }
+ *   provisionalSessions: { qualifying, sprint }, raceEvents, errors, durationMs }
  */
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -69,6 +72,7 @@ import {
   syncProvisionalSessionFromOpenF1,
   type ProvisionalOutcome,
 } from '@/lib/f1/provisionalSync';
+import { syncRaceEventsFromOpenF1 } from '@/lib/f1/raceEventsSync';
 import { sendExpoPushNotifications } from '@/lib/push/sendExpoPush';
 import type { ExpoPushMessage } from 'expo-server-sdk';
 import type { Json, SnapshotType } from '@/types/database';
@@ -470,6 +474,10 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     const qualifying = await syncProvisionalSessionFromOpenF1({ kind: 'qualifying', races, now, stats });
     const sprint = await syncProvisionalSessionFromOpenF1({ kind: 'sprint', races, now, stats });
 
+    // 8) OpenF1 race control messages and lap-by-lap order for the race that just finished (Faz 21.1).
+    // Not a page input yet, so it does not trigger a revalidation.
+    const raceEvents = await syncRaceEventsFromOpenF1({ races, now, stats });
+
     // A new provisional classification shows on its next request instead of after the revalidate window.
     // Not on `stats.upserted`: every run rewrites the calendar and standings rows whether or not they
     // changed (QStash every 30 min), and Jolpica rows reach the pages within their 5–10 min windows.
@@ -485,6 +493,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       settled: settledSkips,
       provisional,
       provisionalSessions: { qualifying, sprint },
+      raceEvents,
       revalidated,
       errors: stats.errors,
       durationMs: Date.now() - startedAt,

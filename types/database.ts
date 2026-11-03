@@ -21,7 +21,9 @@ export type SnapshotType =
   | 'qualifying'
   | 'sprint'
   | 'circuit'
-  | 'pitstops';
+  | 'pitstops'
+  | 'race_control'
+  | 'lap_positions';
 
 /** f1_snapshots.source set (frozen by CHECK constraint). */
 export type SnapshotSource = 'f1db' | 'jolpica' | 'openf1';
