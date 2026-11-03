@@ -33,6 +33,8 @@ import { LiveRaceTracker } from '@/components/home/LiveRaceTracker';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { sportsEventJsonLd, localizedAlternates } from '@/lib/seo';
 import { GlossaryLinkedText } from '@/components/glossary/GlossaryLinkedText';
+import { RaceSummaryCard } from '@/components/pulse/RaceSummaryCard';
+import { buildRaceSummary } from '@/lib/pulse/raceSummary';
 
 // Same dynamic posture as /season: current-season rounds must pass the
 // staleness→live read path on every request; historical rounds are DB-stable.
@@ -131,6 +133,7 @@ export default async function RoundPage({ params }: PageProps) {
   const pitstops = getPitStopRows(pitstopsData);
 
   const winner = results[0];
+  const raceSummary = buildRaceSummary(results);
   const theme = teamThemeVars(winner?.constructorName, year);
 
   const isCurrentSeason = year === CURRENT_SEASON;
@@ -209,6 +212,12 @@ export default async function RoundPage({ params }: PageProps) {
         {isLive ? (
           <BentoCard span={12} className="border-accent/40 bg-accent/5">
             <LiveRaceTracker />
+          </BentoCard>
+        ) : null}
+
+        {raceSummary ? (
+          <BentoCard span={12}>
+            <RaceSummaryCard summary={raceSummary} />
           </BentoCard>
         ) : null}
 

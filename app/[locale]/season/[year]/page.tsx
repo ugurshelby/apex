@@ -27,6 +27,9 @@ import { seasonRailYears } from '@/lib/history/seasons';
 import { getMachineryCarsForSeason } from '@/data/machinery/cars';
 import { MachineryCrossLink } from '@/components/machinery/MachineryCrossLink';
 import { FilmGrain } from '@/components/layout/FilmGrain';
+import { ChampionBand } from '@/components/pulse/ChampionBand';
+import { getTitleDecision } from '@/lib/data/pulse';
+import { resolveTeamUiColor } from '@/config/team-colors';
 
 /** Cached per URL, rebuilt at most every 5 minutes (caching design, DECISIONS 2026-10-28). */
 export const revalidate = 300;
@@ -75,7 +78,11 @@ export default async function HistoricalSeasonPage({ params }: PageProps) {
     notFound();
   }
 
-  const seasonData = await getSeasonData(year);
+  const [seasonData, titleDecision] = await Promise.all([
+    getSeasonData(year),
+    // Only the live season: finished seasons show their champion in SeasonChampions.
+    year === CURRENT_SEASON ? getTitleDecision(year) : Promise.resolve(null),
+  ]);
   const { standings, constructors, races, raceSummaries, highlights, recap, evolutionSeries } = seasonData;
 
   const railYears = seasonRailYears(
@@ -104,6 +111,14 @@ export default async function HistoricalSeasonPage({ params }: PageProps) {
         <div className="relative z-10 flex w-full max-w-full min-w-0 flex-col">
           <SeasonRail years={railYears} selected={year} hrefTemplate="/season/{year}" className="mb-4 md:mb-6" />
 
+          {titleDecision ? (
+            <div className="mb-4 md:mb-6">
+              <ChampionBand
+                decision={titleDecision}
+                teamColor={resolveTeamUiColor(undefined, titleDecision.constructorName, year)}
+              />
+            </div>
+          ) : null}
           <SeasonTitleFightHero
             year={year}
             minSeason={F1_SEASON_MIN}

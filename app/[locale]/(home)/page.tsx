@@ -37,6 +37,8 @@ import { HomeAnthologyCard } from '@/components/home/HomeAnthologyCard';
 import { LastWinnerCard, LastWinnerPendingCard } from '@/components/home/LastWinnerCard';
 import { resolveTeamUiColor } from '@/config/team-colors';
 import { OnThisDayCard } from '@/components/home/OnThisDayCard';
+import { ChampionBand } from '@/components/pulse/ChampionBand';
+import { getTitleDecision } from '@/lib/data/pulse';
 import { SeasonTicker } from '@/components/home/SeasonTicker';
 import { HomePaddockRail } from '@/components/home/HomePaddockRail';
 import {
@@ -244,6 +246,13 @@ async function HomeAnthologyCell({ locale }: { locale: string }) {
   );
 }
 
+/** Champion mode (Faz 21.0): leads the page from the race that settles the title to the end of the season. */
+async function HomeChampionBand() {
+  const decision = await getTitleDecision(CURRENT_SEASON);
+  if (!decision) return null;
+  return <ChampionBand decision={decision} teamColor={resolveTeamUiColor(undefined, decision.constructorName, CURRENT_SEASON)} />;
+}
+
 async function HomeArchiveBlock() {
   const onThisDay = await getOnThisDay();
   if (onThisDay.length === 0) return null;
@@ -269,6 +278,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <HomeHeroBlock locale={locale} />
 
       <div className="mt-6 flex flex-col gap-6 md:mt-8 md:gap-8">
+        {/* Not behind Suspense: streaming it in would push the paddock rail down (CLS). Its reads are cached DB rows. */}
+        <HomeChampionBand />
         <HomePaddockRail>
           <Suspense fallback={<HomePaddockCardFallback />}>
             <HomeStandingsColumn season={season} />

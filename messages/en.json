@@ -742,6 +742,27 @@
         "iconicCars": "ICONIC CARS",
         "imageStandardBody": "Each car is shown with an archive photo whose source, author and license are on record. A car without a licensed photo shows one generic car illustration (AI-generated, approved by the site owner). No official marks are used."
       }
+    },
+    "pulse": {
+      "championKicker": "{season} World Champion",
+      "age": "{years} years {days} days",
+      "youngestEver": "youngest champion in history",
+      "youngestRank": "No. {rank} on the youngest champions list",
+      "decidedAt": "Decided at: {race}",
+      "maths": "{points} points, nearest rival {rival} {rivalPoints}. The {races} races left were worth at most {left} points.",
+      "previousRecord": "Previous record: {name}, {years} years {days} days ({season})",
+      "youngestTitle": "Youngest champions",
+      "profile": "Driver profile",
+      "summary": {
+        "title": "Race summary",
+        "winnerFrom": "{name} won from P{grid}",
+        "winnerFromPole": "{name} won from pole",
+        "poleFinished": "Pole sitter {name} finished P{position}",
+        "poleDnf": "Pole sitter {name} did not finish",
+        "fastestLap": "Fastest lap: {name}",
+        "gain": "Biggest gain: {name}, P{grid} to P{position} (+{gain})",
+        "dnf": "Did not finish ({count}): {names}"
+      }
     }
   },
   "legal": {

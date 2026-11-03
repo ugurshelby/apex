@@ -1,0 +1,614 @@
+{
+  "source": "F1DB (github.com/f1db/f1db, CC BY 4.0)",
+  "release": "v2026.19.0",
+  "seasons": [
+    {
+      "season": 1950,
+      "driverId": "nino-farina",
+      "name": "Nino Farina",
+      "dateOfBirth": "1906-10-30",
+      "decidedRound": 7,
+      "decidedDate": "1950-09-03"
+    },
+    {
+      "season": 1951,
+      "driverId": "juan-manuel-fangio",
+      "name": "Juan Manuel Fangio",
+      "dateOfBirth": "1911-06-24",
+      "decidedRound": 8,
+      "decidedDate": "1951-10-28"
+    },
+    {
+      "season": 1952,
+      "driverId": "alberto-ascari",
+      "name": "Alberto Ascari",
+      "dateOfBirth": "1918-07-13",
+      "decidedRound": 6,
+      "decidedDate": "1952-08-03"
+    },
+    {
+      "season": 1953,
+      "driverId": "alberto-ascari",
+      "name": "Alberto Ascari",
+      "dateOfBirth": "1918-07-13",
+      "decidedRound": 8,
+      "decidedDate": "1953-08-23"
+    },
+    {
+      "season": 1954,
+      "driverId": "juan-manuel-fangio",
+      "name": "Juan Manuel Fangio",
+      "dateOfBirth": "1911-06-24",
+      "decidedRound": 7,
+      "decidedDate": "1954-08-22"
+    },
+    {
+      "season": 1955,
+      "driverId": "juan-manuel-fangio",
+      "name": "Juan Manuel Fangio",
+      "dateOfBirth": "1911-06-24",
+      "decidedRound": 6,
+      "decidedDate": "1955-07-16"
+    },
+    {
+      "season": 1956,
+      "driverId": "juan-manuel-fangio",
+      "name": "Juan Manuel Fangio",
+      "dateOfBirth": "1911-06-24",
+      "decidedRound": 8,
+      "decidedDate": "1956-09-02"
+    },
+    {
+      "season": 1957,
+      "driverId": "juan-manuel-fangio",
+      "name": "Juan Manuel Fangio",
+      "dateOfBirth": "1911-06-24",
+      "decidedRound": 6,
+      "decidedDate": "1957-08-04"
+    },
+    {
+      "season": 1958,
+      "driverId": "mike-hawthorn",
+      "name": "Mike Hawthorn",
+      "dateOfBirth": "1929-04-10",
+      "decidedRound": 11,
+      "decidedDate": "1958-10-19"
+    },
+    {
+      "season": 1959,
+      "driverId": "jack-brabham",
+      "name": "Jack Brabham",
+      "dateOfBirth": "1926-04-02",
+      "decidedRound": 9,
+      "decidedDate": "1959-12-12"
+    },
+    {
+      "season": 1960,
+      "driverId": "jack-brabham",
+      "name": "Jack Brabham",
+      "dateOfBirth": "1926-04-02",
+      "decidedRound": 8,
+      "decidedDate": "1960-08-14"
+    },
+    {
+      "season": 1961,
+      "driverId": "phil-hill",
+      "name": "Phil Hill",
+      "dateOfBirth": "1927-04-20",
+      "decidedRound": 7,
+      "decidedDate": "1961-09-10"
+    },
+    {
+      "season": 1962,
+      "driverId": "graham-hill",
+      "name": "Graham Hill",
+      "dateOfBirth": "1929-02-15",
+      "decidedRound": 9,
+      "decidedDate": "1962-12-29"
+    },
+    {
+      "season": 1963,
+      "driverId": "jim-clark",
+      "name": "Jim Clark",
+      "dateOfBirth": "1936-03-04",
+      "decidedRound": 7,
+      "decidedDate": "1963-09-08"
+    },
+    {
+      "season": 1964,
+      "driverId": "john-surtees",
+      "name": "John Surtees",
+      "dateOfBirth": "1934-02-11",
+      "decidedRound": 10,
+      "decidedDate": "1964-10-25"
+    },
+    {
+      "season": 1965,
+      "driverId": "jim-clark",
+      "name": "Jim Clark",
+      "dateOfBirth": "1936-03-04",
+      "decidedRound": 7,
+      "decidedDate": "1965-08-01"
+    },
+    {
+      "season": 1966,
+      "driverId": "jack-brabham",
+      "name": "Jack Brabham",
+      "dateOfBirth": "1926-04-02",
+      "decidedRound": 7,
+      "decidedDate": "1966-09-04"
+    },
+    {
+      "season": 1967,
+      "driverId": "denny-hulme",
+      "name": "Denny Hulme",
+      "dateOfBirth": "1936-06-18",
+      "decidedRound": 11,
+      "decidedDate": "1967-10-22"
+    },
+    {
+      "season": 1968,
+      "driverId": "graham-hill",
+      "name": "Graham Hill",
+      "dateOfBirth": "1929-02-15",
+      "decidedRound": 12,
+      "decidedDate": "1968-11-03"
+    },
+    {
+      "season": 1969,
+      "driverId": "jackie-stewart",
+      "name": "Jackie Stewart",
+      "dateOfBirth": "1939-06-11",
+      "decidedRound": 8,
+      "decidedDate": "1969-09-07"
+    },
+    {
+      "season": 1970,
+      "driverId": "jochen-rindt",
+      "name": "Jochen Rindt",
+      "dateOfBirth": "1942-04-18",
+      "decidedRound": 12,
+      "decidedDate": "1970-10-04"
+    },
+    {
+      "season": 1971,
+      "driverId": "jackie-stewart",
+      "name": "Jackie Stewart",
+      "dateOfBirth": "1939-06-11",
+      "decidedRound": 8,
+      "decidedDate": "1971-08-15"
+    },
+    {
+      "season": 1972,
+      "driverId": "emerson-fittipaldi",
+      "name": "Emerson Fittipaldi",
+      "dateOfBirth": "1946-12-12",
+      "decidedRound": 10,
+      "decidedDate": "1972-09-10"
+    },
+    {
+      "season": 1973,
+      "driverId": "jackie-stewart",
+      "name": "Jackie Stewart",
+      "dateOfBirth": "1939-06-11",
+      "decidedRound": 13,
+      "decidedDate": "1973-09-09"
+    },
+    {
+      "season": 1974,
+      "driverId": "emerson-fittipaldi",
+      "name": "Emerson Fittipaldi",
+      "dateOfBirth": "1946-12-12",
+      "decidedRound": 15,
+      "decidedDate": "1974-10-06"
+    },
+    {
+      "season": 1975,
+      "driverId": "niki-lauda",
+      "name": "Niki Lauda",
+      "dateOfBirth": "1949-02-22",
+      "decidedRound": 13,
+      "decidedDate": "1975-09-07"
+    },
+    {
+      "season": 1976,
+      "driverId": "james-hunt",
+      "name": "James Hunt",
+      "dateOfBirth": "1947-08-29",
+      "decidedRound": 16,
+      "decidedDate": "1976-10-24"
+    },
+    {
+      "season": 1977,
+      "driverId": "niki-lauda",
+      "name": "Niki Lauda",
+      "dateOfBirth": "1949-02-22",
+      "decidedRound": 15,
+      "decidedDate": "1977-10-02"
+    },
+    {
+      "season": 1978,
+      "driverId": "mario-andretti",
+      "name": "Mario Andretti",
+      "dateOfBirth": "1940-02-28",
+      "decidedRound": 14,
+      "decidedDate": "1978-09-10"
+    },
+    {
+      "season": 1979,
+      "driverId": "jody-scheckter",
+      "name": "Jody Scheckter",
+      "dateOfBirth": "1950-01-29",
+      "decidedRound": 13,
+      "decidedDate": "1979-09-09"
+    },
+    {
+      "season": 1980,
+      "driverId": "alan-jones",
+      "name": "Alan Jones",
+      "dateOfBirth": "1946-11-02",
+      "decidedRound": 13,
+      "decidedDate": "1980-09-28"
+    },
+    {
+      "season": 1981,
+      "driverId": "nelson-piquet",
+      "name": "Nelson Piquet",
+      "dateOfBirth": "1952-08-17",
+      "decidedRound": 15,
+      "decidedDate": "1981-10-17"
+    },
+    {
+      "season": 1982,
+      "driverId": "keke-rosberg",
+      "name": "Keke Rosberg",
+      "dateOfBirth": "1948-12-06",
+      "decidedRound": 16,
+      "decidedDate": "1982-09-25"
+    },
+    {
+      "season": 1983,
+      "driverId": "nelson-piquet",
+      "name": "Nelson Piquet",
+      "dateOfBirth": "1952-08-17",
+      "decidedRound": 15,
+      "decidedDate": "1983-10-15"
+    },
+    {
+      "season": 1984,
+      "driverId": "niki-lauda",
+      "name": "Niki Lauda",
+      "dateOfBirth": "1949-02-22",
+      "decidedRound": 16,
+      "decidedDate": "1984-10-21"
+    },
+    {
+      "season": 1985,
+      "driverId": "alain-prost",
+      "name": "Alain Prost",
+      "dateOfBirth": "1955-02-24",
+      "decidedRound": 14,
+      "decidedDate": "1985-10-06"
+    },
+    {
+      "season": 1986,
+      "driverId": "alain-prost",
+      "name": "Alain Prost",
+      "dateOfBirth": "1955-02-24",
+      "decidedRound": 16,
+      "decidedDate": "1986-10-26"
+    },
+    {
+      "season": 1987,
+      "driverId": "nelson-piquet",
+      "name": "Nelson Piquet",
+      "dateOfBirth": "1952-08-17",
+      "decidedRound": 15,
+      "decidedDate": "1987-11-01"
+    },
+    {
+      "season": 1988,
+      "driverId": "ayrton-senna",
+      "name": "Ayrton Senna",
+      "dateOfBirth": "1960-03-21",
+      "decidedRound": 15,
+      "decidedDate": "1988-10-30"
+    },
+    {
+      "season": 1989,
+      "driverId": "alain-prost",
+      "name": "Alain Prost",
+      "dateOfBirth": "1955-02-24",
+      "decidedRound": 15,
+      "decidedDate": "1989-10-22"
+    },
+    {
+      "season": 1990,
+      "driverId": "ayrton-senna",
+      "name": "Ayrton Senna",
+      "dateOfBirth": "1960-03-21",
+      "decidedRound": 15,
+      "decidedDate": "1990-10-21"
+    },
+    {
+      "season": 1991,
+      "driverId": "ayrton-senna",
+      "name": "Ayrton Senna",
+      "dateOfBirth": "1960-03-21",
+      "decidedRound": 15,
+      "decidedDate": "1991-10-20"
+    },
+    {
+      "season": 1992,
+      "driverId": "nigel-mansell",
+      "name": "Nigel Mansell",
+      "dateOfBirth": "1953-08-08",
+      "decidedRound": 11,
+      "decidedDate": "1992-08-16"
+    },
+    {
+      "season": 1993,
+      "driverId": "alain-prost",
+      "name": "Alain Prost",
+      "dateOfBirth": "1955-02-24",
+      "decidedRound": 14,
+      "decidedDate": "1993-09-26"
+    },
+    {
+      "season": 1994,
+      "driverId": "michael-schumacher",
+      "name": "Michael Schumacher",
+      "dateOfBirth": "1969-01-03",
+      "decidedRound": 16,
+      "decidedDate": "1994-11-13"
+    },
+    {
+      "season": 1995,
+      "driverId": "michael-schumacher",
+      "name": "Michael Schumacher",
+      "dateOfBirth": "1969-01-03",
+      "decidedRound": 15,
+      "decidedDate": "1995-10-22"
+    },
+    {
+      "season": 1996,
+      "driverId": "damon-hill",
+      "name": "Damon Hill",
+      "dateOfBirth": "1960-09-17",
+      "decidedRound": 16,
+      "decidedDate": "1996-10-13"
+    },
+    {
+      "season": 1997,
+      "driverId": "jacques-villeneuve",
+      "name": "Jacques Villeneuve",
+      "dateOfBirth": "1971-04-09",
+      "decidedRound": 17,
+      "decidedDate": "1997-10-26"
+    },
+    {
+      "season": 1998,
+      "driverId": "mika-hakkinen",
+      "name": "Mika Häkkinen",
+      "dateOfBirth": "1968-09-28",
+      "decidedRound": 16,
+      "decidedDate": "1998-11-01"
+    },
+    {
+      "season": 1999,
+      "driverId": "mika-hakkinen",
+      "name": "Mika Häkkinen",
+      "dateOfBirth": "1968-09-28",
+      "decidedRound": 16,
+      "decidedDate": "1999-10-31"
+    },
+    {
+      "season": 2000,
+      "driverId": "michael-schumacher",
+      "name": "Michael Schumacher",
+      "dateOfBirth": "1969-01-03",
+      "decidedRound": 16,
+      "decidedDate": "2000-10-08"
+    },
+    {
+      "season": 2001,
+      "driverId": "michael-schumacher",
+      "name": "Michael Schumacher",
+      "dateOfBirth": "1969-01-03",
+      "decidedRound": 13,
+      "decidedDate": "2001-08-19"
+    },
+    {
+      "season": 2002,
+      "driverId": "michael-schumacher",
+      "name": "Michael Schumacher",
+      "dateOfBirth": "1969-01-03",
+      "decidedRound": 11,
+      "decidedDate": "2002-07-21"
+    },
+    {
+      "season": 2003,
+      "driverId": "michael-schumacher",
+      "name": "Michael Schumacher",
+      "dateOfBirth": "1969-01-03",
+      "decidedRound": 16,
+      "decidedDate": "2003-10-12"
+    },
+    {
+      "season": 2004,
+      "driverId": "michael-schumacher",
+      "name": "Michael Schumacher",
+      "dateOfBirth": "1969-01-03",
+      "decidedRound": 14,
+      "decidedDate": "2004-08-29"
+    },
+    {
+      "season": 2005,
+      "driverId": "fernando-alonso",
+      "name": "Fernando Alonso",
+      "dateOfBirth": "1981-07-29",
+      "decidedRound": 17,
+      "decidedDate": "2005-09-25"
+    },
+    {
+      "season": 2006,
+      "driverId": "fernando-alonso",
+      "name": "Fernando Alonso",
+      "dateOfBirth": "1981-07-29",
+      "decidedRound": 18,
+      "decidedDate": "2006-10-22"
+    },
+    {
+      "season": 2007,
+      "driverId": "kimi-raikkonen",
+      "name": "Kimi Räikkönen",
+      "dateOfBirth": "1979-10-17",
+      "decidedRound": 17,
+      "decidedDate": "2007-10-21"
+    },
+    {
+      "season": 2008,
+      "driverId": "lewis-hamilton",
+      "name": "Lewis Hamilton",
+      "dateOfBirth": "1985-01-07",
+      "decidedRound": 18,
+      "decidedDate": "2008-11-02"
+    },
+    {
+      "season": 2009,
+      "driverId": "jenson-button",
+      "name": "Jenson Button",
+      "dateOfBirth": "1980-01-19",
+      "decidedRound": 16,
+      "decidedDate": "2009-10-18"
+    },
+    {
+      "season": 2010,
+      "driverId": "sebastian-vettel",
+      "name": "Sebastian Vettel",
+      "dateOfBirth": "1987-07-03",
+      "decidedRound": 19,
+      "decidedDate": "2010-11-14"
+    },
+    {
+      "season": 2011,
+      "driverId": "sebastian-vettel",
+      "name": "Sebastian Vettel",
+      "dateOfBirth": "1987-07-03",
+      "decidedRound": 15,
+      "decidedDate": "2011-10-09"
+    },
+    {
+      "season": 2012,
+      "driverId": "sebastian-vettel",
+      "name": "Sebastian Vettel",
+      "dateOfBirth": "1987-07-03",
+      "decidedRound": 20,
+      "decidedDate": "2012-11-25"
+    },
+    {
+      "season": 2013,
+      "driverId": "sebastian-vettel",
+      "name": "Sebastian Vettel",
+      "dateOfBirth": "1987-07-03",
+      "decidedRound": 16,
+      "decidedDate": "2013-10-27"
+    },
+    {
+      "season": 2014,
+      "driverId": "lewis-hamilton",
+      "name": "Lewis Hamilton",
+      "dateOfBirth": "1985-01-07",
+      "decidedRound": 19,
+      "decidedDate": "2014-11-23"
+    },
+    {
+      "season": 2015,
+      "driverId": "lewis-hamilton",
+      "name": "Lewis Hamilton",
+      "dateOfBirth": "1985-01-07",
+      "decidedRound": 16,
+      "decidedDate": "2015-10-25"
+    },
+    {
+      "season": 2016,
+      "driverId": "nico-rosberg",
+      "name": "Nico Rosberg",
+      "dateOfBirth": "1985-06-27",
+      "decidedRound": 21,
+      "decidedDate": "2016-11-27"
+    },
+    {
+      "season": 2017,
+      "driverId": "lewis-hamilton",
+      "name": "Lewis Hamilton",
+      "dateOfBirth": "1985-01-07",
+      "decidedRound": 18,
+      "decidedDate": "2017-10-29"
+    },
+    {
+      "season": 2018,
+      "driverId": "lewis-hamilton",
+      "name": "Lewis Hamilton",
+      "dateOfBirth": "1985-01-07",
+      "decidedRound": 19,
+      "decidedDate": "2018-10-28"
+    },
+    {
+      "season": 2019,
+      "driverId": "lewis-hamilton",
+      "name": "Lewis Hamilton",
+      "dateOfBirth": "1985-01-07",
+      "decidedRound": 19,
+      "decidedDate": "2019-11-03"
+    },
+    {
+      "season": 2020,
+      "driverId": "lewis-hamilton",
+      "name": "Lewis Hamilton",
+      "dateOfBirth": "1985-01-07",
+      "decidedRound": 14,
+      "decidedDate": "2020-11-15"
+    },
+    {
+      "season": 2021,
+      "driverId": "max-verstappen",
+      "name": "Max Verstappen",
+      "dateOfBirth": "1997-09-30",
+      "decidedRound": 22,
+      "decidedDate": "2021-12-12"
+    },
+    {
+      "season": 2022,
+      "driverId": "max-verstappen",
+      "name": "Max Verstappen",
+      "dateOfBirth": "1997-09-30",
+      "decidedRound": 18,
+      "decidedDate": "2022-10-09"
+    },
+    {
+      "season": 2023,
+      "driverId": "max-verstappen",
+      "name": "Max Verstappen",
+      "dateOfBirth": "1997-09-30",
+      "decidedRound": 17,
+      "decidedDate": "2023-10-08"
+    },
+    {
+      "season": 2024,
+      "driverId": "max-verstappen",
+      "name": "Max Verstappen",
+      "dateOfBirth": "1997-09-30",
+      "decidedRound": 22,
+      "decidedDate": "2024-11-24"
+    },
+    {
+      "season": 2025,
+      "driverId": "lando-norris",
+      "name": "Lando Norris",
+      "dateOfBirth": "1999-11-13",
+      "decidedRound": 24,
+      "decidedDate": "2025-12-07"
+    }
+  ]
+}

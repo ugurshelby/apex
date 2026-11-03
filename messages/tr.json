@@ -742,6 +742,27 @@
         "iconicCars": "İKONİK ARAÇ",
         "imageStandardBody": "Her araç, kaynağı, yazarı ve lisansı kayıtlı bir arşiv fotoğrafıyla gösterilir. Lisanslı fotoğrafı olmayan araçlarda tek bir genel araç görseli (yapay zekâ ile üretilmiş, site sahibi onaylı) gösterilir. Resmi logo kullanılmaz."
       }
+    },
+    "pulse": {
+      "championKicker": "{season} Dünya Şampiyonu",
+      "age": "{years} yaş {days} gün",
+      "youngestEver": "tarihin en genç şampiyonu",
+      "youngestRank": "tarihin en genç {rank}. şampiyonu",
+      "decidedAt": "Kesinleştiği yarış: {race}",
+      "maths": "{points} puan, en yakın rakip {rival} {rivalPoints}. Kalan {races} yarışta en fazla {left} puan vardı.",
+      "previousRecord": "Önceki rekor: {name}, {years} yaş {days} gün ({season})",
+      "youngestTitle": "En genç şampiyonlar",
+      "profile": "Pilot profili",
+      "summary": {
+        "title": "Yarış özeti",
+        "winnerFrom": "{name} {grid}. sıradan kazandı",
+        "winnerFromPole": "{name} pole'den kazandı",
+        "poleFinished": "Pole'deki {name} {position}. oldu",
+        "poleDnf": "Pole'deki {name} yarışı bitiremedi",
+        "fastestLap": "En hızlı tur: {name}",
+        "gain": "En çok yükselen: {name}, {grid}. sıradan {position}. sıraya (+{gain})",
+        "dnf": "Bitiremeyenler ({count}): {names}"
+      }
     }
   },
   "legal": {
