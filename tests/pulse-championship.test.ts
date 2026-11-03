@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import champions from '@/data/records/champions.json';
+import recordsIndex from '@/data/records/index.json';
 import {
   ageOn,
   compareChampionAge,
@@ -9,7 +9,7 @@ import {
 } from '@/lib/pulse/championship';
 import { MEXICO_2026_CALENDAR, MEXICO_2026_ROUND_POINTS } from './fixtures/mexico-2026';
 
-const records = champions.seasons as ChampionRecord[];
+const records = recordsIndex.champions as ChampionRecord[];
 
 describe('title maths (Mexico 2026)', () => {
   it('counts races and sprints still to run', () => {

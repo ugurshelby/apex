@@ -3,11 +3,11 @@
  * calendar, every finished round's race and sprint classification and the
  * driver standings, then runs the pure maths in lib/pulse/championship.ts.
  * Only the points of the current rules are modelled, so callers use it for
- * CURRENT_SEASON; finished seasons come from data/records/champions.json.
+ * CURRENT_SEASON; finished seasons come from data/records/index.json.
  */
 
 import { cache } from 'react';
-import championRecords from '@/data/records/champions.json';
+import recordsIndex from '@/data/records/index.json';
 import {
   fetchAllRoundResults,
   fetchAllRoundSprints,
@@ -100,7 +100,7 @@ export const getTitleDecision = cache(async function getTitleDecision(season: nu
   const dob = birthDates.get(decider.championId);
   const age = dob ? ageOn(dob, decider.date) : null;
   const youngest = age
-    ? compareChampionAge(season, champion.driverName, age, championRecords.seasons as ChampionRecord[])
+    ? compareChampionAge(season, champion.driverName, age, recordsIndex.champions as ChampionRecord[])
     : null;
 
   return {

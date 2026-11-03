@@ -8,9 +8,14 @@
  * the count-back is not computed here, so the result can only be late, never early.
  */
 
-/** Points for a Grand Prix win and a sprint win (2026 rules: no fastest-lap point). */
-export const RACE_WIN_POINTS = 25;
-export const SPRINT_WIN_POINTS = 8;
+/** Most points one driver can score per Grand Prix and per sprint. */
+export interface PointsRules {
+  race: number;
+  sprint: number;
+}
+
+/** Current rules (2025 on: no fastest-lap point). Older seasons pass their own (2008: win 10, no sprint). */
+export const CURRENT_POINTS: PointsRules = { race: 25, sprint: 8 };
 
 export interface CalendarRound {
   round: number;
@@ -25,10 +30,10 @@ export interface RoundPoints {
   points: ReadonlyMap<string, number>;
 }
 
-export function maxPointsAfter(calendar: readonly CalendarRound[], round: number): number {
+export function maxPointsAfter(calendar: readonly CalendarRound[], round: number, rules: PointsRules = CURRENT_POINTS): number {
   return calendar
     .filter((r) => r.round > round)
-    .reduce((sum, r) => sum + RACE_WIN_POINTS + (r.hasSprint ? SPRINT_WIN_POINTS : 0), 0);
+    .reduce((sum, r) => sum + rules.race + (r.hasSprint ? rules.sprint : 0), 0);
 }
 
 export interface TitleDecider {
@@ -46,7 +51,11 @@ export interface TitleDecider {
 }
 
 /** The first round after which the title could no longer be lost; null while it is open. */
-export function findTitleDecider(calendar: readonly CalendarRound[], rounds: readonly RoundPoints[]): TitleDecider | null {
+export function findTitleDecider(
+  calendar: readonly CalendarRound[],
+  rounds: readonly RoundPoints[],
+  rules: PointsRules = CURRENT_POINTS,
+): TitleDecider | null {
   const totals = new Map<string, number>();
   const byRound = [...rounds].sort((a, b) => a.round - b.round);
   for (const { round, points } of byRound) {
@@ -54,7 +63,7 @@ export function findTitleDecider(calendar: readonly CalendarRound[], rounds: rea
     const ranked = [...totals].sort((a, b) => b[1] - a[1]);
     if (ranked.length < 2) continue;
     const [[leaderId, leaderPts], [rivalId, rivalPts]] = ranked;
-    const pointsLeft = maxPointsAfter(calendar, round);
+    const pointsLeft = maxPointsAfter(calendar, round, rules);
     if (leaderPts - rivalPts > pointsLeft) {
       const race = calendar.find((r) => r.round === round);
       if (!race) return null;
@@ -121,8 +130,9 @@ export interface YoungestComparison {
 }
 
 /**
- * Ranks a champion's age on the deciding day against every other season's
- * champion (one entry per season; a driver with several titles appears several times).
+ * Ranks a champion's age on the deciding day against the champions of every
+ * EARLIER season (the record as it stood that day; one entry per season, so a
+ * driver with several titles appears several times).
  */
 export function compareChampionAge(
   season: number,
@@ -132,7 +142,7 @@ export function compareChampionAge(
   topN = 5,
 ): YoungestComparison {
   const others: RankedChampion[] = records
-    .filter((r) => r.season !== season)
+    .filter((r) => r.season < season)
     .map((r) => ({ season: r.season, name: r.name, age: ageOn(r.dateOfBirth, r.decidedDate), current: false }));
   const self: RankedChampion = { season, name, age, current: true };
   const all = [...others, self].sort((a, b) => ageKey(a.age) - ageKey(b.age) || a.season - b.season);
