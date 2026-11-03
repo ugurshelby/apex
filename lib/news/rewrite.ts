@@ -70,6 +70,8 @@ function buildPrompt(stories: RewriteSource[][]): string {
     `- Turkish: attach suffixes to foreign names with an apostrophe and vowel harmony as pronounced ("Austin'de", "Perez'in"); translate every English word into Turkish (or explain it briefly). Established F1 terms (pole, pit stop, DRS, FP1) may stay; "qualifying" is "sıralama turları", never "nitelik".`,
     // Seen 2026-10-31: "steyrlere çağrıldı", "Mexico FP2'de", "tests as potential replacement" → "yerini alabilir".
     '- Turkish F1 vocabulary: "stewards" is "hakemler" (never "steyr"); country and city names in Turkish ("Meksika", "Meksika Şehri", "Abu Dabi", "Brezilya").',
+    // Seen 2026-11-03: "Turn 4'te", "do or die" left in English, "outgoing champion" → "görevden ayrılan şampiyon".
+    '- Turkish: "Turn 4" is "4. viraj"; a quoted English phrase is translated inside the quotes; "outgoing/reigning champion" is "son şampiyon" / "mevcut şampiyon", never "görevden ayrılan".',
     '- Keep hedges: if a source says "could", "may", "potential", "reportedly" or "tests", the headline stays hedged ("…olabilir", "…iddiası", "…test etti"); never turn a possibility into a fact.',
     '',
     `There are ${stories.length} independent stories below. Write one brief per story.`,
