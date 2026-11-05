@@ -61,7 +61,7 @@ Tarayıcıda [http://localhost:3000](http://localhost:3000) adresini açın.
 | `OPENF1_USERNAME`, `OPENF1_PASSWORD` | Hayır | OpenF1 ücretli canlı erişim; yoksa canlı seans boyunca ana sayfa "canlı veri kilitli" der |
 | `GROQ_NEWS_MODELS`, `GEMINI_NEWS_MODELS` | Hayır | Model listesi override |
 | `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` | Hayır | Dağıtık rate-limit ve cron kilidi; yoksa in-memory |
-| `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN`, `SENTRY_AUTH_TOKEN`, `SENTRY_UPLOAD_SOURCE_MAPS` | Hayır | Sentry |
+| `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN`, `SENTRY_AUTH_TOKEN`, `SENTRY_ORG`, `SENTRY_PROJECT`, `SENTRY_UPLOAD_SOURCE_MAPS` | Hayır | Sentry |
 
 Şablon: [`.env.example`](.env.example)
 

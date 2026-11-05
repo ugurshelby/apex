@@ -80,13 +80,18 @@ const nextConfig: NextConfig = {
   },
 };
 
+// Org and project come from the environment so no account name is baked into
+// the build. Upload runs only when all three are set and the flag is on.
 const sentryAuthToken = process.env.SENTRY_AUTH_TOKEN;
+const sentryOrg = process.env.SENTRY_ORG;
+const sentryProject = process.env.SENTRY_PROJECT;
 const enableSentrySourceMaps =
-  process.env.SENTRY_UPLOAD_SOURCE_MAPS === 'true' && Boolean(sentryAuthToken);
+  process.env.SENTRY_UPLOAD_SOURCE_MAPS === 'true' &&
+  Boolean(sentryAuthToken && sentryOrg && sentryProject);
 
 export default withSentryConfig(withNextIntl(nextConfig), {
-  org: "anthology-z0",
-  project: "project-anthology",
+  org: sentryOrg,
+  project: sentryProject,
   authToken: sentryAuthToken,
   sourcemaps: {
     disable: !enableSentrySourceMaps,
