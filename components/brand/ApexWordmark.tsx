@@ -1,5 +1,8 @@
 import Image from 'next/image';
-import wordmark from '@/public/brand/apex-wordmark.png';
+
+// Intrinsic size of public/brand/apex-wordmark.png (a path, not a static import: CI has no next-env.d.ts image types).
+const WIDTH = 886;
+const HEIGHT = 206;
 
 /**
  * The APEX wordmark: white heavy-italic letters with a red racing line through
@@ -21,7 +24,9 @@ export function ApexWordmark({
 }) {
   return (
     <Image
-      src={wordmark}
+      src="/brand/apex-wordmark.png"
+      width={WIDTH}
+      height={HEIGHT}
       alt={alt}
       sizes={sizes}
       preload={preload}
