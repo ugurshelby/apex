@@ -38,6 +38,8 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Run on pages only; skip Next internals, api, monitoring tunnel, and static files
-  matcher: ['/((?!api|_next|monitoring|.*\\..*).*)'],
+  // Run on pages only; skip Next internals, api, monitoring tunnel, static files and the
+  // root metadata image (app/opengraph-image.tsx lives outside [locale]; a locale rewrite 404s it).
+  // Whole segments only, so a page like /api-docs still gets a locale.
+  matcher: ['/((?!(?:api|_next|monitoring|opengraph-image)(?:/|$)|.*\\..*).*)'],
 };
