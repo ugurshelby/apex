@@ -109,7 +109,7 @@ async function openf1Fetch<T>(path: string, params?: Record<string, string | num
         signal: ctrl.signal,
         headers: {
           Accept: 'application/json',
-          'User-Agent': 'project-anthology/1.0',
+          'User-Agent': 'apex-f1/1.0',
           ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
       });

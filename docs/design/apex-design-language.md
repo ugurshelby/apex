@@ -1,4 +1,4 @@
-# Apex Design Language — Project Anthology
+# Apex Design Language
 
 > **Otorite:** Bu dosya Apex'e özel tasarım kararlarının tek kaynağıdır.
 > Genel prensipler ve tasarım sistemi: `docs/design/apex-design.md` (Apple tasarım prensipleri sentezi).

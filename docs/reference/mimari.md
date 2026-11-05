@@ -1,4 +1,4 @@
-# Mimari — Project Anthology (Apex)
+# Mimari — Apex
 
 > F1 anlatı/istatistik platformu. Next.js 16 App Router + Supabase (PostgreSQL) + çok kaynaklı dış F1 veri entegrasyonu. Bu döküman backend mimarisini, veri tabanı kullanımını, veri/API kaynaklarını ve bunların nasıl kullanıldığını anlatır.
 > **Temel Amaç ve Vizyon:** `docs/vision/apex-vision.md` (Saat mekanizması veri mimarisi felsefesi).

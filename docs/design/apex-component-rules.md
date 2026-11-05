@@ -132,7 +132,7 @@ Sayfa: `app/[locale]/teams/[constructorId]/page.tsx`. Sahibin brifi, olduğu gib
 
 > **Role & Tone:** Senior Product Designer with an obsession for Apple's fluid design principles and Formula 1's cinematic, high-contrast engineering aesthetic.
 >
-> **Context & Objective:** Redesign the Team Detail page for Apex (Project Anthology). The page must move away from generic wiki/dashboard templates and transform into a cinematic, high-density editorial experience that tells the team's legacy, character, and season-by-season telemetry without visual clutter.
+> **Context & Objective:** Redesign the Team Detail page for Apex. The page must move away from generic wiki/dashboard templates and transform into a cinematic, high-density editorial experience that tells the team's legacy, character, and season-by-season telemetry without visual clutter.
 >
 > **Design Philosophy & Constraints (Apex Design System):**
 >
@@ -162,7 +162,7 @@ Sayfa: `app/[locale]/drivers/[driverId]/page.tsx`. Sahibin brifi, olduğu gibi (
 
 > **Role & Perspective:** Elite Design Director combining Apple’s WWDC fluid interface principles (restraint, optical typography, material depth) with Formula 1’s dark, high-contrast telemetry aesthetic.
 >
-> **Project & Scope:** Redesign the Driver Detail Page (/drivers/[slug]) for Apex (Project Anthology). Transform the current generic admin-style driver card into an editorial, museum-grade cinematic profile that captures both the human emotion/narrative and raw telemetry data.
+> **Project & Scope:** Redesign the Driver Detail Page (/drivers/[slug]) for Apex. Transform the current generic admin-style driver card into an editorial, museum-grade cinematic profile that captures both the human emotion/narrative and raw telemetry data.
 >
 > **Core Design Guidelines & Architecture (Apex Design System):**
 >
@@ -198,7 +198,7 @@ Sayfa: `app/[locale]/circuits/[id]/page.tsx`. Sahibin brifi, olduğu gibi (ayrı
 
 > **Role & Tone:** Senior / Principal Product Designer crafting a high-end motorsport interface, synthesizing Apple’s WWDC fluid design principles (restraint, optical typography, material depth, spring physics) with Formula 1 technical telemetry.
 >
-> **Objective:** Redesign the Circuit Detail Page (/circuits/[slug]) for Apex (Project Anthology). Transform the current static circuit overview into an interactive, telemetry-driven architectural profile of the track (Monaco’s extreme topography, narrow glamour, and precision engineering).
+> **Objective:** Redesign the Circuit Detail Page (/circuits/[slug]) for Apex. Transform the current static circuit overview into an interactive, telemetry-driven architectural profile of the track (Monaco’s extreme topography, narrow glamour, and precision engineering).
 >
 > **Core Design Guidelines & Constraints (Apex Design System):**
 >

@@ -46,7 +46,7 @@ export async function fetchJolpica(path: string): Promise<MRData> {
     try {
       res = await fetch(url, {
         signal: ctrl.signal,
-        headers: { Accept: 'application/json', 'User-Agent': 'project-anthology/1.0' },
+        headers: { Accept: 'application/json', 'User-Agent': 'apex-f1/1.0' },
       });
     } catch (err) {
       clearTimeout(timer);

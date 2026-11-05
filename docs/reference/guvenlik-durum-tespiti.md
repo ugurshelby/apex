@@ -1,6 +1,6 @@
-# Apex (Project Anthology) — Siber Güvenlik ve Mimari Durum Tespiti
+# Apex — Siber Güvenlik ve Mimari Durum Tespiti
 
-> **Döküman Kimliği & Amacı:** Bu döküman, Apex (Project Anthology) projesinin mevcut kod tabanı, veritabanı katmanı, API rotaları ve altyapı konfigürasyonu üzerinden gerçekleştirilen teknik siber güvenlik incelemesinin bulgularını içerir.  
+> **Döküman Kimliği & Amacı:** Bu döküman, Apex projesinin mevcut kod tabanı, veritabanı katmanı, API rotaları ve altyapı konfigürasyonu üzerinden gerçekleştirilen teknik siber güvenlik incelemesinin bulgularını içerir.  
 > **Tarih:** 2026-10-16  
 > **Rol:** Proje Siber Güvenlik Uzmanı  
 > **Kapsam:** DoS/Kaynak Tüketimi, LLM Maliyet Güvenliği (Financial DoS), Dağıtık Hız Sınırlama (Rate Limiting), Veri Şifreleme & Hashing, En Az Yetki İlkesi (Least Privilege), WAF, Girdi Doğrulama (Input Validation) ve Otomasyonlu Güvenlik Denetimleri.  

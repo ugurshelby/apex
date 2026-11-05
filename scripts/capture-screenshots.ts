@@ -1,5 +1,5 @@
 /**
- * Apex (Project Anthology) — Otomatik Arayüz Ekran Görüntüsü Yakalama Motoru
+ * Apex — Otomatik Arayüz Ekran Görüntüsü Yakalama Motoru
  *
  * Sitenin temsilci şablon sayfalarını (desktop, tablet, mobile) gezerek:
  * 1. Lazy-loading ve .bento-deferred elemanlarını otomatik scroll ile tetikler.

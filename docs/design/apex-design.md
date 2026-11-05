@@ -1,6 +1,6 @@
 # Apex Design System — Architecture & Style Reference (`apex-design.md`)
 
-> **Nihai Otorite:** Bu doküman, Apex (Project Anthology) platformunun tek ve bağlayıcı tasarım anayasasıdır.  
+> **Nihai Otorite:** Bu doküman, Apex platformunun tek ve bağlayıcı tasarım anayasasıdır.  
 > Temel felsefesi: Apple'ın rafine tasarım ilkeleri (kısıtlama, optik tipografi, yay fiziği, akışkan yüzeyler) ile Formula 1 motor sporlarının yüksek kontrastlı, teknik ve sinematik ruhunun sentezidir.  
 > **Temel Amaç ve Vizyon:** `docs/vision/apex-vision.md`  
 > **Tarih:** 2026-10-05 · **Token ve tipografi koda göre düzeltildi:** 2026-10-09

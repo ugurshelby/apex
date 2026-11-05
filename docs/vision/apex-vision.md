@@ -1,6 +1,6 @@
 # Apex Vizyon & Misyon Belgesi
 
-> **Temel Otorite:** Bu döküman Apex (Project Anthology) projesinin varoluş amacını, nihai vizyonunu, felsefesini ve misyonunu belirleyen kurucu metindir. Projedeki tüm mimari, tasarım, veri ve editoryal çalışmalar bu vizyon çerçevesinde yürütülür.
+> **Temel Otorite:** Bu döküman Apex projesinin varoluş amacını, nihai vizyonunu, felsefesini ve misyonunu belirleyen kurucu metindir. Projedeki tüm mimari, tasarım, veri ve editoryal çalışmalar bu vizyon çerçevesinde yürütülür.
 
 ---
 

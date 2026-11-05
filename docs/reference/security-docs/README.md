@@ -16,5 +16,5 @@ Bu dizin, kurumsal parola güvenliği, durağan veri şifreleme (data at rest), 
 ---
 
 ## Projedeki Uygulama Bağlantısı
-Apex (Project Anthology) projesinin mevcut kod ve veritabanı seviyesindeki güvenlik tespiti için ayrıca bakınız:  
+Apex projesinin mevcut kod ve veritabanı seviyesindeki güvenlik tespiti için ayrıca bakınız:  
 👉 [`docs/reference/guvenlik-durum-tespiti.md`](../guvenlik-durum-tespiti.md)

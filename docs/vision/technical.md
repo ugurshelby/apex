@@ -1,4 +1,4 @@
-# Teknik Referans — Project Anthology (Apex)
+# Teknik Referans — Apex
 
 > Ölçülmüş durum ve dizin haritası: `docs/reference/apex-reference.md`. Detay: `docs/reference/mimari.md`.
 

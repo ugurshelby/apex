@@ -1,7 +1,7 @@
-# Project Anthology (Apex) — reference
+# Apex — reference
 
 
-Package name: `project-anthology` [VERIFIED: `package.json`]. Product name used in the UI and docs: Apex [VERIFIED: `README.md`, `PRODUCT.md`, `messages/en.json`]. This file does not replace `docs/plans/master-plan.md` (the live checklist).
+Package name: `apex` [VERIFIED: `package.json`]. Product name used in the UI and docs: Apex [VERIFIED: `README.md`, `PRODUCT.md`, `messages/en.json`]. This file does not replace `docs/plans/master-plan.md` (the live checklist).
 
 Evidence tags: **[VERIFIED]** means the command was run or the file was read. **[INFERRED]** means a conclusion from that evidence. **[UNVERIFIED]** means it could not be checked, with the reason.
 
@@ -13,7 +13,7 @@ Last verified: 2026-10-05
 
 The foundational purpose and vision of this project is defined in `docs/vision/apex-vision.md` (bu projenin temel amacı ve vizyonu `docs/vision/apex-vision.md` dökümanıdır; çalışmalar bu vizyon çerçevesinde yapılmalıdır).
 
-Apex (Project Anthology) is an unofficial Formula 1 archive and live-data site. The README states that the season calendar, standings, driver and team profiles, circuits, news, and historical stories share one interface [VERIFIED: `README.md`].
+Apex is an unofficial Formula 1 archive and live-data site. The README states that the season calendar, standings, driver and team profiles, circuits, news, and historical stories share one interface [VERIFIED: `README.md`].
 
 `PRODUCT.md` states the users as Formula 1 followers who want to study season results and driver or team performance in depth on desktop, or check them quickly on mobile [VERIFIED: `PRODUCT.md`]. The same file states the purpose as an unofficial, copyright-safe, fast Formula 1 statistics and telemetry archive, with a calm, technical, authoritative brand, and WCAG 2.2 AA as the target [VERIFIED: `PRODUCT.md`].
 
@@ -58,7 +58,6 @@ The web app is a working Next.js product, not a skeleton and not an idea with li
 
 ### Broken or wrong relative to the code and the live host
 
-- Fixed 2026-10-01: `lib/data/siteUrl.ts` used to fall back to `https://project-anthology-seven.vercel.app`, which returns HTTP 404 [VERIFIED: `curl`]. The single exported constant `PROD_SITE_URL` is now the eight host, and `scripts/sync-f1-scheduled.ts` imports it (`tests/siteUrl.test.ts`). On Vercel the function prefers `NEXT_PUBLIC_SITE_URL`, then `VERCEL_URL`, and only then this constant [VERIFIED: `lib/data/siteUrl.ts`]. The live canonical is the eight host [VERIFIED: homepage HTML].
 - Local `npm run build` warns twice that `metadataBase` is not set and resolves to `http://localhost:3000` [VERIFIED: build logs]. Cause is not a missing `NEXT_PUBLIC_SITE_URL`: a build run on 2026-10-02 with `NEXT_PUBLIC_SITE_URL` set to the live host printed the same two warnings. In a production build `getSiteUrl()` already falls back to `PROD_SITE_URL`, and every page under `app/[locale]` inherits `metadataBase` from `app/[locale]/layout.tsx`. The only code outside that layout is `app/not-found.tsx` and `app/global-error.tsx` (plus the file-based `app/opengraph-image.tsx`), so the two warnings most likely come from those two prerendered pages [INFERRED, not isolated]. Effect: only their generated `og:image` meta can point at localhost; the live canonical for real pages is unaffected [VERIFIED: homepage HTML]. No workaround was added. `NEXT_PUBLIC_SITE_URL` is already named in `.env.example` (empty). Note: in `next dev` an unknown URL 500s with "not-found.tsx doesn't have a root layout" (same file, dev only; the live site returns 404 for unknown URLs [VERIFIED: `curl`]).
 - Sentry source-map upload during this build was skipped. The CLI reported `Project not found` for org `anthology-z0`, project `project-anthology` [VERIFIED: `next.config.ts` and the build log]. Whether production Sentry receives events was not checked.
 - Legal pages link to placeholder mailboxes `privacy@apexstats.example`, `dmca@apexstats.example`, and `contact@apexstats.example` [VERIFIED: `app/[locale]/(legal)/*/page.tsx`].
@@ -72,7 +71,6 @@ The web app is a working Next.js product, not a skeleton and not an idea with li
 - `.github/workflows/ci.yml` runs `npm ci`, `npm audit --omit=dev --audit-level=high`, lint, `tsc --noEmit`, `npm test`, `npm run build` on pull requests to `main` and on pushes to `main` and `wip/**`, on the Node in `.nvmrc` (24). Green on `wip/deps-2026-10` (run 40324388109, 2026-10-26: 75 files, 758 tests). `.github/workflows/security-audit.yml` runs the same production audit weekly (Monday 06:00 UTC) and on dispatch. The other three workflows only call cron endpoints.
 - Node: this machine is v22.18.0. `package.json` `engines` and `.nvmrc` say 24. GitHub Actions `sync-f1-race-aware.yml` uses Node 22 [VERIFIED]. Tests and the build passed on Node 22 anyway.
 
-`project-anthology-seven.vercel.app` is down (404). Older docs still name `project-anthology-five.vercel.app` [VERIFIED: `docs/reference/muhendislik-dersleri.md`]. The log of 2026-09-29 says the five project was deleted by the owner [VERIFIED: `logs/2026-09-29.md`]. The five host was not requested in this pass.
 
 ---
 

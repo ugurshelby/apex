@@ -87,7 +87,7 @@ async function getJson<T>(url: string): Promise<T> {
     if (wait > 0) await sleep(wait);
     lastCall[host] = Date.now();
 
-    const res = await fetch(url, { headers: { Accept: 'application/json', 'User-Agent': 'project-anthology/1.0' } });
+    const res = await fetch(url, { headers: { Accept: 'application/json', 'User-Agent': 'apex-f1/1.0' } });
     if (res.ok) return (await res.json()) as T;
     if (res.status === 401 && host === 'api.openf1.org') throw new OpenF1LockedError(url);
     if ((res.status === 429 || res.status >= 500) && attempt < delays.length) {

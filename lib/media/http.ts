@@ -39,7 +39,7 @@ function sleep(ms: number): Promise<void> {
 
 export function mediaUserAgent(): string {
   const contact = process.env.MEDIA_CONTACT?.trim() || getSiteUrl();
-  return `ApexF1FanArchive/1.0 (${contact}) project-anthology media-sync`;
+  return `ApexF1FanArchive/1.0 (${contact}) apex media-sync`;
 }
 
 export interface FetchOptions {

@@ -1,4 +1,4 @@
-# Skill Referansı — Project Anthology
+# Skill Referansı
 
 > Tetikleyici → skill eşlemesi. Cursor'da ilgili skill dosyasını okuyup uygula.
 > Kural dosyası: `.cursor/rules/CURSOR.mdc` Bölüm 5 (özet tablo).

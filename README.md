@@ -1,8 +1,7 @@
-# Apex (Project Anthology)
+# Apex
 
 Formula 1 odaklı arşiv ve canlı veri sitesi. Sezon takvimi, puan durumu, pilot/takım profilleri, pistler, haberler ve tarihsel hikâyeler tek bir arayüzde birleşir.
 
-**Canlı:** [project-anthology-eight.vercel.app](https://project-anthology-eight.vercel.app)
 
 ## Özellikler
 
@@ -32,8 +31,8 @@ Formula 1 odaklı arşiv ve canlı veri sitesi. Sezon takvimi, puan durumu, pilo
 ## Kurulum
 
 ```bash
-git clone <repo-url>
-cd anthology
+git clone https://github.com/ugurshelby/apex.git
+cd apex
 npm install   # Node 24 (bkz. .nvmrc)
 cp .env.example .env.local
 ```
