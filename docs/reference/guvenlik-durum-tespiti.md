@@ -153,7 +153,7 @@ Sistemde yetki izolasyonu hem uygulama kodunda hem de veritabanı rol seviyesind
 
 * **Mevcut Durum:**
   * Projenin önünde **Cloudflare WAF bulunmamaktadır**.
-  * Alan adı doğrudan Vercel Edge Network'e bağlıdır (`project-anthology-eight.vercel.app` / Vercel DNS).
+  * Alan adı doğrudan Vercel Edge Network'e bağlıdır (`apex-seven-vert.vercel.app` / Vercel DNS).
   * Vercel altyapısı temel katman 3/4 DDoS mitigasyonu sağlamaktadır; ancak gelişmiş kural tabanlı WAF (Vercel Firewall Rules / OWASP Core Rule Set / Managed Challenge) Enterprise/eklenti özelliğidir.
 * **Uygulama Katmanında Alınan Sertleştirmeler:**
   * `poweredByHeader: false`: Next.js çerçeve bilgisi yanıtlardan gizlenmiştir ([`next.config.ts:47`](../../next.config.ts#L47)).

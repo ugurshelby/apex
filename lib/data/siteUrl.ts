@@ -13,7 +13,7 @@
  * The only site-origin constant in the repo: it must be a host that is live,
  * and scripts import it instead of declaring their own.
  */
-export const PROD_SITE_URL = 'https://project-anthology-eight.vercel.app';
+export const PROD_SITE_URL = 'https://apex-seven-vert.vercel.app';
 
 export function getSiteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, '');

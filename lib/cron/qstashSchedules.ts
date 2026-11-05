@@ -121,7 +121,7 @@ export function totalNormalMessagesPerDay(schedules: readonly QStashSchedule[] =
 export interface ScheduleRequestInput {
   /** QStash API origin, e.g. https://qstash.upstash.io (the console shows the one for your region). */
   qstashUrl: string;
-  /** Our site origin, e.g. https://project-anthology-eight.vercel.app */
+  /** Our site origin, e.g. https://apex-seven-vert.vercel.app */
   siteUrl: string;
   /** QSTASH_TOKEN. */
   token: string;

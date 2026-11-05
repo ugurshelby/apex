@@ -104,7 +104,7 @@ Her madde: **ne**, **ne zaman**, **nasıl**, **geçme ölçütü**, **başarıs�
 - **Ne:** `/api/live-timing` + ana sayfadaki `LiveRaceTracker`, gerçek bir OpenF1 oturumunda.
 - **Nasıl:**
   0. **İlk iş (ham OpenF1):** `curl -s -i "https://api.openf1.org/v1/sessions?session_key=latest"`. **401** ise "kilitli" ölçütü geçerlidir (OpenF1 aboneliği yok, sahip kararı 2026-10-20) ve aşağıdaki "Kimlik bilgisi yokken geçme ölçütü" uygulanır; tam ölçüt ölçülemez.
-  1. Oturum başladıktan 2–3 dk sonra: `curl -s -D - https://project-anthology-eight.vercel.app/api/live-timing` (yanıt gövdesi ve başlıklar).
+  1. Oturum başladıktan 2–3 dk sonra: `curl -s -D - https://apex-seven-vert.vercel.app/api/live-timing` (yanıt gövdesi ve başlıklar).
   2. 10 sn arayla iki kez daha çağır; farkı karşılaştır. Aynı 5 sn içinde iki çağrı aynı yanıtı döndürmeli (önbellek).
   3. Tarayıcıda ana sayfayı aç (yarış penceresinde), ağ sekmesinde `/api/live-timing` isteklerinin ~12 sn aralıkla gittiğini ve başka dış istek olmadığını doğrula.
   4. Oturum bittikten >10 dk sonra tekrar çağır.
@@ -167,7 +167,7 @@ Her madde: **ne**, **ne zaman**, **nasıl**, **geçme ölçütü**, **başarıs�
 
 ### G. Medya (migration uygulandıysa)
 
-- `curl -s "https://project-anthology-eight.vercel.app/api/media?type=driver&keys=norris,hamilton"` → her anahtar için `status: image|placeholder`.
+- `curl -s "https://apex-seven-vert.vercel.app/api/media?type=driver&keys=norris,hamilton"` → her anahtar için `status: image|placeholder`.
 - İlerleme (salt-okunur): `select entity_type, status, count(*) from media_assets group by 1,2 order by 1,2;` — ayrıntılı sorgular `docs/reference/media-sistemi.md` Bölüm 13. Yanlış görsel gizleme ve kalite incelemesi sahibin site denetimine bırakıldı (master-plan 8.3).
 
 ---

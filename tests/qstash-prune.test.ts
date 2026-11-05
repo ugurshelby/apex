@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { schedulesToPrune } from '@/lib/cron/qstashPrune';
 import { QSTASH_SCHEDULES } from '@/lib/cron/qstashSchedules';
 
-const SITE = 'https://project-anthology-eight.vercel.app';
+const SITE = 'https://apex-seven-vert.vercel.app';
 
 describe('schedulesToPrune (1.8)', () => {
   it('returns the MCP-made scd_ duplicates of managed routes and keeps the apex-* ids', () => {

@@ -19,7 +19,7 @@ Apex is an unofficial Formula 1 archive and live-data site. The README states th
 
 `ROADMAP.md` states a further goal: move the product from a portfolio demo to something thousands of users can rely on, with traceable licenses, measurable SEO, and predictable performance [VERIFIED: `ROADMAP.md`]. That file does not record that this goal was accepted as a current release commitment beyond being written there.
 
-The live URL named in the README, master plan, and agent rules is `https://project-anthology-eight.vercel.app` [VERIFIED: `README.md`, `docs/plans/master-plan.md`]. On 2026-10-01 that URL returned HTTP 200, title `Apex - F1 Archive`, canonical `https://project-anthology-eight.vercel.app` [VERIFIED: `Invoke-WebRequest` to `/`].
+The live URL named in the README, master plan, and agent rules is `https://apex-seven-vert.vercel.app` [VERIFIED: `README.md`, `docs/plans/master-plan.md`]. On 2026-10-01 that URL returned HTTP 200, title `Apex - F1 Archive`, canonical `https://apex-seven-vert.vercel.app` [VERIFIED: `Invoke-WebRequest` to `/`].
 
 No file in the repo states a business owner, a company, or a revenue model. Those are not inferred here.
 
@@ -494,7 +494,7 @@ Last verified: 2026-10-01
 Last verified: 2026-10-02
 
 2. Is the current Vercel project still on the Hobby plan? The daily cron design assumes yes. That was not visible from the repo.
-3. After the move to `project-anthology-eight`, are `NEXT_PUBLIC_SITE_URL`, `CRON_SECRET` or `CRON_SECRET_KEY`, Upstash, Groq, Gemini, and Sentry set on that Vercel project? The 2026-10-01 log said the site URL and the GitHub secret/variable were still pending. The public canonical is already eight. The dashboard was not opened.
+3. After the move to `apex-seven-vert`, are `NEXT_PUBLIC_SITE_URL`, `CRON_SECRET` or `CRON_SECRET_KEY`, Upstash, Groq, Gemini, and Sentry set on that Vercel project? The 2026-10-01 log said the site URL and the GitHub secret/variable were still pending. The public canonical is already eight. The dashboard was not opened.
 4. What is the GitHub Actions `SITE_URL` variable today? If it is still five or seven, hourly sync and push notifications are calling a dead host.
 5. `public/stories` stays (owner, 2026-10-02) and the 68 unreferenced files were deleted. Still open: whether the remaining 56 files may be used (no license record); to be discussed.
 6. Are `privacy@apexstats.example`, `dmca@apexstats.example`, and `contact@apexstats.example` intentional placeholders? If a real address exists, it is not in the legal pages. Was the privacy text reviewed by anyone who can approve a KVKK notice? The repo does not say.

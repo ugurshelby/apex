@@ -38,7 +38,7 @@ jobs:
           SHARD: ${{ matrix.shard }}
         run: |
           set -uo pipefail
-          base="${SITE_URL:-https://project-anthology-eight.vercel.app}"
+          base="${SITE_URL:-https://apex-seven-vert.vercel.app}"
           base="${base%/}"
           failed=()
           i=0

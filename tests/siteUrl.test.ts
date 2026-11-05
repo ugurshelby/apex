@@ -34,6 +34,6 @@ describe('getSiteUrl', () => {
   });
 
   it('keeps the production constant on the live host', () => {
-    expect(PROD_SITE_URL).toBe('https://project-anthology-eight.vercel.app');
+    expect(PROD_SITE_URL).toBe('https://apex-seven-vert.vercel.app');
   });
 });
