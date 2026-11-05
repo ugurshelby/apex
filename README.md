@@ -2,6 +2,8 @@
 
 Formula 1 odaklı arşiv ve canlı veri sitesi. Sezon takvimi, puan durumu, pilot/takım profilleri, pistler, haberler ve tarihsel hikâyeler tek bir arayüzde birleşir.
 
+**Canlı:** [apex-seven-vert.vercel.app](https://apex-seven-vert.vercel.app)
+
 
 ## Özellikler
 
