@@ -506,7 +506,7 @@
     {"id": "jean-alesi", "name": "Jean Alesi", "lastName": "Alesi", "dateOfBirth": "1964-06-11", "starts": 202, "wins": 1, "poles": 2, "podiums": 32, "scores": 70},
     {"id": "jean-behra", "name": "Jean Behra", "lastName": "Behra", "dateOfBirth": "1921-02-16", "starts": 58, "wins": 0, "poles": 0, "podiums": 9, "scores": 16},
     {"id": "jean-christophe-boullion", "name": "Jean-Christophe Boullion", "lastName": "Boullion", "dateOfBirth": "1969-12-27", "starts": 11, "wins": 0, "poles": 0, "podiums": 0, "scores": 2},
-    {"id": "jean-claude-rudaz", "name": "Jean-araç Rudaz", "lastName": "Rudaz", "dateOfBirth": "1942-07-23", "starts": 1, "wins": 0, "poles": 0, "podiums": 0, "scores": 0},
+    {"id": "jean-claude-rudaz", "name": "Jean-Claude Rudaz", "lastName": "Rudaz", "dateOfBirth": "1942-07-23", "starts": 1, "wins": 0, "poles": 0, "podiums": 0, "scores": 0},
     {"id": "jean-denis-deletraz", "name": "Jean-Denis Délétraz", "lastName": "Délétraz", "dateOfBirth": "1963-10-01", "starts": 3, "wins": 0, "poles": 0, "podiums": 0, "scores": 0},
     {"id": "jean-eric-vergne", "name": "Jean-Éric Vergne", "lastName": "Vergne", "dateOfBirth": "1990-04-25", "starts": 58, "wins": 0, "poles": 0, "podiums": 0, "scores": 14},
     {"id": "jean-louis-schlesser", "name": "Jean-Louis Schlesser", "lastName": "Schlesser", "dateOfBirth": "1948-09-12", "starts": 2, "wins": 0, "poles": 0, "podiums": 0, "scores": 0},
