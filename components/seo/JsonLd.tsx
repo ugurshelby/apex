@@ -15,6 +15,8 @@ export function JsonLd({ data }: JsonLdProps) {
   return (
     <script
       type="application/ld+json"
+      // The only raw-HTML sink for JSON-LD: serializeJsonLd escapes `<` (tests/json-ld.test.ts).
+      // nosemgrep: typescript.react.security.audit.react-dangerouslysetinnerhtml.react-dangerouslysetinnerhtml
       dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }}
     />
   );

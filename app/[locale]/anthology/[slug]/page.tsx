@@ -9,7 +9,7 @@ import {
 import { localizedAlternates, articleJsonLd } from '@/lib/seo';
 import { StoryReader } from '@/components/anthology/StoryReader';
 import { StoryCard } from '@/components/anthology/StoryCard';
-import { serializeJsonLd } from '@/components/seo/JsonLd';
+import { JsonLd } from '@/components/seo/JsonLd';
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -82,10 +82,7 @@ export default async function StoryPage({ params }: PageProps) {
 
   return (
     <main id="main-content" className="pb-mobile-nav">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <StoryReader story={story} initialLanguage={isTr ? 'tr' : 'en'} />
 
       {next && next.slug !== slug ? (

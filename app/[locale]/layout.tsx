@@ -10,7 +10,7 @@ import { SiteFooter } from '@/components/layout/SiteFooter';
 import { MobileNav } from '@/components/layout/MobileNav';
 import { AnalyticsConsent } from '@/components/consent/AnalyticsConsent';
 import '../globals.css';
-import { serializeJsonLd } from '@/components/seo/JsonLd';
+import { JsonLd } from '@/components/seo/JsonLd';
 
 const barlowCondensed = Barlow_Condensed({
   variable: '--font-barlow-condensed',
@@ -108,10 +108,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     >
       <body className="flex min-h-dvh flex-col pb-mobile-nav">
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: serializeJsonLd(websiteJsonLd(locale)) }}
-          />
+          <JsonLd data={websiteJsonLd(locale)} />
           <a
             href="#main-content"
             className="label-caps sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-[var(--radius-chip)] focus:bg-surface focus:px-4 focus:py-2 focus:text-text-hi"

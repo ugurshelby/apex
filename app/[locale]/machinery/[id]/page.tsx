@@ -9,7 +9,7 @@ import { getMachineryCar } from '@/data/machinery/cars';
 import { MachineryVisual } from '@/components/machinery/MachineryVisual';
 import { getMedia } from '@/lib/media/read';
 import { localizedAlternates, vehicleJsonLd } from '@/lib/seo';
-import { serializeJsonLd } from '@/components/seo/JsonLd';
+import { JsonLd } from '@/components/seo/JsonLd';
 import { formatPercent } from '@/lib/i18n/format';
 
 interface PageProps {
@@ -90,10 +90,7 @@ export default async function MachineryDetailPage({ params }: PageProps) {
 
   return (
     <PageShell>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       {/* Back Navigation Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 font-mono text-xs text-text-mid">
         <Link href="/machinery" className="transition-colors hover:text-accent">
