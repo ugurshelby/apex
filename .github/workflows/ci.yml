@@ -1,7 +1,8 @@
 name: ci
 
 # Gate for pull requests and pushes to main and wip/**: install, production
-# dependency audit (high and above), lint, typecheck, unit tests, production build.
+# dependency audit (high and above), lint, typecheck, unit tests, production build;
+# a separate Semgrep job scans for OWASP, Next.js and secret patterns.
 # Runs on the Node major declared in .nvmrc / package.json engines. No secrets:
 # the build gets inert placeholder values so the Supabase client can be created;
 # data fetches fail fast and pages fall back as they do without a database.
@@ -37,6 +38,15 @@ jobs:
       - run: npm ci
       - run: npm audit --omit=dev --audit-level=high
       - run: npm run lint
-      - run: npx tsc --noEmit
+      - run: npm run typecheck
       - run: npm test
       - run: npm run build
+
+  # Static analysis with public rulesets; no account, token or metrics upload.
+  semgrep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    container: semgrep/semgrep
+    steps:
+      - uses: actions/checkout@v7
+      - run: semgrep scan --config p/owasp-top-ten --config p/typescript --config p/nextjs --config p/secrets --error --metrics=off --exclude .claude --exclude mobile

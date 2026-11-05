@@ -1,0 +1,2295 @@
+{
+  "app/[locale]/(home)/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/require-await": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "app/[locale]/(legal)/disclaimer/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "app/[locale]/(legal)/dmca/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "app/[locale]/(legal)/media-sources/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "app/[locale]/(legal)/privacy/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "app/[locale]/(legal)/terms/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "app/[locale]/anthology/[slug]/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-type-conversion": {
+      "count": 1
+    }
+  },
+  "app/[locale]/anthology/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    }
+  },
+  "app/[locale]/circuits/[id]/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "app/[locale]/circuits/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "app/[locale]/drivers/[driverId]/page.tsx": {
+    "@typescript-eslint/no-base-to-string": {
+      "count": 1
+    },
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 29
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 4
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "app/[locale]/error.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    }
+  },
+  "app/[locale]/grid/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "app/[locale]/layout.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "app/[locale]/machinery/[id]/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 6
+    }
+  },
+  "app/[locale]/machinery/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "app/[locale]/news/[id]/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "app/[locale]/news/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 4
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    }
+  },
+  "app/[locale]/season/[year]/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 3
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "app/[locale]/season/[year]/round/[n]/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 4
+    }
+  },
+  "app/[locale]/season/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 2
+    }
+  },
+  "app/[locale]/teams/[constructorId]/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "app/[locale]/tech-glossary/page.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "app/api/cron/notify-sessions/route.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "app/api/cron/sync-f1/route.ts": {
+    "@typescript-eslint/no-unnecessary-boolean-literal-compare": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 7
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 4
+    }
+  },
+  "app/api/cron/sync-media/route.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 6
+    }
+  },
+  "app/api/cron/sync-news/route.ts": {
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 2
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 10
+    }
+  },
+  "app/api/cron/sync-radio/route.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-template-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "app/api/f1-season/route.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/no-redundant-type-constituents": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "app/api/live-timing/route.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/prefer-promise-reject-errors": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 5
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    }
+  },
+  "app/api/media/route.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "app/sitemap.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 6
+    }
+  },
+  "assets/scripts/generate-historical-assets.mjs": {
+    "security/detect-non-literal-fs-filename": {
+      "count": 6
+    },
+    "security/detect-object-injection": {
+      "count": 5
+    }
+  },
+  "assets/scripts/generate-teams.mjs": {
+    "security/detect-non-literal-fs-filename": {
+      "count": 1
+    }
+  },
+  "assets/scripts/generate-tyres.mjs": {
+    "security/detect-non-literal-fs-filename": {
+      "count": 1
+    }
+  },
+  "assets/scripts/geojson-to-svg.mjs": {
+    "security/detect-non-literal-fs-filename": {
+      "count": 4
+    }
+  },
+  "assets/scripts/reorganize-stories.mjs": {
+    "security/detect-non-literal-fs-filename": {
+      "count": 2
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "components/anthology/AnthologyHero.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "components/anthology/Reveal.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    }
+  },
+  "components/anthology/StoryBody.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    }
+  },
+  "components/anthology/StoryCard.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "components/anthology/StoryReader.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 2
+    }
+  },
+  "components/bento/BentoCard.tsx": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "components/bento/StatusChip.tsx": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "components/circuit/CircuitElevationProfile.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "components/circuit/CircuitFactsRibbon.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "security/detect-unsafe-regex": {
+      "count": 1
+    }
+  },
+  "components/circuit/CircuitHero.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    }
+  },
+  "components/circuit/CircuitLoreCards.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    }
+  },
+  "components/circuit/CircuitsDirectory.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 5
+    }
+  },
+  "components/circuit/NextCircuitHero.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "components/circuit/SpeedProfile.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "components/circuit/TelemetryTrace.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 5
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 10
+    },
+    "security/detect-object-injection": {
+      "count": 3
+    }
+  },
+  "components/circuit/TrackTrace.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    }
+  },
+  "components/consent/AnalyticsConsent.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 3
+    }
+  },
+  "components/glossary/GlossaryExplorer.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 4
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "components/glossary/GlossaryLinkedText.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    }
+  },
+  "components/glossary/RegulationErasPanel.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 3
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    },
+    "security/detect-object-injection": {
+      "count": 3
+    }
+  },
+  "components/glossary/TermDiagram.tsx": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "components/glossary/TermDossierCard.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    }
+  },
+  "components/glossary/TyreCompoundExplorer.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    },
+    "security/detect-object-injection": {
+      "count": 3
+    }
+  },
+  "components/glossary/TyreThermalWindows.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 6
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 19
+    },
+    "security/detect-object-injection": {
+      "count": 6
+    }
+  },
+  "components/history/CareerArc.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 4
+    }
+  },
+  "components/history/DriverJourney.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 5
+    }
+  },
+  "components/history/SeasonChampions.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "components/history/SeasonRail.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    }
+  },
+  "components/history/TeamCockpitLineup.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "components/history/TeamDnaSection.tsx": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 4
+    }
+  },
+  "components/history/TeamSeasonHero.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    }
+  },
+  "components/home/ChampionshipPulse.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 3
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 5
+    }
+  },
+  "components/home/Countdown.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    }
+  },
+  "components/home/HomeWireFeed.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "components/home/LastWinnerCard.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "components/home/LatestRaceCard.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "components/home/LiveRaceTracker.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/no-floating-promises": {
+      "count": 1
+    },
+    "@typescript-eslint/no-misused-promises": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 4
+    }
+  },
+  "components/home/OnThisDayCard.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "components/home/WeekendHero.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "components/home/WeekendSchedule.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 2
+    }
+  },
+  "components/layout/BentoSkeleton.tsx": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "components/layout/HeaderNav.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "components/layout/LocaleSwitcher.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 1
+    }
+  },
+  "components/layout/MobileNav.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 8
+    },
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 2
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "components/layout/NavIcons.tsx": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "components/machinery/MachineryCrossLink.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    }
+  },
+  "components/media/ApexFallback.tsx": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "components/media/ApexImage.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "components/media/MediaAssetView.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "components/media/placeholders/CarPlaceholder.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "components/media/placeholders/PlaceholderArt.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "components/news/NewsCover.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "components/news/NewsEditorialFeed.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    }
+  },
+  "components/news/NewsFilterBar.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    }
+  },
+  "components/news/NewsLeadBlock.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 2
+    }
+  },
+  "components/news/NewsList.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 3
+    }
+  },
+  "components/profile/DriverProfileHero.tsx": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    }
+  },
+  "components/profile/DriverSeasonPulse.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "components/profile/DriverTeammateDuel.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 8
+    }
+  },
+  "components/profile/DriverTelemetryRibbon.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    }
+  },
+  "components/profile/LoreSection.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "components/pulse/ChampionBand.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "components/season/DriverPodiumStandings.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "components/season/HorizontalRaceStrip.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 3
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "components/season/PitStopsTable.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "components/season/ResultsTable.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 8
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "components/season/SeasonProgressionChart.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 19
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "components/season/SeasonTitleFightHero.tsx": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "components/season/TeamTelemetryBars.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 2
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "components/season/YearScrubber.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 4
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "components/standings/GarageTeamPanel.tsx": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 6
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 10
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "components/time/LocalTime.tsx": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 2
+    }
+  },
+  "components/ui/CountryFlag.tsx": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "config/team-colors.ts": {
+    "@typescript-eslint/no-base-to-string": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "data/circuits/facts.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 3
+    },
+    "security/detect-object-injection": {
+      "count": 4
+    }
+  },
+  "data/circuits/lore.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "data/glossary/terms.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    }
+  },
+  "data/glossary/tyres.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    }
+  },
+  "data/stories/image-credits.ts": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "i18n/request.ts": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 1
+    }
+  },
+  "instrumentation-client.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    }
+  },
+  "lib/assets/f1-icons.ts": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/assets/team-pattern.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/consent.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    }
+  },
+  "lib/cron/qstashSchedules.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 3
+    },
+    "security/detect-unsafe-regex": {
+      "count": 1
+    }
+  },
+  "lib/cronAuth.ts": {
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 2
+    },
+    "@typescript-eslint/require-await": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "lib/data/circuitTelemetry.ts": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/data/circuits.ts": {
+    "@typescript-eslint/no-base-to-string": {
+      "count": 2
+    },
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 2
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 4
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/data/countryFlags.ts": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/data/driverPositions.ts": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/data/entities.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 4
+    }
+  },
+  "lib/data/f1.ts": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 4
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 8
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 12
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "lib/data/fs.ts": {
+    "security/detect-non-literal-fs-filename": {
+      "count": 1
+    }
+  },
+  "lib/data/logger.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "lib/data/news.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 2
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    },
+    "@typescript-eslint/return-await": {
+      "count": 1
+    }
+  },
+  "lib/data/profiles.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 11
+    },
+    "security/detect-object-injection": {
+      "count": 3
+    }
+  },
+  "lib/data/pulse.ts": {
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/data/radio.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "lib/data/siteUrl.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    }
+  },
+  "lib/data/snapshotRefresh.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 4
+    }
+  },
+  "lib/data/stories.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 3
+    }
+  },
+  "lib/f1/headToHead.ts": {
+    "security/detect-object-injection": {
+      "count": 9
+    }
+  },
+  "lib/f1/mrdata.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 18
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "lib/f1/power-units.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/f1/provisional.ts": {
+    "@typescript-eslint/no-redundant-type-constituents": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 5
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "lib/f1/provisionalSync.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 4
+    }
+  },
+  "lib/f1/raceEventsSync.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "lib/f1/snapshotStaleness.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 2
+    }
+  },
+  "lib/f1/sources/f1db.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/f1/sources/jolpica.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 8
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 7
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 8
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 19
+    }
+  },
+  "lib/f1/sources/openf1.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 4
+    }
+  },
+  "lib/f1/syncSchedule.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 6
+    }
+  },
+  "lib/f1Calendar.ts": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    }
+  },
+  "lib/f1Ingest.ts": {
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 10
+    },
+    "security/detect-object-injection": {
+      "count": 4
+    }
+  },
+  "lib/glossary/linker.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 4
+    },
+    "security/detect-non-literal-regexp": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 3
+    }
+  },
+  "lib/history/career.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "lib/history/dna.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "lib/history/ids.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 6
+    },
+    "security/detect-object-injection": {
+      "count": 8
+    }
+  },
+  "lib/history/lineup.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/history/palette.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/history/store.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 6
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 6
+    }
+  },
+  "lib/i18n/caps.ts": {
+    "security/detect-non-literal-regexp": {
+      "count": 1
+    }
+  },
+  "lib/i18n/format.ts": {
+    "security/detect-object-injection": {
+      "count": 2
+    },
+    "security/detect-unsafe-regex": {
+      "count": 1
+    }
+  },
+  "lib/i18n/labels.ts": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/i18n/seasonRewrite.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "security/detect-non-literal-regexp": {
+      "count": 1
+    }
+  },
+  "lib/media/aliases.ts": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/media/client.ts": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/media/http.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "lib/media/keys.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "lib/media/license.ts": {
+    "security/detect-object-injection": {
+      "count": 1
+    },
+    "security/detect-unsafe-regex": {
+      "count": 2
+    }
+  },
+  "lib/media/process.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 6
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 3
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "lib/media/read.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 3
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "lib/media/repo.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 5
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 2
+    },
+    "@typescript-eslint/require-await": {
+      "count": 11
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 4
+    },
+    "security/detect-non-literal-fs-filename": {
+      "count": 2
+    }
+  },
+  "lib/media/resolve.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-type-conversion": {
+      "count": 2
+    },
+    "@typescript-eslint/require-await": {
+      "count": 4
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 10
+    }
+  },
+  "lib/media/score.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    },
+    "security/detect-non-literal-regexp": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "lib/media/sync.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    },
+    "security/detect-object-injection": {
+      "count": 3
+    }
+  },
+  "lib/media/universe.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 2
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    },
+    "security/detect-object-injection": {
+      "count": 5
+    }
+  },
+  "lib/media/wikimedia.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "lib/monitoring/clientErrors.ts": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "lib/news/aggregate.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 5
+    },
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-type-conversion": {
+      "count": 2
+    },
+    "security/detect-object-injection": {
+      "count": 7
+    }
+  },
+  "lib/news/cluster.ts": {
+    "security/detect-object-injection": {
+      "count": 13
+    }
+  },
+  "lib/news/factGuard.ts": {
+    "security/detect-non-literal-regexp": {
+      "count": 1
+    },
+    "security/detect-unsafe-regex": {
+      "count": 1
+    }
+  },
+  "lib/news/fallbackImage.ts": {
+    "security/detect-non-literal-regexp": {
+      "count": 1
+    }
+  },
+  "lib/news/imageVariants.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    },
+    "security/detect-unsafe-regex": {
+      "count": 1
+    }
+  },
+  "lib/news/rewrite.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 3
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 4
+    },
+    "security/detect-object-injection": {
+      "count": 8
+    }
+  },
+  "lib/news/stories.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 3
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "lib/news/time.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 6
+    }
+  },
+  "lib/news/translate.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    }
+  },
+  "lib/pulse/milestones.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 2
+    }
+  },
+  "lib/rateLimit.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    }
+  },
+  "lib/telemetry/derive.ts": {
+    "security/detect-object-injection": {
+      "count": 47
+    }
+  },
+  "lib/telemetry/select.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "lib/validation/api.ts": {
+    "security/detect-object-injection": {
+      "count": 1
+    },
+    "security/detect-unsafe-regex": {
+      "count": 1
+    }
+  },
+  "next.config.ts": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    },
+    "@typescript-eslint/require-await": {
+      "count": 2
+    }
+  },
+  "scripts/audit-screenshots.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 9
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    },
+    "security/detect-non-literal-fs-filename": {
+      "count": 5
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "scripts/build-anthology-stories.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "scripts/build-circuit-telemetry.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 3
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 18
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    },
+    "security/detect-non-literal-fs-filename": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 8
+    }
+  },
+  "scripts/build-f1-history-index.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-argument": {
+      "count": 27
+    },
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 54
+    },
+    "@typescript-eslint/no-unsafe-call": {
+      "count": 11
+    },
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 143
+    },
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 9
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 11
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    },
+    "security/detect-non-literal-fs-filename": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 3
+    }
+  },
+  "scripts/build-records-index.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 11
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "scripts/build-story-content.ts": {
+    "@typescript-eslint/no-implied-eval": {
+      "count": 1
+    },
+    "@typescript-eslint/no-meaningless-void-operator": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-call": {
+      "count": 1
+    },
+    "@typescript-eslint/require-await": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    },
+    "security/detect-non-literal-fs-filename": {
+      "count": 2
+    },
+    "security/detect-object-injection": {
+      "count": 3
+    }
+  },
+  "scripts/capture-screenshots.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 4
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 6
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    },
+    "security/detect-non-literal-fs-filename": {
+      "count": 2
+    }
+  },
+  "scripts/dedupe-f1-snapshots.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 9
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    }
+  },
+  "scripts/media-sync.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 7
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    },
+    "security/detect-non-literal-fs-filename": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "scripts/qstash-sync.ts": {
+    "@typescript-eslint/no-base-to-string": {
+      "count": 3
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 14
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    }
+  },
+  "scripts/seed-f1-history.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 3
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 20
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 3
+    }
+  },
+  "scripts/seed-stories.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 5
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    }
+  },
+  "scripts/story-image-audit.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 9
+    },
+    "security/detect-non-literal-fs-filename": {
+      "count": 3
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "scripts/sync-f1-scheduled.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 5
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    }
+  },
+  "scripts/verify-seed-coverage.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 4
+    },
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-call": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 3
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 5
+    },
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": {
+      "count": 1
+    }
+  },
+  "sentry.edge.config.ts": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "sentry.server.config.ts": {
+    "@typescript-eslint/no-deprecated": {
+      "count": 1
+    }
+  },
+  "tests/api-cron-guard.test.ts": {
+    "@typescript-eslint/require-await": {
+      "count": 11
+    }
+  },
+  "tests/api-entity-validation.test.ts": {
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 3
+    },
+    "@typescript-eslint/require-await": {
+      "count": 3
+    }
+  },
+  "tests/api-f1-season.test.ts": {
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 1
+    },
+    "@typescript-eslint/require-await": {
+      "count": 5
+    }
+  },
+  "tests/api-media.test.ts": {
+    "@typescript-eslint/no-unsafe-argument": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 1
+    },
+    "@typescript-eslint/require-await": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "tests/api-push-register.test.ts": {
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 1
+    },
+    "@typescript-eslint/require-await": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "tests/api-sync-media.test.ts": {
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 4
+    },
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 1
+    },
+    "@typescript-eslint/require-await": {
+      "count": 1
+    }
+  },
+  "tests/audit-2026-10-fixes.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    }
+  },
+  "tests/audit-screenshots.test.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "security/detect-non-literal-fs-filename": {
+      "count": 3
+    }
+  },
+  "tests/circuit-elevation-profile.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unsafe-argument": {
+      "count": 1
+    }
+  },
+  "tests/circuit-telemetry-data.test.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "security/detect-non-literal-fs-filename": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "tests/client-errors.test.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    }
+  },
+  "tests/client-server-boundary.test.ts": {
+    "security/detect-non-literal-fs-filename": {
+      "count": 3
+    }
+  },
+  "tests/cronAuth.test.ts": {
+    "@typescript-eslint/no-dynamic-delete": {
+      "count": 2
+    },
+    "security/detect-object-injection": {
+      "count": 7
+    }
+  },
+  "tests/editorial-content.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 5
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    },
+    "security/detect-non-literal-fs-filename": {
+      "count": 1
+    },
+    "security/detect-non-literal-regexp": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 7
+    }
+  },
+  "tests/f1-read-fallback.test.ts": {
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/require-await": {
+      "count": 4
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 4
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "tests/f1-round-batch.test.ts": {
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/require-await": {
+      "count": 4
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "tests/f1Calendar.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 2
+    }
+  },
+  "tests/f1db-adapter.test.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    }
+  },
+  "tests/glossary-filter.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 1
+    }
+  },
+  "tests/history-career.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 6
+    }
+  },
+  "tests/history-live-fallback.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 8
+    },
+    "@typescript-eslint/require-await": {
+      "count": 1
+    }
+  },
+  "tests/history-palette.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 5
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "tests/history-views.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 19
+    }
+  },
+  "tests/i18n-messages.test.ts": {
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "tests/live-timing-route.test.ts": {
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 5
+    },
+    "@typescript-eslint/no-unsafe-call": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 11
+    },
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 5
+    }
+  },
+  "tests/localized-seo.test.ts": {
+    "@typescript-eslint/no-unnecessary-template-expression": {
+      "count": 3
+    }
+  },
+  "tests/machinery-facts.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 5
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "tests/media-components.test.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 4
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "tests/media-keys.test.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "tests/media-process.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/require-await": {
+      "count": 1
+    }
+  },
+  "tests/media-read.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 2
+    }
+  },
+  "tests/media-resolve-stages.test.ts": {
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 3
+    }
+  },
+  "tests/media-sync.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 14
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 4
+    },
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 10
+    },
+    "@typescript-eslint/require-await": {
+      "count": 3
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "tests/mrdata-round.test.ts": {
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 2
+    }
+  },
+  "tests/mrdata-standings.test.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 4
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 3
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 8
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "tests/nav-items.test.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    }
+  },
+  "tests/news-changed-stories.test.ts": {
+    "@typescript-eslint/no-unnecessary-condition": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 2
+    }
+  },
+  "tests/news-fallback-image.test.ts": {
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 3
+    },
+    "@typescript-eslint/require-await": {
+      "count": 5
+    }
+  },
+  "tests/news-rewrite-limits.test.ts": {
+    "@typescript-eslint/require-await": {
+      "count": 3
+    }
+  },
+  "tests/news-rewrite-order.test.ts": {
+    "@typescript-eslint/no-unnecessary-type-conversion": {
+      "count": 1
+    },
+    "@typescript-eslint/require-await": {
+      "count": 2
+    }
+  },
+  "tests/news-stories.test.ts": {
+    "@typescript-eslint/require-await": {
+      "count": 2
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "tests/notify-sessions-route.test.ts": {
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 5
+    },
+    "@typescript-eslint/require-await": {
+      "count": 1
+    }
+  },
+  "tests/on-this-day-image.test.ts": {
+    "@typescript-eslint/require-await": {
+      "count": 1
+    }
+  },
+  "tests/openf1-auth.test.ts": {
+    "@typescript-eslint/no-base-to-string": {
+      "count": 1
+    },
+    "@typescript-eslint/require-await": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 1
+    }
+  },
+  "tests/provisional-sync.test.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 9
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 6
+    }
+  },
+  "tests/pulse-milestones.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 2
+    }
+  },
+  "tests/qstash-schedules.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "security/detect-non-literal-fs-filename": {
+      "count": 3
+    }
+  },
+  "tests/round-not-found.test.ts": {
+    "@typescript-eslint/require-await": {
+      "count": 1
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "tests/season-progression.test.ts": {
+    "@typescript-eslint/no-non-null-assertion": {
+      "count": 7
+    }
+  },
+  "tests/sitemap.test.ts": {
+    "@typescript-eslint/require-await": {
+      "count": 6
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 3
+    }
+  },
+  "tests/snapshot-refresh-read.test.ts": {
+    "@typescript-eslint/no-unnecessary-type-assertion": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 1
+    },
+    "@typescript-eslint/require-await": {
+      "count": 4
+    },
+    "security/detect-object-injection": {
+      "count": 2
+    }
+  },
+  "tests/snapshot-refresh.test.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 4
+    },
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 5
+    },
+    "@typescript-eslint/require-await": {
+      "count": 3
+    }
+  },
+  "tests/story-image-source.test.ts": {
+    "security/detect-object-injection": {
+      "count": 4
+    }
+  },
+  "tests/story-images.test.ts": {
+    "security/detect-non-literal-fs-filename": {
+      "count": 2
+    }
+  },
+  "tests/sync-f1-idempotent.test.ts": {
+    "@typescript-eslint/no-confusing-void-expression": {
+      "count": 1
+    },
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 5
+    },
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 10
+    },
+    "@typescript-eslint/require-await": {
+      "count": 6
+    },
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 2
+    }
+  },
+  "tests/sync-radio-route.test.ts": {
+    "@typescript-eslint/no-unsafe-assignment": {
+      "count": 2
+    },
+    "@typescript-eslint/no-unsafe-member-access": {
+      "count": 3
+    },
+    "@typescript-eslint/no-unsafe-return": {
+      "count": 4
+    },
+    "@typescript-eslint/require-await": {
+      "count": 2
+    }
+  },
+  "tests/telemetry-derive.test.ts": {
+    "@typescript-eslint/require-await": {
+      "count": 3
+    },
+    "security/detect-object-injection": {
+      "count": 1
+    }
+  },
+  "tests/validation-api.test.ts": {
+    "@typescript-eslint/restrict-template-expressions": {
+      "count": 5
+    }
+  }
+}

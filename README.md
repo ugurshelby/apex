@@ -71,7 +71,8 @@ Tarayıcıda [http://localhost:3000](http://localhost:3000) adresini açın.
 npm run dev          # Geliştirme sunucusu
 npm run build        # Production build
 npm run start        # Production sunucusu
-npm run lint         # ESLint
+npm run lint         # ESLint (tip-farkında + güvenlik kuralları, 0 uyarı)
+npm run typecheck    # TypeScript tip kontrolü
 npm test             # Vitest (bir kez)
 npm run test:watch   # Vitest (watch modu)
 npm run seed:f1db    # F1DB tarihsel veri seed
@@ -119,7 +120,7 @@ Dış API'ler (Jolpica, F1DB, OpenF1, RSS)
 
 ```bash
 npm test                    # Birim testleri (Vitest)
-npx tsc --noEmit            # Tip kontrolü (npm script yok)
+npm run typecheck           # Tip kontrolü
 ```
 
 ## Dokümantasyon

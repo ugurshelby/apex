@@ -68,7 +68,7 @@ The web app is a working Next.js product, not a skeleton and not an idea with li
 - `docs/plans/master-plan.md` previously had unchecked items: tablet breakpoint (WEB-UI.4), season layout (WEB-UI.5), list template (WEB-UI.6), and detail template (WEB-UI.7) were measured in Chromium on 2026-10-05 and marked verified (0 overflow across 375/768/1280px). Lighthouse (WEB-UI.8), permanent 2026 Jolpica snapshot fill, live-race end-to-end check, i18n phase-6 QA, and mobile store release stay open.
 - Playwright is a devDependency and is used for headless browser audits [VERIFIED: 2026-10-05 audit].
 - `mobile/` exists on disk (Expo ~56, React Native 0.85.3) and is gitignored. `git ls-files mobile` returned 0 tracked files [VERIFIED]. It is not part of the git tree that `main` deploys. Mobile scripts were not run.
-- `.github/workflows/ci.yml` runs `npm ci`, `npm audit --omit=dev --audit-level=high`, lint, `tsc --noEmit`, `npm test`, `npm run build` on pull requests to `main` and on pushes to `main` and `wip/**`, on the Node in `.nvmrc` (24). Green on `wip/deps-2026-10` (run 40324388109, 2026-10-26: 75 files, 758 tests). `.github/workflows/security-audit.yml` runs the same production audit weekly (Monday 06:00 UTC) and on dispatch. The other three workflows only call cron endpoints.
+- `.github/workflows/ci.yml` runs `npm ci`, `npm audit --omit=dev --audit-level=high`, lint, `npm run typecheck`, `npm test`, `npm run build`, plus a separate Semgrep job, on pull requests to `main` and on pushes to `main` and `wip/**`, on the Node in `.nvmrc` (24). Green on `wip/deps-2026-10` (run 40324388109, 2026-10-26: 75 files, 758 tests). `.github/workflows/security-audit.yml` runs the same production audit weekly (Monday 06:00 UTC) and on dispatch. The other three workflows only call cron endpoints.
 - Node: this machine is v22.18.0. `package.json` `engines` and `.nvmrc` say 24. GitHub Actions `sync-f1-race-aware.yml` uses Node 22 [VERIFIED]. Tests and the build passed on Node 22 anyway.
 
 
@@ -300,12 +300,14 @@ Placeholder legal mailboxes mean a privacy or DMCA request sent from the site go
 
 ## 6. Quality gates (tests, lint, build, typecheck: what exists, what actually passes)
 
-Last verified: 2026-10-01 (current numbers: section 2, 2026-10-08; versions and CI row: 2026-10-26)
+Last verified: 2026-10-01 (current numbers: section 2, 2026-10-08; versions and CI row: 2026-10-26; typecheck, lint and Semgrep rows: 2026-11-05)
 
 | Gate | Exists | This run (2026-10-01, Node v22.18.0, npm 10.9.3, `node_modules` already present) |
 |---|---|---|
 | `npm test` | Yes. Vitest 5, node environment, 30s timeout, `tests/**/*.test.ts` | Pass. 178/178 |
-| `npx tsc --noEmit` | No npm script. `tsconfig.json` has `strict` and `noEmit` | Pass. Exit 0 |
+| `npm run typecheck` (`tsc --noEmit`) | Yes since 2026-11-05. `tsconfig.json` has `strict` and `noEmit` | Pass. Exit 0 [VERIFIED: 2026-11-05] |
+| `npm run lint` | `eslint --max-warnings=0`: Next rules, `typescript-eslint` strict type-checked, `eslint-plugin-security` (as errors). Pre-existing violations (1,890 in 266 files, 2026-11-05) are recorded in `eslint-suppressions.json`; new code cannot add any, and the file only shrinks (`npx eslint . --prune-suppressions`) | Pass. Exit 0 [VERIFIED: 2026-11-05] |
+| Semgrep (CI job `semgrep`) | `p/owasp-top-ten`, `p/typescript`, `p/nextjs`, `p/secrets` | [UNVERIFIED] first run pending |
 | `npm run build` | Yes. `next build`. `build:vercel` is the same command | Pass. Exit 0. Sentry upload skipped (`Project not found`). `metadataBase` warned as `http://localhost:3000` during this local build. Route table included static legal pages, ISR anthology/circuits/news/teams/glossary, and dynamic home, season, entity, and API routes |
 | Playwright | Dependency only | Not run. No config |
 | CI on pull request and push (`main`, `wip/**`) | Yes, `.github/workflows/ci.yml` | Green on `wip/deps-2026-10` (2026-10-26, run 40324388109). Whether branch protection requires it is an owner/GitHub setting |

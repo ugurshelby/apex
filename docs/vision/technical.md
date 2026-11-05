@@ -137,7 +137,7 @@ Migration kuralı: `YYYYMMDDHHMMSS_*.sql` formatı zorunlu.
 npm run dev | build | lint | test
 npm run seed:f1db | seed:stories
 
-npx tsc --noEmit   # tip kontrolü (npm script yok)
+npm run typecheck  # tip kontrolü
 ```
 
 ---
