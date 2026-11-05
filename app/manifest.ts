@@ -3,7 +3,7 @@ import { SITE_NAME, SITE_TAGLINE } from '@/lib/seo';
 
 /**
  * PWA manifest (Faz 2). Next.js serves this at /manifest.webmanifest and links
- * it automatically. Icons are generated from assets/icons/app-icon.svg via
+ * it automatically. Icons are generated from assets/icons/app-icon.png via
  * assets/scripts/generate-pwa-icons.mjs.
  */
 export default function manifest(): MetadataRoute.Manifest {

@@ -29,6 +29,11 @@ const eslintConfig = defineConfig([
     },
   },
   { files: ["**/*.{js,mjs,cjs}"], extends: [tseslint.configs.disableTypeChecked] },
+  // ImageResponse (Satori) renders plain <img> only; next/image does not exist there.
+  {
+    files: ["app/**/{opengraph-image,twitter-image,icon,apple-icon}.tsx"],
+    rules: { "@next/next/no-img-element": "off" },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

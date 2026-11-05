@@ -6,7 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { desktopNavSlots, isNavItemActive, navLabelLang, type NavItem } from './nav-items';
 import { LocaleSwitcher } from './LocaleSwitcher';
-import { ApexMark } from '@/components/brand/ApexMark';
+import { ApexWordmark } from '@/components/brand/ApexWordmark';
 
 /**
  * Desktop/tablet header navigation (md+). Layout rules: docs/design/apex-component-rules.md §1.
@@ -74,7 +74,7 @@ export function HeaderNav() {
 /**
  * APEX home link. Owner update 2026-10-13 (apex-component-rules.md §1.2): no red box.
  * The selected state is told apart from a selected page (accent text + underline) by
- * the logomark's apex point glowing, a soft halo behind the mark and an accent "ARŞİV".
+ * the wordmark at full strength, a soft red halo behind it and an accent "ARŞİV".
  */
 function HomeLink({ active }: { active: boolean }) {
   const t = useTranslations('system');
@@ -94,20 +94,16 @@ function HomeLink({ active }: { active: boolean }) {
           active ? 'opacity-[0.22]' : 'opacity-0 group-hover:opacity-[0.12]',
         ].join(' ')}
       />
-      <ApexMark
-        glow={active}
-        className={['h-7 w-7 shrink-0 transition-colors duration-200', active ? 'text-text-hi' : 'text-text-hi/85 group-hover:text-text-hi'].join(' ')}
-      />
-      <span className="flex flex-col items-start">
-        <span
-          className="font-condensed text-[1.45rem] font-bold leading-none tracking-[0.02em] text-text-hi"
-          style={{ fontFamily: 'var(--font-condensed)', fontWeight: 700 }}
-        >
-          APEX
-        </span>
+      <span className="flex flex-col items-center">
+        <ApexWordmark
+          alt=""
+          sizes="104px"
+          preload
+          className={['w-[6.5rem] transition-opacity duration-200', active ? 'opacity-100' : 'opacity-85 group-hover:opacity-100'].join(' ')}
+        />
         <span
           className={[
-            'mt-0.5 text-[11px] font-semibold uppercase tracking-[0.28em] transition-colors duration-200',
+            'mt-1 text-[10px] font-semibold uppercase tracking-[0.32em] transition-colors duration-200',
             active ? 'text-accent' : 'text-text-low group-hover:text-text-mid',
           ].join(' ')}
         >

@@ -1,5 +1,6 @@
 /**
- * Generate PWA PNG icons from assets/icons/app-icon.svg (Faz 2).
+ * Generate PWA PNG icons from assets/icons/app-icon.png (the
+ * swooshed "A" of the owner-supplied APEX wordmark, public/brand/apex-wordmark.jpg).
  * Outputs the sizes the manifest + apple-touch-icon reference. Run with:
  *   node assets/scripts/generate-pwa-icons.mjs
  */
@@ -9,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const src = resolve(root, 'assets/icons/app-icon.svg');
+const src = resolve(root, 'assets/icons/app-icon.png');
 const outDir = resolve(root, 'public/icons');
 
 const targets = [
@@ -18,11 +19,11 @@ const targets = [
   { size: 180, file: 'apple-touch-icon.png' },
 ];
 
-const svg = await readFile(src);
+const source = await readFile(src);
 await mkdir(outDir, { recursive: true });
 
 for (const { size, file } of targets) {
-  await sharp(svg, { density: 384 })
+  await sharp(source)
     .resize(size, size)
     .png()
     .toFile(resolve(outDir, file));

@@ -1,5 +1,5 @@
 import { useLocale, useTranslations } from 'next-intl';
-import { ApexMark } from '@/components/brand/ApexMark';
+import { ApexWordmark } from '@/components/brand/ApexWordmark';
 import { intlTag } from '@/lib/i18n/format';
 import { displayUpper } from '@/lib/i18n/caps';
 
@@ -30,19 +30,17 @@ export function HeroBrandBar({ totals }: { totals: ArchiveTotals }) {
 
   return (
     <div className="flex items-start justify-between gap-6">
-      <div className="flex items-center gap-3">
-        <ApexMark className="h-10 w-10 shrink-0 text-text-hi drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] md:h-12 md:w-12" />
-        <div className="flex flex-col">
-          <span
-            className="font-condensed text-[2rem] font-bold leading-none tracking-[0.02em] text-text-hi md:text-[2.4rem]"
-            style={{ fontFamily: 'var(--font-condensed)' }}
-          >
-            APEX
-          </span>
-          <span className="mt-1 max-w-[17rem] text-[12px] font-medium leading-snug text-text-mid md:max-w-none md:text-[13px]">
-            {t('tagline', { from: totals.firstSeason })}
-          </span>
+      <div className="flex flex-col">
+        <div>
+          <ApexWordmark
+            sizes="(min-width: 768px) 224px, 176px"
+            preload
+            className="w-44 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] md:w-56"
+          />
         </div>
+        <span className="mt-2 max-w-[17rem] text-[12px] font-medium leading-snug text-text-mid md:max-w-none md:text-[13px]">
+          {t('tagline', { from: totals.firstSeason })}
+        </span>
       </div>
 
       <dl className="hidden items-stretch rounded-2xl border border-white/10 bg-black/35 px-1 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md lg:flex">

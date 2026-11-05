@@ -1,15 +1,20 @@
 import { ImageResponse } from 'next/og';
+import { join } from 'node:path';
+import { readFile } from 'node:fs/promises';
 import { SITE_NAME, SITE_TAGLINE } from '@/lib/seo';
 
 /**
- * Default site OpenGraph image (1200×630). Static brand card in the Anthology
- * palette: near-black background, red accent bar, condensed uppercase title.
+ * Default site OpenGraph image (1200×630). Static brand card: near-black
+ * background, the APEX wordmark (owner-supplied), tagline and a red accent bar.
  * No external font fetch — uses system sans so build/runtime stays reliable.
  */
 export const runtime = 'nodejs';
 export const alt = SITE_NAME;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
+
+// 886×206, transparent; read once, it does not depend on the request.
+const wordmark = `data:image/png;base64,${await readFile(join(process.cwd(), 'public/brand/apex-wordmark.png'), 'base64')}`;
 
 export default function OgImage() {
   return new ImageResponse(
@@ -41,17 +46,7 @@ export default function OgImage() {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div
-            style={{
-              fontSize: 150,
-              fontWeight: 800,
-              lineHeight: 0.9,
-              letterSpacing: -2,
-              color: '#f4f1ea',
-            }}
-          >
-            ANTHOLOGY
-          </div>
+          <img src={wordmark} alt={SITE_NAME} width={620} height={144} />
           <div
             style={{
               marginTop: 28,
