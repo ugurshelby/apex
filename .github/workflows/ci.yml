@@ -28,9 +28,9 @@ jobs:
       NEXT_PUBLIC_SUPABASE_URL: https://ci-placeholder.invalid
       NEXT_PUBLIC_SUPABASE_ANON_KEY: ci-placeholder
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -48,5 +48,5 @@ jobs:
     timeout-minutes: 10
     container: semgrep/semgrep
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: semgrep scan --config p/owasp-top-ten --config p/typescript --config p/nextjs --config p/secrets --error --metrics=off --exclude .claude --exclude mobile
