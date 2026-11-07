@@ -13,6 +13,8 @@
  *  - JSDOM DOMParser polyfill for Node.js.
  */
 
+import { mediaUserAgent } from '@/lib/media/http';
+
 // ── Types ──────────────────────────────────────────────────────────────────
 
 export interface RawNewsItem {
@@ -348,7 +350,7 @@ async function imageIsReachable(url: string, signal: AbortSignal): Promise<boole
   signal.addEventListener('abort', onParentAbort);
   const timer = setTimeout(() => ctrl.abort(), IMAGE_CHECK_TIMEOUT_MS);
   try {
-    const headers = { 'User-Agent': 'Mozilla/5.0 (compatible; ProjectAnthology/1.0)' };
+    const headers = { 'User-Agent': mediaUserAgent() };
     let res = await fetch(url, { method: 'HEAD', signal: ctrl.signal, headers });
     if (res.status === 405 || res.status === 501) {
       // Some CDNs reject HEAD outright — retry with a ranged GET instead of
@@ -376,22 +378,27 @@ async function fetchRSSFeed(
   source: { name: string; rssUrl: string; baseUrl: string },
   signal: AbortSignal,
 ): Promise<RawNewsItem[]> {
+  // One warn line per failed feed: source, reason, HTTP status (null when there was no response).
+  const fail = (reason: string, status: number | null = null): RawNewsItem[] => {
+    console.warn('[news] feed failed', { source: source.name, reason, status });
+    return [];
+  };
   try {
     const response = await fetch(source.rssUrl, {
       signal,
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; ProjectAnthology/1.0)',
+        'User-Agent': mediaUserAgent(),
         Accept: 'application/rss+xml, application/xml, text/xml, */*',
       },
     });
-    if (!response.ok) return [];
+    if (!response.ok) return fail('http', response.status);
 
     const xml = await response.text();
-    if (xml.trim().startsWith('<!DOCTYPE') || xml.trim().toLowerCase().startsWith('<html')) return [];
+    if (xml.trim().startsWith('<!DOCTYPE') || xml.trim().toLowerCase().startsWith('<html')) return fail('html', response.status);
 
     // Use the lightweight XML parser (xmldom or JSDOM fallback), not globalThis.DOMParser.
     const doc = _xmlParser!.parseFromString(xml, 'text/xml');
-    if (doc.querySelector('parsererror')) return [];
+    if (doc.querySelector('parsererror')) return fail('parse', response.status);
 
     const items = Array.from(doc.querySelectorAll('item'));
     const out: RawNewsItem[] = [];
@@ -442,7 +449,7 @@ async function fetchRSSFeed(
     }
     return out;
   } catch {
-    return [];
+    return fail(signal.aborted ? 'timeout' : 'network', null);
   }
 }
 
@@ -488,9 +495,14 @@ export async function fetchRawNews(): Promise<RawNewsItem[]> {
     }),
   );
   const all: RawNewsItem[] = [];
-  settled.forEach((r) => {
-    if (r.status === 'fulfilled') all.push(...r.value);
+  const counts = new Map<string, number>();
+  settled.forEach((r, i) => {
+    const items = r.status === 'fulfilled' ? r.value : [];
+    all.push(...items);
+    counts.set(NEWS_SOURCES.at(i)?.name ?? `source ${String(i)}`, items.length);
   });
+  console.info('[news] feed counts', Object.fromEntries(counts));
+  for (const [source, n] of counts) if (n === 0) console.warn('[news] feed empty', { source });
   const seen = new Map<string, RawNewsItem>();
   for (const it of all.filter((x) => isF1Related(x))) {
     const existing = seen.get(it.canonicalUrl);
@@ -519,7 +531,7 @@ export async function probeImage(url: string): Promise<number | null> {
     const res = await fetch(url, {
       method: 'HEAD',
       signal: AbortSignal.timeout(IMAGE_CHECK_TIMEOUT_MS),
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; ProjectAnthology/1.0)' },
+      headers: { 'User-Agent': mediaUserAgent() },
     });
     if (!res.ok || !(res.headers.get('content-type') || '').startsWith('image/')) {
       return (await isImageReachable(url)) ? 1 : null;

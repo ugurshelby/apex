@@ -175,6 +175,7 @@ export async function buildStoryRows(
   const recheck = imageTasks.filter((x) => x.row.image_url).slice(0, IMAGE_RECHECK_MAX_PER_RUN);
   const tasks = [...imageTasks.filter((x) => !x.row.image_url), ...recheck];
   let nextImg = 0;
+  let noCover = 0;
   await Promise.all(
     Array.from({ length: Math.min(IMAGE_CONCURRENCY, tasks.length) }, async () => {
       while (nextImg < tasks.length) {
@@ -183,9 +184,12 @@ export async function buildStoryRows(
         if (stored && (await probeImage(stored)) !== null) continue;
         const img = await bestImage(stored ? d.members.filter((m) => m.image !== stored) : d.members);
         row.image_url = img ?? null;
+        if (!img) noCover++;
       }
     }),
   );
+  // One line per run instead of one per unreachable image.
+  if (noCover > 0) console.info(`[news] ${String(noCover)} of ${String(tasks.length)} story covers had no reachable image`);
 
   // Phase 2 — AI rewrite in batches. Multi-outlet stories first (most value per request), newest next.
   const exhausted = new Set<string>();

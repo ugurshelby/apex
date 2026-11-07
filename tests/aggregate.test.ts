@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { processFeeds, type RawNewsItem } from '@/lib/news/aggregate';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+import { fetchRawNews, processFeeds, type RawNewsItem } from '@/lib/news/aggregate';
 
 /**
  * processFeeds is the pure core of the aggregator (the network fetch lives in
@@ -68,5 +68,49 @@ describe('processFeeds', () => {
     ]);
     expect(items[0].publishedTs).toBe(9_000);
     expect(items[1].publishedTs).toBe(1_000);
+  });
+});
+
+describe('fetchRawNews feed logging', () => {
+  const RSS = `<?xml version="1.0"?><rss><channel><item>
+    <title>Verstappen takes pole in Formula 1 qualifying</title>
+    <link>https://example.com/f1/news/pole</link>
+    <description>Formula 1 qualifying report</description>
+    <pubDate>Sat, 07 Nov 2026 12:00:00 GMT</pubDate>
+    <enclosure url="https://example.com/pole.jpg" type="image/jpeg"/>
+  </item></channel></rss>`;
+
+  afterEach(() => vi.restoreAllMocks());
+
+  function stub(respond: () => Response) {
+    const fetchMock = vi.fn(() => Promise.resolve(respond()));
+    vi.stubGlobal('fetch', fetchMock);
+    vi.spyOn(console, 'info').mockImplementation(() => undefined);
+    return { fetchMock, warn: vi.spyOn(console, 'warn').mockImplementation(() => undefined) };
+  }
+
+  it('returns nothing and warns with the source and HTTP status on a 403', async () => {
+    const { warn } = stub(() => new Response('denied', { status: 403 }));
+    expect(await fetchRawNews()).toEqual([]);
+    expect(warn).toHaveBeenCalledWith('[news] feed failed', expect.objectContaining({ source: expect.stringMatching(/\S/) as string, reason: 'http', status: 403 }));
+  });
+
+  it('reports an HTML body as reason "html"', async () => {
+    const { warn } = stub(() => new Response('<!DOCTYPE html><html></html>', { status: 200 }));
+    expect(await fetchRawNews()).toEqual([]);
+    expect(warn).toHaveBeenCalledWith('[news] feed failed', expect.objectContaining({ reason: 'html' }));
+  });
+
+  it('identifies as the Apex bot and logs one count line per run', async () => {
+    const { fetchMock } = stub(() => new Response(RSS, { status: 200 }));
+    const info = vi.spyOn(console, 'info');
+    const items = await fetchRawNews();
+    expect(items.length).toBeGreaterThan(0);
+    const calls = fetchMock.mock.calls as unknown as [string, { headers: Record<string, string> }][];
+    expect(calls.length).toBeGreaterThan(0);
+    for (const [, init] of calls) expect(init.headers['User-Agent']).toMatch(/^ApexF1FanArchive\//);
+    const line = info.mock.calls.find((c) => c[0] === '[news] feed counts');
+    expect(line).toBeDefined();
+    expect(Object.values(line?.[1] as Record<string, number>).every((n) => n === 1)).toBe(true);
   });
 });

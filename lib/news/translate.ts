@@ -11,6 +11,8 @@
  * without touching any caller, since the interface is just text-in/text-out.
  */
 
+import { mediaUserAgent } from '@/lib/media/http';
+
 const MYMEMORY_BASE = 'https://api.mymemory.translated.net/get';
 const REQUEST_TIMEOUT_MS = 8_000;
 const MAX_RETRIES = 2;
@@ -34,7 +36,7 @@ export async function translateToTurkish(text: string): Promise<string | null> {
     try {
       const res = await fetch(url, {
         signal: ctrl.signal,
-        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; ProjectAnthology/1.0)' },
+        headers: { 'User-Agent': mediaUserAgent() },
       });
       if (res.status === 429) {
         await sleep(800 * 2 ** attempt);
