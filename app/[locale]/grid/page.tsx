@@ -38,7 +38,7 @@ export async function generateMetadata({
 
 /**
  * `year` is set only on the `season/[year]` variant routes; the proxy rewrites `?season=` there so this page never
- * reads searchParams and stays cacheable (master-plan "Teknik borç", caching design 2026-10-28).
+ * reads searchParams and stays cacheable (caching design 2026-10-28).
  */
 export default async function GridPage({ params }: { params: Promise<{ locale: string; year?: string }> }) {
   const { locale, year } = await params;

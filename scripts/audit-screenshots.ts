@@ -1,5 +1,5 @@
 /**
- * Apex — ekran görüntüsü vision denetimi (master-plan 15.1)
+ * Apex — ekran görüntüsü vision denetimi
  *
  * 'screenshots/<sayfa-id>/<cihaz>-viewport.png' dosyalarını Vertex AI'a (VERTEX_API_KEY, GCP kredisi) ya da
  * yoksa Gemini API'ye (GEMINI_API_KEY, ücretsiz katman)

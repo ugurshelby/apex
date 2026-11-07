@@ -1,5 +1,5 @@
 /**
- * Pure derivations for the track telemetry layer (master-plan 13.2). No I/O:
+ * Pure derivations for the track telemetry layer. No I/O:
  * the build script feeds OpenF1 rows in, and the data test recomputes the
  * stored metrics from the stored samples with these same functions.
  */

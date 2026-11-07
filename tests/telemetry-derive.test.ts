@@ -21,7 +21,7 @@ import {
 import type { TelemetrySample } from '@/lib/telemetry/types';
 
 /**
- * Pure derivations of the track telemetry layer (master-plan 13.2), on
+ * Pure derivations of the track telemetry layer, on
  * synthetic input. The data test recomputes stored files with the same code.
  */
 

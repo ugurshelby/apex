@@ -1,5 +1,5 @@
 /**
- * Jolpica/Ergast adapter (Masterplan Karar E).
+ * Jolpica/Ergast adapter.
  *
  * Used ONLY for current-season live data (cron/sync-f1).
  * Historical data always comes from F1DB — never Jolpica — to avoid rate-limit

@@ -2,7 +2,7 @@ import { TEAM_COLORS } from '@/config/team-colors';
 import { DRIVER_GRID_POSITIONS } from '@/lib/data/driverPositions';
 
 /**
- * Fact guard for AI-rewritten headlines (master-plan 19.2). A rewrite is kept only when
+ * Fact guard for AI-rewritten headlines. A rewrite is kept only when
  * every number and every known F1 name in its headline also appears in the sources.
  *
  * Names come from lists the site already maintains: driver surnames (the keys of

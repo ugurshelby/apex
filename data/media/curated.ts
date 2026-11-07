@@ -77,7 +77,7 @@ export const CIRCUIT_ALIASES: Record<string, string[]> = {
 };
 
 /**
- * Owner-picked Commons files for calendar circuits that the automatic search could not fill (master-plan 8.8(b)).
+ * Owner-picked Commons files for calendar circuits that the automatic search could not fill.
  * Tried first, still through the licence and subject gates. Vegas: owner pick 2026-10-31 (public domain, 2025 GP).
  */
 export const CIRCUIT_FILES: Record<string, string[]> = {

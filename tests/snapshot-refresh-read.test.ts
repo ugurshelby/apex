@@ -1,5 +1,5 @@
 /**
- * Stale-while-revalidate read path (master-plan 1.3): a stale-but-recent current-season
+ * Stale-while-revalidate read path: a stale-but-recent current-season
  * DB row is served immediately and a background refresh is scheduled; standings are
  * served stale without a refresh (the cron owns leader-change pushes); beyond the
  * serve-stale cap the read goes live; historical seasons never refresh.

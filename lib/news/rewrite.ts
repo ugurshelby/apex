@@ -251,7 +251,7 @@ function groqProvider(model: string): Provider {
 }
 
 /**
- * Provider order (owner decision 2026-10-26, master-plan 9.2): Vertex (paid, capped) -> Gemini free
+ * Provider order (owner decision 2026-10-26): Vertex (paid, capped) -> Gemini free
  * tier -> Groq. Every free model has its OWN quota, so the chain multiplies capacity.
  */
 const PROVIDERS: Provider[] = [

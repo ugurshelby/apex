@@ -1,5 +1,5 @@
 /**
- * Master-plan 1.4 / 8.7 — notify-sessions claims a session in
+ * notify-sessions claims a session in
  * `notified_sessions` before sending, so a failed or duplicate claim can never
  * turn into a notification on every cron run.
  */

@@ -1,5 +1,5 @@
 /**
- * Master-plan 1.3 — idempotent ingest: a Jolpica snapshot fetched long enough
+ * Idempotent ingest: a Jolpica snapshot fetched long enough
  * after its due window is final and the sync-f1 cron never pulls it again.
  *
  * Pure helpers first, then the route with every collaborator stubbed so the

@@ -1,5 +1,5 @@
 /**
- * Pure selection helpers for the telemetry build (master-plan 13.2/13.3): match
+ * Pure selection helpers for the telemetry build: match
  * a Jolpica race to its OpenF1 session, find the pole lap by time and car, and
  * reject a built lap that fails the plausibility gates.
  */

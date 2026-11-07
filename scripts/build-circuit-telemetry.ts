@@ -1,8 +1,7 @@
 /**
  * Builds the committed track telemetry (data/circuits/telemetry/*.json) from
  * OpenF1's free historical API, one measured reference lap per circuit of the
- * current calendar (master-plan 13.2/13.3, DECISIONS 2026-10-21 "13.1 Track
- * telemetry"). Needs NO secrets and reads NO env file.
+ * current calendar. Needs NO secrets and reads NO env file.
  *
  *   npx tsx scripts/build-circuit-telemetry.ts             all circuits
  *   npx tsx scripts/build-circuit-telemetry.ts --circuit monza

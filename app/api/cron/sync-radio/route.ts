@@ -1,5 +1,5 @@
 /**
- * Cron: sync-radio (Masterplan Karar B + E)
+ * Cron: sync-radio
  *
  * Fetches OpenF1 team_radio for current-year race sessions → upserts into
  * radio_moments with audio_url and source='openf1'.

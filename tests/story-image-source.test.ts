@@ -1,5 +1,5 @@
 /**
- * Master-plan 7.1 / AG-1 — story photographs: a credit line and a link to the
+ * Story photographs: a credit line and a link to the
  * original page appear ONLY for an image whose source is recorded ('sourced');
  * an 'unverified' image shows neither, and every story carries the
  * editorial-use notice.

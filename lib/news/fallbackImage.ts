@@ -1,5 +1,5 @@
 /**
- * Licensed archive image for a news item without a usable publisher photo (master-plan 8.9).
+ * Licensed archive image for a news item without a usable publisher photo.
  * Pure: the caller supplies the entities (current-season drivers, teams and calendar circuits,
  * from the snapshot readers), so nothing here is a fixed list.
  */

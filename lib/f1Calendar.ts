@@ -1,5 +1,5 @@
 /**
- * F1 Temporal Single Source of Truth (Masterplan Karar D — no hardcoding).
+ * F1 Temporal Single Source of Truth (no hardcoding).
  *
  * Every season/round/"which season is current" decision flows through here.
  * No other file hardcodes the season year, driver list, or team list.

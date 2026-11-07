@@ -3,7 +3,7 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 /**
- * Structural guard for the service-role client (master-plan "Teknik borç", 2026-10-28). The `server-only`
+ * Structural guard for the service-role client (2026-10-28). The `server-only`
  * package is not used: the seed scripts import `lib/supabase` under tsx, where it throws. Instead no
  * `'use client'` module may import a module that creates or uses the admin client.
  */

@@ -3,7 +3,7 @@ import { formatNumber, formatPercent } from '@/lib/i18n/format';
 import type { CircuitTelemetry } from '@/lib/telemetry/types';
 
 /**
- * Figures of the measured pole lap (master-plan 13.4), each as stored in the telemetry file,
+ * Figures of the measured pole lap, each as stored in the telemetry file,
  * and the source line the OpenF1 licence asks for.
  */
 export function TelemetryStats({ telemetry }: { telemetry: CircuitTelemetry }) {

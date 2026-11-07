@@ -14,7 +14,7 @@ const ART: Record<PlaceholderKind, { widths: [number, number]; position: string 
   circuit: { widths: [688, 1376], position: '50% 50%' },
 };
 
-/** Car artwork per era (owner-supplied 2026-10-31, master-plan 8.15): first season of each era. */
+/** Car artwork per era (owner-supplied 2026-10-31): first season of each era. */
 export const CAR_ERAS = [1950, 1961, 1968, 1983, 1994, 2009] as const;
 export type CarEra = (typeof CAR_ERAS)[number];
 

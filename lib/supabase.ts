@@ -2,7 +2,7 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import type { Database } from '@/types/database';
 
 /**
- * Supabase clients — strict client/server separation (Masterplan Karar B/D).
+ * Supabase clients — strict client/server separation.
  *
  * - getSupabaseClient(): anon key, safe for client + RSC reads. Subject to RLS
  *   (public read only). NEVER writes.

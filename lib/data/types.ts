@@ -21,7 +21,7 @@ export interface NewsItem {
   /** Every outlet that covered the story, with a link to its article (detail page attribution). */
   sourceLinks?: Array<{ name: string; url: string; title: string }>;
   /**
-   * Licensed archive image for an item without a usable publisher photo (master-plan 8.9): the
+   * Licensed archive image for an item without a usable publisher photo: the
    * driver, team car or circuit the headline is about. Team matches use the season's car photo,
    * never a team logo (owner decision 2026-10-27, 8.11b).
    */

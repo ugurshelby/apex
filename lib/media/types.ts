@@ -5,7 +5,7 @@ export type { MediaEntityType };
 export const MEDIA_ENTITY_TYPES: readonly MediaEntityType[] = ['driver', 'team', 'car', 'circuit'];
 
 /**
- * Team logos are neither sourced nor served (owner decision 2026-10-27, master-plan 8.11b): the
+ * Team logos are neither sourced nor served (owner decision 2026-10-27): the
  * site shows its own team mark. Discovery skips `team`, sync never claims a `team` row, and reads
  * answer `team` with placeholders without a query. LOGO_OVERRIDES and the logo gates stay in the
  * code, so turning this back on is this one change. Stored rows and files are kept (cleanup is a

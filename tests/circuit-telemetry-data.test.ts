@@ -8,8 +8,7 @@ import { lapMetrics, sectorBoundaries, slowPoints } from '@/lib/telemetry/derive
 import { isCircuitTelemetry } from '@/lib/telemetry/types';
 
 /**
- * No-invented-data gate for the committed track telemetry (master-plan 13.2,
- * DECISIONS 2026-10-21 "13.1"): every stored value must follow from the stored
+ * No-invented-data gate for the committed track telemetry: every stored value must follow from the stored
  * OpenF1 samples, and the samples must look like a real lap.
  */
 

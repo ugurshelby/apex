@@ -10,7 +10,7 @@ import {
 } from '@/data/stories/image-credits';
 
 /**
- * Story photographs (master-plan 7.1 / AG-1). Images are used editorially, not
+ * Story photographs. Images are used editorially, not
  * commercially. Only an image whose source is recorded in
  * `data/stories/image-credits.ts` (status 'sourced') gets a credit line and a
  * link to its original page; an 'unverified' image shows neither — the general

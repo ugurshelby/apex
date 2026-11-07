@@ -1,5 +1,5 @@
 /**
- * Stale-while-revalidate refresh job (master-plan 1.3): reads Jolpica, validates, and
+ * Stale-while-revalidate refresh job: reads Jolpica, validates, and
  * writes through the shared upsert path; cooldown, build-time and standings guards.
  * The read-path wiring is covered in snapshot-refresh-read.test.ts.
  */

@@ -1,5 +1,5 @@
 /**
- * F1DB GitHub Release adapter (Masterplan Karar E).
+ * F1DB GitHub Release adapter.
  *
  * F1DB publishes CalVer JSON releases at:
  *   https://github.com/f1db/f1db/releases

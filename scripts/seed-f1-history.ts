@@ -1,5 +1,5 @@
 /**
- * One-time historical F1 seed: F1DB → Supabase f1_snapshots (Masterplan Karar E).
+ * One-time historical F1 seed: F1DB → Supabase f1_snapshots.
  *
  * Downloads the latest F1DB release JSON once into memory, then upserts
  * season + round snapshots for SEED_MIN..SEED_MAX (default 1950..currentYear —

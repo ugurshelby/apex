@@ -21,7 +21,7 @@ export interface TracePin {
 }
 
 /**
- * Measured pole-lap outline (master-plan 13.4): the sample positions as a line split into the
+ * Measured pole-lap outline: the sample positions as a line split into the
  * three timing sectors, sector boundary ticks, and the slowest points as pins that show speed
  * and gear on hover, tap or keyboard focus. No corner names or numbers (no source for them).
  */

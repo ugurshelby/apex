@@ -11,7 +11,7 @@ const BRAKE_Y = THROTTLE_Y + BAND_H + 6;
 const H = BRAKE_Y + BAND_H;
 
 /**
- * Speed over distance for the measured pole lap (master-plan 13.4), with the gear band and the
+ * Speed over distance for the measured pole lap, with the gear band and the
  * throttle and brake strips underneath and the two sector boundaries. Values are drawn as stored;
  * only the axis labels are formatted.
  */

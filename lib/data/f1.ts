@@ -1,5 +1,5 @@
 /**
- * F1 snapshot read layer — 3-tier fallback (Masterplan Karar E):
+ * F1 snapshot read layer — 3-tier fallback:
  *   1. Supabase `f1_snapshots` (DB — the single source of truth)
  *   2. build-time static JSON under public/data/f1 (if present)
  *   3. Jolpica proxy via /api/f1-season (last resort, live only)

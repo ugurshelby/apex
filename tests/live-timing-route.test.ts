@@ -1,7 +1,6 @@
 /**
- * Route-level simulation of /api/live-timing across a race session timeline
- * (Master-plan 1.1): live window + post-finish grace, edge-cache header,
- * stampede guard, TTL memo, serve-stale on upstream failure/timeout.
+ * Route-level simulation of /api/live-timing across a race session timeline: live window + post-finish grace,
+ * edge-cache header, stampede guard, TTL memo, serve-stale on upstream failure/timeout.
  *
  * OpenF1 is stubbed with a deterministic session; the route module is
  * re-imported per test because its memo + in-flight guard are module-scoped.

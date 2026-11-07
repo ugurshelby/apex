@@ -1,5 +1,5 @@
 /**
- * OpenF1 adapter — team_radio audio moments (Masterplan Karar E) and the
+ * OpenF1 adapter — team_radio audio moments and the
  * home-page live tracker (/api/live-timing).
  *
  * OpenF1 API: https://api.openf1.org/v1
@@ -11,7 +11,7 @@
  *   from POST /token (form fields `username`, `password`; `expires_in` 3600 s,
  *   https://openf1.org/auth.html), kept in memory until shortly before expiry
  *   and refreshed once on a 401. Without them the adapter behaves as before.
- * - Rate limit: 3 req/s, 30 req/min (Masterplan Karar D constraint).
+ * - Rate limit: 3 req/s, 30 req/min.
  *
  * This adapter enforces a per-instance token bucket: at most 3 concurrent
  * requests with a 350 ms inter-request floor so we never exceed 3/s.

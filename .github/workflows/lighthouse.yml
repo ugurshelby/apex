@@ -1,6 +1,6 @@
 name: lighthouse
 
-# Lab measurement for the media gate K2 (master-plan 8.12): Lighthouse CI's default
+# Lab measurement for the media gate K2: Lighthouse CI's default
 # mobile emulation with simulated throttling, 3 runs per page, against the deployed
 # site. Pages are the paths in scripts/capture-screenshots.ts (PAGES); the host comes
 # from the repo variable SITE_URL. Manual only, no secrets; the reports are uploaded

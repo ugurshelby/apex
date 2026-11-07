@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-// Spend limits for the news rewrite (OWASP LLM10, master-plan 14.4). Raising any bound
+// Spend limits for the news rewrite (OWASP LLM10). Raising any bound
 // here is a deliberate spend decision: change the constant and this test together.
 
 type RewriteModule = typeof import('@/lib/news/rewrite');

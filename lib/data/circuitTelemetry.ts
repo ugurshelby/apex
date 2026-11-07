@@ -3,7 +3,7 @@ import { TELEMETRY_LOADERS } from '@/data/circuits/telemetry';
 import { isCircuitTelemetry, type CircuitTelemetry } from '@/lib/telemetry/types';
 
 /**
- * The measured reference lap of a circuit (master-plan 13.2), or `null` when the
+ * The measured reference lap of a circuit, or `null` when the
  * circuit has no telemetry file or the file fails validation. Server components
  * only: each circuit page imports just its own JSON through the loader map.
  */

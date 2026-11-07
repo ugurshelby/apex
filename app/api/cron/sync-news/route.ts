@@ -1,5 +1,5 @@
 /**
- * Cron: sync-news (Masterplan Karar B)
+ * Cron: sync-news
  *
  * RSS -> stories. Articles from every outlet are clustered by event; each
  * story is stored ONCE in `news_stories` with an original EN+TR brief, the

@@ -1,5 +1,5 @@
 /**
- * Source-agnostic F1 ingestion core (Masterplan Karar E).
+ * Source-agnostic F1 ingestion core.
  *
  * Responsibilities:
  *  - `roundSuffixToSnapshotType`: normalise free-form path suffixes to the

@@ -28,7 +28,7 @@ export default async function MediaSourcesPage({ params }: { params: Promise<{ l
   const tl = await getTranslations({ locale, namespace: 'legal' });
 
   // Story photographs: only images with a recorded source are listed publicly;
-  // 'unverified' entries are the owner's internal worklist (master-plan 7.1).
+  // 'unverified' entries are the owner's internal worklist.
   const storyImages = storyImageCreditSummary();
   const storyTitles = new Map<string, string>();
   if (storyImages.bySlug.length > 0) {

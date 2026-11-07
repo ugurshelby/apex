@@ -1,5 +1,5 @@
 /**
- * Cron: sync-f1 (Masterplan Karar B + E)
+ * Cron: sync-f1
  *
  * Syncs current-season F1 data from Jolpica into f1_snapshots.
  * - Auth: Authorization: Bearer ${CRON_SECRET} (legacy CRON_SECRET_KEY also accepted)

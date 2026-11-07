@@ -1,5 +1,5 @@
 /**
- * F1 news RSS aggregation (Masterplan Karar A/E).
+ * F1 news RSS aggregation.
  *
  * Feed fetching and filtering for the sync-news cron (`fetchRawNews`); the story
  * pipeline (lib/news/stories.ts) clusters the raw items and probes their images.

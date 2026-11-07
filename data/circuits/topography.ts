@@ -1,7 +1,7 @@
 /**
  * Curated, editorial topography/telemetry estimates for a few circuits (shown on
  * /circuits/<id> by CircuitElevationProfile). Not official data; the UI says so.
- * Owner editorial review: master-plan 7.2.
+ * Owner editorial review is still open.
  */
 
 export interface TopographyProfile {

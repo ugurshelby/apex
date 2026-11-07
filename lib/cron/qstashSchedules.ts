@@ -11,9 +11,8 @@
  * fails when the worst case exceeds 60% of the free daily quota, so adding a schedule cannot silently push the
  * project over the limit.
  *
- * Live state (2026-10-12): the schedules were made through the Upstash MCP (POST, 3 retries, generated `scd_` ids,
- * EU region; no `notify-sessions`), not by `qstash-sync`. Running the script now would add the `apex-*` ids next to
- * them, so remove the MCP-made ones first (docs/reference/apex-reference.md, scheduler section).
+ * Live state (2026-11-05): the live schedules carry the `apex-*` ids, use GET, and have the same cron and retries as
+ * the list below (checked against the QStash console).
  */
 
 export const QSTASH_FREE_LIMITS = { messagesPerDay: 1000, activeSchedules: 10 } as const;
