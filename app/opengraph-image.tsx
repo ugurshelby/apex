@@ -13,10 +13,19 @@ export const alt = SITE_NAME;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
-// 886×206, transparent; read once, it does not depend on the request.
-const wordmark = `data:image/png;base64,${await readFile(join(process.cwd(), 'public/brand/apex-wordmark.png'), 'base64')}`;
+// 886×206, transparent. Read inside the handler, never at module load: every
+// page imports this module for its metadata (alt, size), and page functions on
+// Vercel do not carry public/, so a top-level read crashed them with ENOENT.
+let wordmarkSrc: Promise<string> | undefined;
+function loadWordmark(): Promise<string> {
+  wordmarkSrc ??= readFile(join(process.cwd(), 'public/brand/apex-wordmark.png'), 'base64').then(
+    (data) => `data:image/png;base64,${data}`,
+  );
+  return wordmarkSrc;
+}
 
-export default function OgImage() {
+export default async function OgImage() {
+  const wordmark = await loadWordmark();
   return new ImageResponse(
     (
       <div
