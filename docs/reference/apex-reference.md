@@ -1,7 +1,7 @@
 # Apex — reference
 
 
-Package name: `apex` [VERIFIED: `package.json`]. Product name used in the UI and docs: Apex [VERIFIED: `README.md`, `PRODUCT.md`, `messages/en.json`]. This file does not replace `docs/plans/master-plan.md` (the live checklist).
+Package name: `apex` [VERIFIED: `package.json`]. Product name used in the UI and docs: Apex [VERIFIED: `README.md`, `PRODUCT.md`, `messages/en.json`].
 
 Evidence tags: **[VERIFIED]** means the command was run or the file was read. **[INFERRED]** means a conclusion from that evidence. **[UNVERIFIED]** means it could not be checked, with the reason.
 
@@ -17,9 +17,9 @@ Apex is an unofficial Formula 1 archive and live-data site. The README states th
 
 `PRODUCT.md` states the users as Formula 1 followers who want to study season results and driver or team performance in depth on desktop, or check them quickly on mobile [VERIFIED: `PRODUCT.md`]. The same file states the purpose as an unofficial, copyright-safe, fast Formula 1 statistics and telemetry archive, with a calm, technical, authoritative brand, and WCAG 2.2 AA as the target [VERIFIED: `PRODUCT.md`].
 
-`ROADMAP.md` states a further goal: move the product from a portfolio demo to something thousands of users can rely on, with traceable licenses, measurable SEO, and predictable performance [VERIFIED: `ROADMAP.md`]. That file does not record that this goal was accepted as a current release commitment beyond being written there.
+An earlier root roadmap (retired 2026-10-06) stated a further goal: move the product from a portfolio demo to something thousands of users can rely on, with traceable licenses, measurable SEO, and predictable performance. The current launch target is the 2027 season.
 
-The live URL named in the README, master plan, and agent rules is `https://apex-seven-vert.vercel.app` [VERIFIED: `README.md`, `docs/plans/master-plan.md`]. On 2026-10-01 that URL returned HTTP 200, title `Apex - F1 Archive`, canonical `https://apex-seven-vert.vercel.app` [VERIFIED: `Invoke-WebRequest` to `/`].
+The live URL named in the README is `https://apex-seven-vert.vercel.app` [VERIFIED: `README.md`]. On 2026-10-01 that URL returned HTTP 200, title `Apex - F1 Archive`, canonical `https://apex-seven-vert.vercel.app` [VERIFIED: `Invoke-WebRequest` to `/`].
 
 No file in the repo states a business owner, a company, or a revenue model. Those are not inferred here.
 
@@ -41,7 +41,7 @@ The web app is a working Next.js product, not a skeleton and not an idea with li
 | Production build | `npm run build`: exit 0 (Next.js Turbopack). 50/50 static pages and dynamic routes compiled [VERIFIED: 2026-10-08] |
 | Media coverage | `media_assets`: 233/246 resolved (hockenheimring resolved 2026-10-07 23:05 UTC), 13 `missing` by design (7 circuits without a free photo, 6 team logos) [VERIFIED: Supabase MCP SELECT, 2026-10-08] |
 | Locale leaks | 20 live EN pages scanned for Turkish UI text on 2026-10-08: only `/circuits/spa` and `/circuits/monaco` leaked (elevation + lore panels); fixed in `35fd2f0`, plus the season chart title, driver/team photo labels and circuit HUD (`0e06b06`, `8dc5e9b`) [VERIFIED: curl scan before, local production build after] |
-| Core Web Vitals (lab) | Lighthouse 13.5 (local Chrome, live site, mobile simulated 4G, 2026-10-08): home LCP 6.5–7.2 s, CLS ≤ 0.04, TBT ~300 ms, score 64–66; `/season/2026` LCP 3.6 s; `/grid` 5.2 s; `/drivers/norris` 4.5 s; `/circuits/spa` 3.4 s, CLS 0.115. Desktop home: LCP 1.7 s, score 91. Home LCP element is the hero circuit photo; its breakdown is ~0.35–0.6 s TTFB, ~1.6–1.9 s resource load delay, ~0.1–0.2 s load, 0.5–0.7 s render delay. Local A/B on a production build: hinting the image earlier (`getImageProps` + `ReactDOM.preload` before the other hero reads) gave no gain; hiding the home news thumbnails (7 full-size third-party press photos, 130–331 KB each, shown at 44 px, `unoptimized`) cut the page from 1,716 to ~650 KiB and LCP from 6.8–7.2 s to 5.6–5.8 s (owner decision, master-plan 6.2). Field data (CrUX): none, PageSpeed Insights API returned 429 (keyless daily quota) [VERIFIED: Lighthouse JSON reports] |
+| Core Web Vitals (lab) | Lighthouse 13.5 (local Chrome, live site, mobile simulated 4G, 2026-10-08): home LCP 6.5–7.2 s, CLS ≤ 0.04, TBT ~300 ms, score 64–66; `/season/2026` LCP 3.6 s; `/grid` 5.2 s; `/drivers/norris` 4.5 s; `/circuits/spa` 3.4 s, CLS 0.115. Desktop home: LCP 1.7 s, score 91. Home LCP element is the hero circuit photo; its breakdown is ~0.35–0.6 s TTFB, ~1.6–1.9 s resource load delay, ~0.1–0.2 s load, 0.5–0.7 s render delay. Local A/B on a production build: hinting the image earlier (`getImageProps` + `ReactDOM.preload` before the other hero reads) gave no gain; hiding the home news thumbnails (7 full-size third-party press photos, 130–331 KB each, shown at 44 px, `unoptimized`) cut the page from 1,716 to ~650 KiB and LCP from 6.8–7.2 s to 5.6–5.8 s (owner decision). Field data (CrUX): none, PageSpeed Insights API returned 429 (keyless daily quota) [VERIFIED: Lighthouse JSON reports] |
 | Live home | HTTP 200 [VERIFIED] |
 | Live `sitemap.xml` | HTTP 200; first URL is the eight host, with `en` / `tr` / `x-default` alternates [VERIFIED] |
 | Live `robots.txt` | HTTP 200; allows `/` and the legal paths; disallows `/api/` and `/api/cron/` [VERIFIED] |
@@ -65,7 +65,7 @@ The web app is a working Next.js product, not a skeleton and not an idea with li
 
 ### Half-built, or stated as open while the code has moved on
 
-- `docs/plans/master-plan.md` previously had unchecked items: tablet breakpoint (WEB-UI.4), season layout (WEB-UI.5), list template (WEB-UI.6), and detail template (WEB-UI.7) were measured in Chromium on 2026-10-05 and marked verified (0 overflow across 375/768/1280px). Lighthouse (WEB-UI.8), permanent 2026 Jolpica snapshot fill, live-race end-to-end check, i18n phase-6 QA, and mobile store release stay open.
+- The plan previously had unchecked items: tablet breakpoint (WEB-UI.4), season layout (WEB-UI.5), list template (WEB-UI.6), and detail template (WEB-UI.7) were measured in Chromium on 2026-10-05 and marked verified (0 overflow across 375/768/1280px). Lighthouse (WEB-UI.8), permanent 2026 Jolpica snapshot fill, live-race end-to-end check, i18n phase-6 QA, and mobile store release stay open.
 - Playwright is a devDependency and is used for headless browser audits [VERIFIED: 2026-10-05 audit].
 - `mobile/` exists on disk (Expo ~56, React Native 0.85.3) and is gitignored. `git ls-files mobile` returned 0 tracked files [VERIFIED]. It is not part of the git tree that `main` deploys. Mobile scripts were not run.
 - `.github/workflows/ci.yml` runs `npm ci`, `npm audit --omit=dev --audit-level=high`, lint, `npm run typecheck`, `npm test`, `npm run build`, plus a separate Semgrep job, on pull requests to `main` and on pushes to `main` and `wip/**`, on the Node in `.nvmrc` (24). Green on `wip/deps-2026-10` (run 40324388109, 2026-10-26: 75 files, 758 tests). `.github/workflows/security-audit.yml` runs the same production audit weekly (Monday 06:00 UTC) and on dispatch. The other three workflows only call cron endpoints.
@@ -116,7 +116,7 @@ Public JSON routes under app/api/*  (rate-limited, snapshot-first where noted)
 Rules that the code and the engineering standard both state:
 
 - Historical seasons are read from the database. The current season can fall through to Jolpica when the snapshot is stale or content-invalid [VERIFIED: `docs/reference/muhendislik-dersleri.md` describes this; `tests/f1-read-fallback.test.ts` passed, which covers that read order].
-- News pages read `news_stories`, not the visitor’s browser calling RSS [VERIFIED: `docs/plans/news-stories-ui-handoff.md` and `docs/vision/technical.md` “Haber hikâyeleri” section; home page imports `getLatestNews`].
+- News pages read `news_stories`, not the visitor’s browser calling RSS [VERIFIED: `docs/vision/technical.md` “Haber hikâyeleri” section; home page imports `getLatestNews`].
 
 ### Directory map
 
@@ -125,7 +125,7 @@ Paths below were confirmed by file search or `Test-Path` on 2026-10-06.
 | Path | Role |
 |---|---|
 | `app/[locale]/` | Pages: home, season, season year, round, drivers, teams, grid, circuits, news, news id, anthology, glossary, disclaimer, privacy, terms, dmca |
-| `app/api/` | 14 route handlers: five crons (`sync-news`, `sync-f1`, `sync-radio`, `notify-sessions`, `sync-media`), `f1-season`, `live-timing`, `media`, `push/register`, season, season last-result, circuit, driver career, team career. `/api/news` (live RSS scrape) was removed on 2026-10-28 (master-plan 14.5); news is read only from `news_stories` → `news_cache` → `public/news-fallback.json` |
+| `app/api/` | 14 route handlers: five crons (`sync-news`, `sync-f1`, `sync-radio`, `notify-sessions`, `sync-media`), `f1-season`, `live-timing`, `media`, `push/register`, season, season last-result, circuit, driver career, team career. `/api/news` (live RSS scrape) was removed on 2026-10-28; news is read only from `news_stories` → `news_cache` → `public/news-fallback.json` |
 | `app/sitemap.ts`, `app/robots.ts` | Crawl surface |
 | `components/` | UI. 89 modules: layout, home, season, news, profile, anthology, glossary, legal, media |
 | `lib/` | `data/`, `f1/`, `news/`, `api/`, `security/csp.ts`, `seo.ts`, `cronAuth.ts`, `rateLimit.ts`, `supabase.ts`, `f1Calendar.ts`, `f1Ingest.ts` |
@@ -184,10 +184,10 @@ Whether the remote migration history matches these eight files one-for-one was n
 | Jolpica / Ergast | `lib/f1/sources/jolpica.ts`, `app/api/f1-season/route.ts`, `scripts/sync-f1-scheduled.ts` | Proxy path is a whitelist regex. Host is hardcoded. Snapshot is returned before a live call [VERIFIED: `app/api/f1-season/route.ts`] |
 | F1DB | `lib/f1/sources/f1db.ts`, `npm run seed:f1db`, and `scripts/build-f1-history-index.ts` (committed history index). **License CC BY 4.0: attribution is shown in the footer** | Historical seed. Local index is `v2026.16.0` (updated 2026-10-05); upstream release is `v2026.16.0` (published 2026-10-04) [VERIFIED: local build + GitHub API] |
 | OpenF1 | `lib/f1/sources/openf1.ts`, `app/api/live-timing/route.ts`, `sync-radio` | Code comment: 3 requests/second shared, not per visitor. Live route uses 5s edge cache, an in-memory stampede guard, and an 8s timeout [VERIFIED: route comments]. **While a session is live OpenF1 answers every unauthenticated request with 401, historical queries included** (measured 2026-10-11 13:16Z–13:55Z on six endpoints). Since 2026-10-11 the adapter turns that 401 into `OpenF1RestrictedError` (`lib/f1/sources/openf1Errors.ts`) and `live-timing` answers 200 `{live:true, restricted:true, rows:[]}` with `s-maxage=60`, memoised 60 s per instance; `sync-radio` stops at the first lock and returns `deferred: 'openf1-live-session'`. Optional auth is built in: with `OPENF1_USERNAME` + `OPENF1_PASSWORD` (server env, not set as of 2026-10-11) the adapter gets a bearer token from `POST /token` (form `username`+`password`, `expires_in` 3600 s), keeps it until 5 min before expiry and refreshes once on a 401 [VERIFIED: `openf1.org/auth.html` read 2026-10-11, `tests/openf1-auth.test.ts`, `tests/live-timing-route.test.ts`, `tests/sync-radio-route.test.ts`]. Owner decision 2026-10-11: free tier, no live order during sessions (home shows a "Lights out" race-day panel). Post-race: `sync-f1` step 6 (`lib/f1/provisionalSync.ts`) writes `results` + both standings as `source='openf1'` from `session_result`, `championship_drivers`, `championship_teams` once the race session has ended; Step 7 (`syncProvisionalSessionFromOpenF1`, same file) writes provisional `qualifying` and `sprint` snapshots as `source='openf1'` once the OpenF1 session has ended (+5 min); the response carries `provisionalSessions: { qualifying, sprint }`, and every provisional snapshot has `MRData.apexProvisional: true`. Step 8 (`lib/f1/raceEventsSync.ts`, Faz 21.1) writes round rows `race_control` (race control messages without blue flags) and `lap_positions` (grid and per-lap running order from `position` + `laps`) as `source='openf1'` 30 min after the race session ends and once more 2 h after it (post-race stewards' decisions); the response carries `raceEvents` [VERIFIED: `tests/race-events.test.ts` on R19 2026 data, session 11404] [VERIFIED: `tests/provisional-sync.test.ts`, `tests/provisional-openf1.test.ts`; not yet observed live, first read at R19 Qualifying]. Jolpica rows replace them, and Jolpica standings never overwrite OpenF1 standings for a round Jolpica has no results for [VERIFIED: `tests/provisional-sync.test.ts`, `tests/provisional-openf1.test.ts`, dry run on R17 data 2026-10-11] |
-| Open-Meteo | circuit weather cron path described in `docs/plans/master-plan.md` and `20260929000002_circuit_weather.sql` | Page reads are documented as DB-only |
+| Open-Meteo | circuit weather cron path described in `20260929000002_circuit_weather.sql` | Page reads are documented as DB-only |
 | RSS | `lib/news/aggregate.ts`, `sync-news` | Clustered into `news_stories` |
 | Groq, then Gemini | `lib/news/rewrite.ts` | Default models `openai/gpt-oss-120b`, `openai/gpt-oss-20b`, then `gemini-3.5-flash-lite`, `gemini-3.8-flash`. Overridable by `GROQ_NEWS_MODELS` and `GEMINI_NEWS_MODELS` |
-| MyMemory | `lib/news/translate.ts` (named in the news_cache TR migration and master plan) | No API key. Free quota |
+| MyMemory | `lib/news/translate.ts` (named in the news_cache TR migration) | No API key. Free quota |
 | Expo push | `app/api/push/register/route.ts`, `lib/push/sendExpoPush.ts` | Token must pass `Expo.isExpoPushToken` |
 
 ### Cron and schedules
@@ -215,11 +215,11 @@ All five cron routes (`sync-media` added 2026-10-06) call `isCronAuthorized` [VE
 
 `notify-sessions` dedupe (2026-10-08): the route reads subscribers first (a failed read returns 500 and claims nothing, so the next run inside the ±5 min window retries), then claims each due session by inserting its `notified_sessions` row and only sends after a successful claim. A unique violation (`23505`) means an earlier or overlapping caller already sent it (`deduped`); any other insert error skips the send and makes the run return 500 with the session in `failed` (no silent re-send every run). Response fields: `sessionsChecked`, `claimed`, `deduped`, `notified` (accepted Expo tickets only), `failed` [VERIFIED: `app/api/cron/notify-sessions/route.ts`, `tests/notify-sessions-route.test.ts` 7 tests].
 
-**Measured 2026-10-07 (`gh run list`, `schedule` events): GitHub does not honour these schedules.** `notify-sessions` (nominal every 10 min) ran with a median gap of 308 min (min 142, max 562; ~5 runs/day instead of 144); `sync-news` and `sync-media` (nominal hourly) ~5 runs/day with median gaps of 327 and 249 min; `sync-f1-race-aware` (nominal hourly) ~5 runs/day, longest gap 9.4 h. GitHub runs scheduled workflows best-effort and delays or drops them on low-activity repositories. Consequences: the 30-minute push window of `notify-sessions` cannot be hit reliably, and `sync-f1-scheduled.ts` used to look back only 65 minutes (now 12 h, 2026-10-07) so most due windows were missed. A reliable external scheduler is open (master-plan 1.6) [VERIFIED: `gh run list` gap statistics, `scripts/sync-f1-scheduled.ts`, simulated due-check].
+**Measured 2026-10-07 (`gh run list`, `schedule` events): GitHub does not honour these schedules.** `notify-sessions` (nominal every 10 min) ran with a median gap of 308 min (min 142, max 562; ~5 runs/day instead of 144); `sync-news` and `sync-media` (nominal hourly) ~5 runs/day with median gaps of 327 and 249 min; `sync-f1-race-aware` (nominal hourly) ~5 runs/day, longest gap 9.4 h. GitHub runs scheduled workflows best-effort and delays or drops them on low-activity repositories. Consequences: the 30-minute push window of `notify-sessions` cannot be hit reliably, and `sync-f1-scheduled.ts` used to look back only 65 minutes (now 12 h, 2026-10-07) so most due windows were missed. A reliable external scheduler was added later (QStash, below) [VERIFIED: `gh run list` gap statistics, `scripts/sync-f1-scheduled.ts`, simulated due-check].
 
 **Why GitHub does this (researched 2026-10-07).** GitHub's own docs say scheduled events can be delayed during periods of high load, that load is highest at the start of every hour, and that queued jobs may be dropped under sufficient load; delivery is best-effort, not a timer. Our crons are valid (5-minute minimum respected, none on minute 0) and the repo is public, so this is a platform limit, not a bug in our workflows. The mistake was architectural: time-critical jobs (push 30 minutes before a session, results 2.5 hours after the flag) were put on a best-effort trigger. [VERIFIED: `gh run list` gaps, workflow files; docs wording via web search, not re-read on the GitHub docs site in this pass]
 
-**Primary scheduler: Upstash QStash (live since 2026-10-12, EU region, master-plan 1.6).** `lib/cron/qstashSchedules.ts` defines four schedules, `scripts/qstash-sync.ts` (`npm run qstash:sync`) creates or updates them idempotently (fixed `Upstash-Schedule-Id`), and since 2026-10-11 the routes accept QStash's own request signature: `isCronAuthorized` (now async) passes either the Bearer cron secret (Vercel Cron, GitHub Actions) or a valid `Upstash-Signature` HS256 JWT checked with `QSTASH_CURRENT_SIGNING_KEY` / `QSTASH_NEXT_SIGNING_KEY` (issuer `Upstash`, exp/nbf ±30 s, `sub` path must equal the route path, body hash) [VERIFIED: `tests/cronAuth.test.ts`]. Schedules therefore forward no secret (a forwarded Bearer stays optional):
+**Primary scheduler: Upstash QStash (live since 2026-10-12, EU region).** `lib/cron/qstashSchedules.ts` defines four schedules, `scripts/qstash-sync.ts` (`npm run qstash:sync`) creates or updates them idempotently (fixed `Upstash-Schedule-Id`), and since 2026-10-11 the routes accept QStash's own request signature: `isCronAuthorized` (now async) passes either the Bearer cron secret (Vercel Cron, GitHub Actions) or a valid `Upstash-Signature` HS256 JWT checked with `QSTASH_CURRENT_SIGNING_KEY` / `QSTASH_NEXT_SIGNING_KEY` (issuer `Upstash`, exp/nbf ±30 s, `sub` path must equal the route path, body hash) [VERIFIED: `tests/cronAuth.test.ts`]. Schedules therefore forward no secret (a forwarded Bearer stays optional):
 
 | Schedule id | Route | Cron (UTC) | Runs/day | Retries |
 |---|---|---|---|---|
@@ -230,7 +230,7 @@ All five cron routes (`sync-media` added 2026-10-06) call `isCronAuthorized` [VE
 
 **Live state (2026-10-12, Upstash MCP, EU region).** The MCP `create` call can only make `POST` schedules with the QStash default of 3 retries, the default timeout and a generated id (`scd_…`), so the five cron routes export `POST = GET` (same handler, same auth, empty body; commit `5a42b84`) and three schedules exist: `sync-f1` `*/30 * * * *`, `sync-news` `11 * * * *`, `sync-media` `41 * * * *`. `notify-sessions` is not scheduled (mobile app shelved). Budget: 96 messages/day normal, 384 worst case (retries 3) of 1,000. First deliveries `sync-news` 04:11Z, `sync-media` 05:41Z, `sync-f1` 06:00Z all `SUCCESS` (2xx), dead-letter queue empty [VERIFIED: Upstash MCP schedule states, 2026-10-12 06:02Z]. `npm run qstash:sync` would add its `apex-*` ids next to these: remove the MCP-made ones first. The table above is the script's design (GET, retries 0/1), not the live state.
 
-**Re-sync to code (master-plan 1.8, 2026-10-28).** State on 2026-10-28: four MCP-made `scd_` schedules (`notify-sessions` `*/10` added 2026-10-20), all retries 3. `npm run qstash:sync -- --prune` applies the four `apex-*` schedules and, only if every apply returned 2xx, deletes live schedules that target a managed route under a non-`apex-*` id (`lib/cron/qstashPrune.ts`, `tests/qstash-prune.test.ts`); schedules aimed at other sites or routes are never touched. CI path: the manual workflow `.github/workflows/qstash-sync.yml` (repo secret `QSTASH_TOKEN`; optional repo variables `QSTASH_URL` for the EU region origin and `SITE_URL`). After the run: `qstash_list_schedules` (eu) shows exactly four `apex-*` ids with code retries (0/1) and `notify-sessions` `*/5`; worst case 480 messages/day.
+**Re-sync to code (2026-10-28).** State on 2026-10-28: four MCP-made `scd_` schedules (`notify-sessions` `*/10` added 2026-10-20), all retries 3. `npm run qstash:sync -- --prune` applies the four `apex-*` schedules and, only if every apply returned 2xx, deletes live schedules that target a managed route under a non-`apex-*` id (`lib/cron/qstashPrune.ts`, `tests/qstash-prune.test.ts`); schedules aimed at other sites or routes are never touched. CI path: the manual workflow `.github/workflows/qstash-sync.yml` (repo secret `QSTASH_TOKEN`; optional repo variables `QSTASH_URL` for the EU region origin and `SITE_URL`). After the run: `qstash_list_schedules` (eu) shows exactly four `apex-*` ids with code retries (0/1) and `notify-sessions` `*/5`; worst case 480 messages/day.
 
 Free-plan limits (Upstash pricing page, checked 2026-10-07): 1,000 messages/day, 10 active schedules, 15 minutes max HTTP response duration; each delivery attempt including each retry counts as a message, and the limits are soft (short spikes are not blocked, sustained overage may return 429). Our load: **384 messages on a normal day, 480 worst case (every run fails and retries), 4 of 10 schedules**. `tests/qstash-schedules.test.ts` fails if the worst case exceeds 60% of the quota, if a schedule points at a route that does not exist or lacks `isCronAuthorized`, or if a timeout does not fit the route's `maxDuration`. The routes' 60-second trigger throttle (`isCronTriggerAllowed`) still applies. The GitHub `schedule` triggers stay as a harmless fallback until QStash is verified; then they are removed (workflows keep `workflow_dispatch`) so two callers cannot overlap.
 
@@ -285,7 +285,7 @@ Cron writes use the service role on the server [VERIFIED: `lib/supabase.ts` comm
 
 ### Abuse and quota
 
-- Public JSON routes call `rateLimit` or `applyRateLimit`: season, careers, circuits, live-timing (30/min), push register (10/min) [VERIFIED: grep and the two route files read]. If Upstash env is absent, the limit is per server instance only [VERIFIED: `lib/rateLimit.ts`]. The master plan still lists “Upstash env on Vercel” as debt [VERIFIED: `docs/plans/master-plan.md`]. Local `.env.local` has the Upstash names. Production presence was not confirmed in this pass, and the 2026-09-28 log already said it could not be confirmed [VERIFIED: log]. [UNVERIFIED] for the current eight project.
+- Public JSON routes call `rateLimit` or `applyRateLimit`: season, careers, circuits, live-timing (30/min), push register (10/min) [VERIFIED: grep and the two route files read]. If Upstash env is absent, the limit is per server instance only [VERIFIED: `lib/rateLimit.ts`]. Local `.env.local` has the Upstash names. Production presence was not confirmed in this pass, and the 2026-09-28 log already said it could not be confirmed [VERIFIED: log]. [UNVERIFIED] for the current eight project.
 - Cron routes have a trigger lock. With Upstash it is a distributed SET NX. Without it, the lock is in-memory [VERIFIED: `lib/cronAuth.ts`]. A leaked cron secret can still start a 300s function on every instance if the distributed lock is absent [INFERRED: from that fallback].
 - `f1-season` cannot be turned into an open proxy: the only user input is `path`, matched to a whitelist, appended to a fixed Jolpica host [VERIFIED: route].
 - `live-timing` can still spend OpenF1 quota on a cache miss. The code treats a fan-out as the failure mode it already fixed once [VERIFIED: route comments and `logs/2026-09-28.md`]. Failure paths are bounded since 2026-10-11: the live-session lock is a cached 200 `restricted` state (edge `s-maxage=60`, 60 s memo, at most one upstream check per minute per instance), any other failure with nothing cached is memoised 15 s (502 + `Retry-After: 15`, no upstream call), and the client tracker slows to 60 s while restricted and backs off 24/48/96/120 s on failures (`lib/home/livePoll.ts`) [VERIFIED: `tests/live-timing-route.test.ts` 14 tests, `tests/live-poll.test.ts`]. Not yet observed in a real locked session (next: R18, 2026-10-25).
@@ -323,7 +323,7 @@ Mobile (`cd mobile && npm start`) was not run. `mobile/` is outside git and outs
 
 Last verified: 2026-10-01
 
-These are patterns the code and the tests actually share. They are reusable. The agent-constitution files that contradict them are listed in section 9 and are not part of this set.
+These are patterns the code and the tests actually share. They are reusable. Rule files that contradicted them were retired.
 
 1. **One temporal module.** `lib/f1Calendar.ts` is the leaf for “what season is it” and “is this session live”. Callers import it. Tests cover it (`tests/f1Calendar.test.ts`).
 2. **Read path is database, then static, then live, with an explicit invalid-content check.** Historical seasons do not call the live API. `tests/f1-read-fallback.test.ts` locks the order.
@@ -365,7 +365,7 @@ Last verified: 2026-10-06
 | OpenF1 fan-out | `Cache-Control: no-store` on live timing meant one upstream call per viewer, against a shared 3 req/s cap | `s-maxage=5`, stampede guard, 8s timeout | [VERIFIED: `logs/2026-09-28.md` and `app/api/live-timing/route.ts`] |
 | Encoding and layout | Mojibake (`Â·`, `â€”`) and a tablet season page blown out to ~4000px by flex `min-width: auto` | Character cleanup and `min-w-0` / `max-w-full` on the season strips (`a55e196`) | [VERIFIED: `logs/2026-09-29.md`] |
 | News detail 404 | Database id and live aggregate id differed | Commit `9a148c9` (2026-07-13). Later, pages moved to `news_stories` ids | [VERIFIED: commit subject; current read path in technical.md] |
-| Accidental commit of a half-finished route move | A pathspec-less commit included another agent’s incomplete `[locale]` move and would have broken the build | `git reset --soft` before push, then two separate commits. The log says they were not pushed until the owner agreed | [VERIFIED: `logs/2026-09-28.md`] |
+| Accidental commit of a half-finished route move | A pathspec-less commit included another contributor’s incomplete `[locale]` move and would have broken the build | `git reset --soft` before push, then two separate commits. The log says they were not pushed until the owner agreed | [VERIFIED: `logs/2026-09-28.md`] |
 | Parallel `next build` | Second build hit “Another next build process is already running” | Do not run two builds. Clear `.next` only when the lock is stale | [VERIFIED: lessons file. Not reproduced in this pass; one build was run] |
 | Asset path and diacritics | Hardcoded `/drivers/{slug}.svg` 404’d after a season-folder move. Accented Ergast ids missed files | Season-aware resolver and alias tests. Later made moot for photos by the null-icon policy | [VERIFIED: lessons file and `tests/f1-icons.test.ts` still passing] |
 | F1DB field name | Mapper read `driverResults`; the file uses `raceResults`, so results were empty | Mapper rewrite and a re-seed | [VERIFIED: lessons file. The 2026-09-28 log says a 1950–2017 backfill then showed 77/77 seasons. Not re-counted in this pass] |
@@ -375,77 +375,46 @@ The 2026-10-01 log says production `sync-f1` and `sync-news` were checked after 
 
 ---
 
-## 9. Documentation inventory (every doc, rule file, log: purpose, up to date or stale, duplicate or conflicting, applied plans that should be deleted)
+## 9. Documentation inventory (every tracked doc: purpose and status)
 
-Last verified: 2026-10-05
+Last verified: 2026-11-13
 
-“Up to date” means it matches the code and the live host on 2026-10-01. “Stale” means a claim in it is false now.
+Measured with `git ls-files docs README.md`. "Current" means no claim in it was found false in this pass; the date is the last full review.
 
-### Root and agent rules
+### Root
 
 | File | Purpose | Status |
 |---|---|---|
 | `README.md` | Setup, routes, env table, stack, live URL | Current (2026-10-06) |
+| `LICENSE` | Licence | Current |
 
-
-### Logs
-
-| File | Purpose | Status |
-|---|---|---|
-| `logs/2026-10-01.md` | News rewrite verification, news UI, hostname move to eight | Newest session log. Pending env items may already be partly overtaken by the live canonical. Keep |
-| `logs/2026-09-29.md` | Tablet/mojibake/anthology contrast, Railway removal, pit stops, weather, translation | Historical. Railway removal matches the tree. `SITE_URL` in that log still mentioned the five host |
-| `logs/2026-09-28.md` | i18n plan, full history seed, live timing, photo removal, scale fixes, accidental commit | Historical and still the best account of those decisions |
-| `logs/2026-09-21.md` | Home and glossary visual redesign | Historical. Some component paths it names (`app/tech-glossary/page.tsx`) moved under `app/[locale]/` |
-
-Logs older than 15 days were removed from the tree on purpose (`c23acc2`). They are only in git history.
-
-### docs/plans
+### docs/
 
 | File | Purpose | Status |
 |---|---|---|
-| `docs/plans/master-plan.md` | The single live checklist | Header date and stale rows fixed 2026-10-01; WEB-UI.4-8 and QA boxes stay open (not measured) |
+| `docs/README.md` | Documentation map | Current (2026-11-13) |
+| `docs/PRODUCT.md` | Product showcase and overview | Current (2026-10-06) |
+| `docs/vision/apex-vision.md` | Vision and mission | Authoritative (2026-10-06) |
+| `docs/vision/technical.md` | Short technical summary | Current |
+| `docs/design/apex-component-rules.md` | Owner's binding component rules | Binding |
+| `docs/design/apex-design.md`, `apex-design-language.md`, `tokens.json` | Design system, page templates, token mirror of `app/globals.css` | Current (2026-10-10) |
+| `docs/editorial/quotes-pending-source.md` | Quotes waiting for a verified source | Worklist |
+| `docs/idea/simulation.md`, `TUM_Yaris_Simulasyonu_Raporu.md` | Race simulation research (paused idea) | Reference |
+| `docs/reference/apex-reference.md` | This file: measured state and baselines | Living |
+| `docs/reference/mimari.md` | Backend architecture and data flow | Current (2026-10-06) |
+| `docs/reference/media-sistemi.md`, `medya-kapisi-olcum.md` | Media system and its gate measurement | Current |
+| `docs/reference/yaris-hafta-sonu-dogrulama.md` | Race-weekend live verification runbook | Current; delete when every item is closed |
+| `docs/reference/muhendislik-dersleri.md` | Engineering traps and "do not break" rules | Historical memory |
+| `docs/reference/guvenlik-durum-tespiti.md`, `security-docs/` | Security assessment and standards | Current (2026-10-28) |
+| `docs/reference/hikaye-gorselleri-kaynak-listesi.md` | Owner worklist of story images without a verified source (generated by `npm run stories:credits -- --write`) | Delete when no image is `unverified` |
+| `docs/reference/anthology-image-map.md` | Mapping of 17 stories to their images | Current |
+| `docs/reference/glossary-icon-prompts.md`, `ai-gorsel-istemleri.md` | Prompt drafts for glossary icons and placeholder art | Reference |
 
-### docs/reference and docs/vision
+### Retired docs
 
-| File | Purpose | Status |
-|---|---|---|
-| `docs/vision/apex-vision.md` | Master vision & mission compass (the foundational purpose of Apex) | Authoritative (2026-10-06) |
-| `docs/vision/technical.md` | Agent technical summary | Current |
-| `docs/vision/skills.md` | Skill trigger list referenced by the constitutions | Reference |
-| `docs/reference/apex-reference.md` | Master living reference and measurement baseline | Current (2026-10-06) |
-| `docs/reference/mimari.md` | Backend architecture and clockwork data flow | Current (2026-10-06) |
-| `docs/reference/media-sistemi.md` | Media (image) system: sources, license gate, DB model, API contract, frontend rules, placeholder brief, operations | Current (2026-10-06). Migration applied and code deployed 2026-10-06; `media_assets` is empty until the first `sync-media` run |
-| `docs/reference/yaris-hafta-sonu-dogrulama.md` | Race-weekend live verification runbook (live timing, sync/settled/SWR, push window, JSON-LD, CWV, Sentry), 2026 calendar, pass criteria | Current (2026-10-06). Delete when every item is closed |
-| `docs/reference/muhendislik-dersleri.md` | Incident list, traps, and “do not break” rules (renamed from `PROJECT_LESSONS_AND_ROADMAP.md`) | Historical engineering memory |
-| `docs/reference/hikaye-gorselleri-kaynak-listesi.md` | Owner worklist: which story image still has no verified source (generated by `npm run stories:credits -- --write` from `data/stories/image-credits.ts`) | Current (2026-10-07). Delete when no image is `unverified` |
-| `docs/reference/anthology-image-map.md` | Canonical mapping of 17 stories to 57 image assets | Current (moved from `docs/` root) |
-| `docs/reference/glossary-icon-prompts.md` | Generative prompts for glossary CAD / blueprint line-art icons | Current (moved from `docs/` root) |
-
-### Other project docs
-
-| File | Purpose | Status |
-|---|---|---|
-| `docs/README.md` | Master documentation map and navigation index | Current (2026-10-06) |
-| `docs/PRODUCT.md` | Official product showcase and overview document (moved from root to `docs/PRODUCT.md`) | Current (2026-10-06) |
-| `docs/procedures.md` | Repeatable operational and maintenance procedures (Procedures 1–8) | Current (Procedure 8 added 2026-10-06) |
-
-### docs/design
-
-Last verified: 2026-10-10
-
-
-On 2026-10-05, conflicting design essays (`design-styles/`, `colours/`, `typography/`, `trends/`, `design-techniques/`, `design.md/`) and unapproved skill directories were consolidated and removed. The single approved skill directory is `docs/design/skills/` containing the 5-layer orchestrated skills: `apple-design` (foundational), `high-end-visual-design` + `minimalist-ui` (execution), `industrial-brutalist-ui` (filtered telemetry), `react-view-transitions` (motion), and `ui-ux-pro-max` + `accesslint-audit` (quality audit).
-
-Other general reference essays in `docs/design/` (`premium-design-philosophy.md`, `universal-design-principles.md`, `ux-laws-reference.md`, `tasarim-skilleri-rehberi.md`) remain background reading, secondary to `apex-design.md`.
-
-### Applied plans and retired docs
-
-- Deleted on 2026-10-01: `docs/PLAN.md`, `docs/plans/i18n-architecture.md`, `docs/plans/news-ui-brief.md`, `docs/plans/news-stories-ui-handoff.md`, `docs/plans/driver-hero-visual-redesign.md`, `docs/reference/proje-dizini.md`.
-- Deleted on 2026-10-06 (Docs refinement procedure): `docs/reference/anthology-gorsel-temin.md`, `docs/reference/web-iyilestirme-onerileri-2026-07-05.md`, `docs/anthology-ingestion-report.md`, `docs/anthology-missing-assets-download-list.md`, `docs/anthology-image-remap-audit.md`, `docs/superpowers/`, and `old-versions-valuable-files/`.
-- Retired on 2026-10-06: `ROADMAP.md` (root roadmap retired after transferring open items into `docs/plans/master-plan.md` Priority 8).
-- `docs/plans/master-plan.md` is the single live checklist and primary developer directive; integrated all tasks and vision points from `docs/plans/acil-eylem-plani.md` on 2026-10-06 and retired the separate file. Organized into prioritized phases with verified test and build baselines.
-
----
+- 2026-10-01 and 2026-10-06: old plan files, briefs and ingestion reports under `docs/` and the root roadmap were deleted after their open items moved to the project plan (git history keeps them).
+- 2026-11-13: `docs/vision/skills.md` (an outdated editor-specific skill list) and the general design essays `docs/design/premium-design-philosophy.md`, `universal-design-principles.md`, `ux-laws-reference.md` were removed; their principles are summarized in the project design skill.
+- Session logs and the working plan are kept outside the repository.
 
 ## 10. Gaps (difference between stated intent and reality, ordered by severity)
 
@@ -456,7 +425,7 @@ Last verified: 2026-10-05
 6. **Rate limiting and cron locking are only as strong as Upstash in production, which is unconfirmed for the current Vercel project.** The code degrades to per-instance memory. The news and F1 crons are also scheduled twice (Vercel daily and GitHub hourly).
 7. **Sentry is wired and the upload failed** with `Project not found` for the org and project once hardcoded in `next.config.ts` (now `SENTRY_ORG` / `SENTRY_PROJECT`, upload off unless set). Error monitoring may be dark. [UNVERIFIED: live Sentry ingest.]
 8. **Node 24 is declared and Node 22 is what actually runs** locally and in the F1 sync workflow. The build passed on 22. An engine-strict environment could diverge. [UNVERIFIED: Node 24 was not installed here.]
-9. **Mobile is documented as a shipping Expo app and is absent from git.** Store release items in the master plan cannot be done from `main`.
+9. **Mobile is documented as a shipping Expo app and is absent from git.** Store release items cannot be done from `main`.
 10. **Lighthouse and live QA backlog.** Frontend audit on 2026-10-05 measured and closed WEB-UI.4 (tablet breakpoint), WEB-UI.5 (season layout), WEB-UI.6 (list templates), and WEB-UI.7 (detail templates) across 375/768/1280px in Chromium with 0 overflow and 0 raw i18n keys [VERIFIED]. Live-race end-to-end and Lighthouse scores (WEB-UI.8) remain open.
 
 ---
@@ -477,17 +446,18 @@ These items are not done. Order follows section 10.
    Done when: the owner confirms those names exist in the Vercel project (values stay secret); a source-map upload either succeeds or is explicitly disabled; `.env.example` lists every name the server reads.
 8. **Align Node.** Either run CI and local engines on 22, or install 24 and re-run the four gates.
    Done when: `.nvmrc`, `engines`, and the workflows name the same major version, and the four gates pass on that version.
-9. **Decide the Expo app.** Track `mobile/` in git, or delete the “shipping app” claims from the master plan and technical.md.
-   Done when: either `git ls-files mobile` is non-empty and the app typechecks, or the docs no longer tell agents to run `cd mobile`.
+9. **Decide the Expo app.** Track `mobile/` in git, or delete the “shipping app” claims from technical.md.
+   Done when: either `git ls-files mobile` is non-empty and the app typechecks, or the docs no longer say to run `cd mobile`.
 10. **Measure the open product checks once.** Lighthouse on home and news, one keyboard pass, one `/tr` pass, and a note of whether WEB-UI.4–8 checkboxes are already done.
-    Done when: numbers for LCP, INP, CLS, and accessibility are written down from a real run, and the master-plan boxes match that run.
+    Done when: numbers for LCP, INP, CLS, and accessibility are written down from a real run, and the plan matches that run.
 
 ---
 
-## 12. Agent rules
+## 12. Contributor rules
 
-Last verified: 2026-10-01
+Last verified: 2026-11-13
 
+Contributor and process rules live in the rule file at the repository root; this reference records measured state only.
 
 ---
 
@@ -504,7 +474,7 @@ Last verified: 2026-10-02
 8. ~~`agent/pilot-setup`: merge or delete?~~ Resolved 2026-10-08: merged into `main` (history only, files unchanged).
 9. ~~Analytics for every visitor?~~ Resolved 2026-10-02: opt-in (owner decision), implemented.
 10. Sentry is not set up (owner decision 2026-11-05). Org and project are read from `SENTRY_ORG` / `SENTRY_PROJECT`; with them unset, source-map upload stays off.
-11. The master plan’s unchecked UI and Lighthouse items were not re-measured in a browser in this pass. Which of WEB-UI.4, WEB-UI.5, WEB-UI.7, and WEB-UI.8 are still wanted?
+11. The plan’s unchecked UI and Lighthouse items were not re-measured in a browser in this pass. Which of WEB-UI.4, WEB-UI.5, WEB-UI.7, and WEB-UI.8 are still wanted?
 12. Who is allowed to apply SQL to the production Supabase project? The logs say the owner applied the September 29 migrations by hand after `db push` timed out. This pass did not compare remote migration history to the eight files.
 
 ---
@@ -513,4 +483,4 @@ Last verified: 2026-10-02
 
 Last verified: 2026-10-01
 
-Re-checked by the pilot-setup agent on 2026-10-01 (commands run, not copied): `components/` = 89 ts/tsx files; `app/[locale]` = 20 `page.tsx`; `app/api` = 13 `route.ts`; 8 migrations; 22 test files; `public/stories` = 124 tracked files; `mobile/` gitignored, 0 tracked; `getSiteUrl()` fallback = seven host; live `/` on eight = 200 with eight canonical, seven = 404, unauthenticated `sync-news` = 401; all four cron routes contain `isCronAuthorized`; env names read in code match the list in section 5; workflows use Node 22 while `engines`/`.nvmrc` say 24; legal pages use `.example` mailboxes; layout mounts Analytics and Speed Insights. No `[VERIFIED]` claim was found false. One addition: `docs/design/README.md` cites a non-existent `apex-final-design.md` (fixed in the docs cleanup).
+Re-checked on 2026-10-01 (commands run, not copied): `components/` = 89 ts/tsx files; `app/[locale]` = 20 `page.tsx`; `app/api` = 13 `route.ts`; 8 migrations; 22 test files; `public/stories` = 124 tracked files; `mobile/` gitignored, 0 tracked; `getSiteUrl()` fallback = seven host; live `/` on eight = 200 with eight canonical, seven = 404, unauthenticated `sync-news` = 401; all four cron routes contain `isCronAuthorized`; env names read in code match the list in section 5; workflows use Node 22 while `engines`/`.nvmrc` say 24; legal pages use `.example` mailboxes; layout mounts Analytics and Speed Insights. No `[VERIFIED]` claim was found false. One addition: `docs/design/README.md` cites a non-existent `apex-final-design.md` (fixed in the docs cleanup).

@@ -70,7 +70,7 @@ Testler: `tests/on-this-day-image.test.ts`.
 
 ## 3. Teknik Sözlük: Lastik sıcaklık pencereleri (sahip, 2026-10-12)
 
-Bileşen: `components/glossary/TyreThermalWindows.tsx`. Sahibin brifinden bağlayıcı maddeler, sahibin cümleleriyle (tam brif: `docs/plans/master-plan.md` U-1):
+Bileşen: `components/glossary/TyreThermalWindows.tsx`. Sahibin brifinden bağlayıcı maddeler, sahibin cümleleriyle:
 
 - **Görsel dil:** "Projemizin kendi tasarım sistemini temel alarak; iOS estetiğinde (… pürüzsüz frosted-glass dokular, mükemmel border-radius oranları, canlı ama rafine renkler ve akıcı yaylı/spring mikro animasyonlar)". "Kaba ve kontrastı düşük kutular yerine; katmanlı derinlik, zarif iç ışıma (inner glow), ince translucent bordürler ve modern bir dark-mode cam dokusu".
 - **Tipografi:** "monospaced/aşırı teknik havayı kır; bilgiyi tek bakışta aktaran, net bir hiyerarşiye sahip modern bir tipografik ritim".
@@ -128,7 +128,7 @@ Bileşen: `components/standings/GarageTeamPanel.tsx` (`/grid`).
 
 ## 7. Takım Detay Sayfası: Sinematik Editoryal & Telemetri Konsolu (sahip, 2026-10-13)
 
-Sayfa: `app/[locale]/teams/[constructorId]/page.tsx`. Sahibin brifi, olduğu gibi (ayrıntılı faz planı: `docs/plans/master-plan.md` Faz 10):
+Sayfa: `app/[locale]/teams/[constructorId]/page.tsx`. Sahibin brifi, olduğu gibi:
 
 > **Role & Tone:** Senior Product Designer with an obsession for Apple's fluid design principles and Formula 1's cinematic, high-contrast engineering aesthetic.
 >
@@ -158,7 +158,7 @@ Sayfa: `app/[locale]/teams/[constructorId]/page.tsx`. Sahibin brifi, olduğu gib
 
 ## 8. Pilot Detay Sayfası: Sinematik Editoryal & Müze Derecesi Profil (sahip, 2026-10-13)
 
-Sayfa: `app/[locale]/drivers/[driverId]/page.tsx`. Sahibin brifi, olduğu gibi (ayrıntılı faz planı: `docs/plans/master-plan.md` Faz 12):
+Sayfa: `app/[locale]/drivers/[driverId]/page.tsx`. Sahibin brifi, olduğu gibi:
 
 > **Role & Perspective:** Elite Design Director combining Apple’s WWDC fluid interface principles (restraint, optical typography, material depth) with Formula 1’s dark, high-contrast telemetry aesthetic.
 >
@@ -194,7 +194,7 @@ Sayfa: `app/[locale]/drivers/[driverId]/page.tsx`. Sahibin brifi, olduğu gibi (
 
 ## 9. Pist Detay Sayfası: Mimari Telemetri Profili (sahip, 2026-10-13)
 
-Sayfa: `app/[locale]/circuits/[id]/page.tsx`. Sahibin brifi, olduğu gibi (ayrıntılı faz planı: `docs/plans/master-plan.md` Faz 13):
+Sayfa: `app/[locale]/circuits/[id]/page.tsx`. Sahibin brifi, olduğu gibi:
 
 > **Role & Tone:** Senior / Principal Product Designer crafting a high-end motorsport interface, synthesizing Apple’s WWDC fluid design principles (restraint, optical typography, material depth, spring physics) with Formula 1 technical telemetry.
 >

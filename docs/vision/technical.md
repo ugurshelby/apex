@@ -37,7 +37,7 @@ anthology/
 ├── i18n/ messages/ # next-intl routing + en.json/tr.json
 ├── supabase/migrations/  # DB migration (8 dosya)
 ├── scripts/        # seed ve sync script'leri
-├── docs/           # plans/master-plan.md, reference/, design/, vision/, procedures.md
+├── docs/           # reference/, design/, vision/, editorial/, idea/
 └── tests/          # Vitest (22 dosya)
 ```
 
@@ -82,13 +82,13 @@ Jolpica · F1DB · OpenF1 · RSS · Open-Meteo · Groq/Gemini · MyMemory
 | `/api/cron/notify-sessions` | Seans başlangıcından ~30dk önce push (QStash'te kurulu değil, mobil uygulama rafta; yedek: GitHub `notify-sessions.yml`) |
 | `/api/push/register` | Expo push token kayıt (rate-limit 10/dk) |
 | `/api/f1-season` | Canlı Jolpica proxy |
-| `/api/live-timing` | OpenF1 `session_key=latest` canlı pozisyon/interval proxy'si — home hero `LiveRaceTracker` tarafından 12sn'de bir poll edilir. Edge cache (`s-maxage=5`) + in-memory stampede guard + 8sn sert zaman aşımı (OpenF1 yavaşlarsa stale cache'e düşer) — 100+ eşzamanlı izleyici tek upstream çağrısını paylaşır. **Canlı seans kilidi (2026-10-11 ölçümü ve düzeltmesi):** OpenF1 canlı seans süresince kimliksiz tüm isteklere 401 verir; rota bunu 200 `{live:true, restricted:true}` olarak 60 sn önbellekli döner, tracker "canlı veri seans boyunca kilitli" yazar ve dakikada bir sorar; diğer hatalar 15 sn hafızada tutulur. `OPENF1_USERNAME`/`OPENF1_PASSWORD` verilirse adaptör token alır (abonelik kararı master-plan 1.7). |
+| `/api/live-timing` | OpenF1 `session_key=latest` canlı pozisyon/interval proxy'si — home hero `LiveRaceTracker` tarafından 12sn'de bir poll edilir. Edge cache (`s-maxage=5`) + in-memory stampede guard + 8sn sert zaman aşımı (OpenF1 yavaşlarsa stale cache'e düşer) — 100+ eşzamanlı izleyici tek upstream çağrısını paylaşır. **Canlı seans kilidi (2026-10-11 ölçümü ve düzeltmesi):** OpenF1 canlı seans süresince kimliksiz tüm isteklere 401 verir; rota bunu 200 `{live:true, restricted:true}` olarak 60 sn önbellekli döner, tracker "canlı veri seans boyunca kilitli" yazar ve dakikada bir sorar; diğer hatalar 15 sn hafızada tutulur. `OPENF1_USERNAME`/`OPENF1_PASSWORD` verilirse adaptör token alır. |
 | `/api/season/[year]`, `/api/season/[year]/last-result` | Sezon snapshot API |
 | `/api/circuits/[id]`, `/api/drivers/[driverId]/career`, `/api/teams/[constructorId]/career` | Detay API'leri |
 
 Cron auth: `Authorization: Bearer <secret>`; `lib/cronAuth.ts` `isCronAuthorized` hem `CRON_SECRET` (Vercel enjekte eder) hem `CRON_SECRET_KEY` (eski ad) kabul eder, timing-safe, ikisi de yoksa reddeder. Dört cron route'unun hepsi çağırır.
 
-**Zamanlayıcı (Vercel Hobby günde-1-cron sınırını aşan işler): Upstash QStash.** `lib/cron/qstashSchedules.ts` dört zamanlamayı tanımlar (`notify-sessions` */5, `sync-f1` */30, `sync-news` ve `sync-media` saatlik; günde 384 mesaj, ücretsiz kota 1.000), `npm run qstash:sync` bunları kurar/günceller; Canlıda (2026-10-12) Upstash MCP ile EU bölgesinde üç zamanlama kurulu (`sync-f1`, `sync-news`, `sync-media`; POST, 3 deneme, kimlik `scd_…`; `notify-sessions` yok); rotalar QStash imzasını doğrular, zamanlamalar gizli değer taşımaz (`lib/cronAuth.ts`). GitHub Actions `schedule` tetikleri best-effort olduğu için (ölçülen: ~5 koşu/gün) yalnızca yedektir; QStash doğrulanınca kaldırılacak (master-plan 1.6). Workflow'lar aynı repo secret/var'ı kullanır (`CRON_SECRET_KEY`, `SITE_URL`).
+**Zamanlayıcı (Vercel Hobby günde-1-cron sınırını aşan işler): Upstash QStash.** `lib/cron/qstashSchedules.ts` dört zamanlamayı tanımlar (`notify-sessions` */5, `sync-f1` */30, `sync-news` ve `sync-media` saatlik; günde 384 mesaj, ücretsiz kota 1.000), `npm run qstash:sync` bunları kurar/günceller; Canlıda (2026-10-12) Upstash MCP ile EU bölgesinde üç zamanlama kurulu (`sync-f1`, `sync-news`, `sync-media`; POST, 3 deneme, kimlik `scd_…`; `notify-sessions` yok); rotalar QStash imzasını doğrular, zamanlamalar gizli değer taşımaz (`lib/cronAuth.ts`). GitHub Actions `schedule` tetikleri best-effort olduğu için (ölçülen: ~5 koşu/gün) yalnızca yedektir; QStash doğrulanınca kaldırılacak. Workflow'lar aynı repo secret/var'ı kullanır (`CRON_SECRET_KEY`, `SITE_URL`).
 
 ---
 
@@ -123,7 +123,7 @@ Migration kuralı: `YYYYMMDDHHMMSS_*.sql` formatı zorunlu.
 | `NEXT_PUBLIC_SITE_URL` | RSC self-fetch ve canonical; `getSiteUrl()` sırası: bu → `VERCEL_URL` → sabit canlı host |
 | `SITE_URL` | Yalnız GitHub Actions/script'ler (repo variable) |
 | `GEMINI_API_KEY` | Haber birleştirme/yeniden yazım (ücretsiz katman, opsiyonel; AI Studio'dan) |
-| `OPENF1_USERNAME`, `OPENF1_PASSWORD` | Opsiyonel, yalnızca sunucu: OpenF1 ücretli canlı erişim; yoksa canlı seans boyunca "kilitli" durumu gösterilir (master-plan 1.7) |
+| `OPENF1_USERNAME`, `OPENF1_PASSWORD` | Opsiyonel, yalnızca sunucu: OpenF1 ücretli canlı erişim; yoksa canlı seans boyunca "kilitli" durumu gösterilir |
 | `GROQ_API_KEY` | Haber yazımı ana sağlayıcı (ücretsiz katman; gpt-oss-120b → 20b). Gemini yedek |
 | `GROQ_NEWS_MODELS` / `GEMINI_NEWS_MODELS` | Haber yazım model listesi override (opsiyonel) |
 | `UPSTASH_REDIS_REST_URL/TOKEN` | Rate-limit ve cron kilidi (opsiyonel; yoksa in-memory) |

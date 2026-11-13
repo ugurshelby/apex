@@ -74,7 +74,7 @@ Not: Sprint Quali (Cum 12:30) için bildirim **gönderilmez** (yalnız qualifyin
 | 3 | Test aboneliği (push için) | `push_subscriptions` 0 satır; mobil uygulama yayında değil. Bölüm 3.C'deki yöntemle sahibin onayıyla bir test satırı eklenebilir. |
 | 4 | `MEDIA_CONTACT` Vercel Production | Eklendi (sahip, 2026-10-06). |
 | 5 | GitHub secret `CRON_SECRET_KEY` + var `SITE_URL` | Diğer workflow'larla ortak, kullanımda. |
-| 6 | **OpenF1 canlı erişim (kimlik doğrulama)** | **Kod hazır, kimlik bilgisi yok** (2026-10-11): OpenF1 canlı seans süresince kimliksiz tüm isteklere 401 veriyor. `OPENF1_USERNAME`/`OPENF1_PASSWORD` yoksa rota 200 `{live:true, restricted:true}` döner ve 3.A'nın "kilitli" ölçütü uygulanır; varsa tam ölçüt. Abonelik kararı master-plan 1.7. |
+| 6 | **OpenF1 canlı erişim (kimlik doğrulama)** | **Kod hazır, kimlik bilgisi yok** (2026-10-11): OpenF1 canlı seans süresince kimliksiz tüm isteklere 401 veriyor. `OPENF1_USERNAME`/`OPENF1_PASSWORD` yoksa rota 200 `{live:true, restricted:true}` döner ve 3.A'nın "kilitli" ölçütü uygulanır; varsa tam ölçüt. Abonelik kararı: 2026 R23 testi (sahip, 2026-11-11). |
 
 ---
 
@@ -86,9 +86,9 @@ Upstash MCP (`qstash_list_schedules` + `logs_list`, eu, 2026-10-20 ~12:50 UTC): 
 - `sync-news` `11 *` (`scd_7XFsWyvs…`): son 11:11Z → 200, 22 sn.
 - `sync-media` `41 *` (`scd_7PjUexMo…`): son 12:41Z → 200, 7,3 sn.
 
-Kod (`lib/cron/qstashSchedules.ts`) ile sapma: canlıda `retries: 3` (kod 0/1) ve notify `*/10` (kod `*/5`); düzeltme master-plan 1.8. GitHub `schedule` tetikleri yedek olarak R18 boyunca açık kalır (best-effort: 2026-10-07'de `notify-sessions` günde ~5 koşu, medyan ~5 sa). Doğrulama oturumunda:
+Kod (`lib/cron/qstashSchedules.ts`) ile sapma: canlıda `retries: 3` (kod 0/1) ve notify `*/10` (kod `*/5`); kod ile yeniden eşitlendi (2026-10-28). GitHub `schedule` tetikleri yedek olarak R18 boyunca açık kalır (best-effort: 2026-10-07'de `notify-sessions` günde ~5 koşu, medyan ~5 sa). Doğrulama oturumunda:
 - Koşular Upstash console → *Logs*'ta ve MCP `logs_list` (service `qstash`, region `eu`) çıktısında görünür; aranacak kayıt `DELIVERED` + `responseStatus: 200`. `CREATED → ACTIVE → DELIVERED` zinciri bir tetiktir.
-- Çift zamanlayıcı (GitHub + QStash) idempotenttir; çift koşu hata sayılmaz (master-plan 1.6).
+- Çift zamanlayıcı (GitHub + QStash) idempotenttir; çift koşu hata sayılmaz.
 - Belirli bir pencereyi zorlamak gerekirse ilgili workflow elle tetiklenir: `gh workflow run notify-sessions.yml`, `gh workflow run sync-f1-race-aware.yml` (sahibin o anki onayıyla).
 - Bir koşunun "yok" olması hata sayılmaz; önce QStash logu, sonra `gh run list --workflow=<ad>.yml --limit 10` ile bakın.
 - `sync-f1-scheduled.ts` 12 saat geriye bakar; geç gelen koşu kaçan pencereyi telafi eder. `notify-sessions` için telafi yoktur (bildirim zaman duyarlıdır): tik 20:30/19:30 kaçarsa bildirim gönderilmez.
@@ -99,7 +99,7 @@ Kod (`lib/cron/qstashSchedules.ts`) ile sapma: canlıda `retries: 3` (kod 0/1) v
 
 Her madde: **ne**, **ne zaman**, **nasıl**, **geçme ölçütü**, **başarısızsa**.
 
-### A. Canlı zamanlama (master-plan 1.1) — oturum sırasında
+### A. Canlı zamanlama — oturum sırasında
 
 - **Ne:** `/api/live-timing` + ana sayfadaki `LiveRaceTracker`, gerçek bir OpenF1 oturumunda.
 - **Nasıl:**
@@ -114,7 +114,7 @@ Her madde: **ne**, **ne zaman**, **nasıl**, **geçme ölçütü**, **başarıs�
 - **Başarısızsa:** `502 {"error":"Live timing unavailable"}` (artık `Retry-After: 15` ile) → önce yukarıdaki ham OpenF1 yanıtı: **401** = canlı seans kimlik doğrulaması (kimlik bilgisi yok); 429/5xx = OpenF1 hız sınırı/kesinti; Vercel function log'una bakılır (Vercel MCP bu hesapta yok; sahip dashboard'dan log'u paylaşır). `live:false` ama oturum sürüyorsa → OpenF1 `sessions?session_key=latest` ham yanıtını (`curl https://api.openf1.org/v1/sessions?session_key=latest`) karşılaştır (`date_start/date_end`).
 - Birim düzeyinde zaten doğrulanan davranışlar: `tests/live-timing-route.test.ts`.
 
-### B. Snapshot senkronu, idempotency ve stale-while-revalidate (master-plan 1.3) — oturum sonrası
+### B. Snapshot senkronu, idempotency ve stale-while-revalidate — oturum sonrası
 
 - **B0. Yarış sonrası OpenF1 geçici verisi (2026-10-11'den beri):** yarış seansı bittikten ve OpenF1 sonucu yayımladıktan sonraki ilk `sync-f1` koşusunda (QStash ile en geç ~30 dk) yanıtta `provisional.status: "written"`; `f1_snapshots`'ta o turun `results` satırı ve iki puan durumu satırı `source='openf1'`, puan durumu `StandingsTable.round` = yarışın turu. Ana sayfa kazanan kartı ve tur sayfası sonucu gösterir. Jolpica sonucu yayımlayınca satırlar `source='jolpica'` olur, yanıtta `provisional.status: "jolpica-has-results"`. Ara durumlar: `session-running`, `not-published`, `locked` (hata değildir).
 
@@ -133,7 +133,7 @@ Her madde: **ne**, **ne zaman**, **nasıl**, **geçme ölçütü**, **başarıs�
 - **Başarısızsa:** koşu yok → workflow `schedule`/Actions kotası; `errors` dolu → mesajı `jolpica` hız sınırı / ağ olarak sınıflandır; `fetched_at` due'dan önce → Jolpica sonucu henüz yayınlamamış olabilir (`hasResults` false, sonraki saatte yeniden dener).
 - Güvenlik: `?force=1` yalnızca sahibin o anki açık onayıyla.
 
-### C. Push bildirim penceresi (master-plan 1.4) — oturumdan ~30 dk önce
+### C. Push bildirim penceresi — oturumdan ~30 dk önce
 
 - **Ne:** `notify-sessions` doğru anda oturumu buluyor, `notified_sessions` dedupe satırı yazılıyor, abone varsa gönderim deneniyor.
 - **Ön koşul:** bölüm 2 madde 2 (grant migration'ı) **uygulandı**. 2026-10-06 ölçümü: `notified_sessions` 0 satır, `push_subscriptions` 0 satır (henüz abone/oturum yok); yetki düzeltmesi öncesinde rota hataları yutup 200 dönüyordu, bu yüzden hafta sonunda yetkinin hâlâ yerinde olduğunu da ilk iş olarak `has_table_privilege('service_role', ...)` ile teyit edin.
@@ -145,14 +145,14 @@ Her madde: **ne**, **ne zaman**, **nasıl**, **geçme ölçütü**, **başarıs�
 - **Geçme ölçütü:** 2'de üç satır, 3'te tekrar yok, 1'de koşu log'unda hata yok.
 - **Düzeltildi (2026-10-08):** rota artık önce `notified_sessions` satırını yazıp ("claim") sonra gönderiyor. `23505` = daha önce gönderilmiş (`deduped`); başka bir yazma hatası gönderimi engeller ve koşu 500 döner (`failed` listesinde oturum), yani yetki hatası artık sessiz kalmaz ve her koşuda tekrar gönderim olmaz. Aboneler okunamazsa hiçbir oturum talep edilmez, sonraki koşu yeniden dener.
 
-### D. JSON-LD ve SEO (master-plan 6.1)
+### D. JSON-LD ve SEO
 
   - Beklenen tipler: `WebSite` (tümü) + `Person`, `SportsTeam`, `SportsEvent`, `Article`, `Vehicle`.
   - Zorunlu alanlar boş olmamalı: `SportsEvent` → `name`, `startDate`, `location.name`, `location.address.addressCountry`; `Person` → `name`; `SportsTeam` → `name`; `Article` → `headline`, `datePublished`. Ayrıca `og:image` meta etiketi ve `canonical` her sayfada olmalı.
   - 2026-10-06'da ölçülen eksik: tarihsel tur `SportsEvent` alanları boştu (yeniden tohumlamayla düzeldi); ana sayfada `og:image` yoktu (kod düzeltildi, bu sürüm canlıya çıktıktan sonra doğrulanır).
 - **Sahip (elle):** [Rich Results Test](https://search.google.com/test/rich-results) ve [Schema Markup Validator](https://validator.schema.org/) ile yukarıdaki URL'lerden en az `SportsEvent` ve `Article` sayfalarını dene; Search Console → URL Denetimi → "Yayındaki URL'yi test et". Sonuçları (uyarı/hata sayısı) oturuma ilet. Search Console erişimi ajanda yok.
 
-### E. Core Web Vitals / Lighthouse (master-plan 6.2)
+### E. Core Web Vitals / Lighthouse
 
   `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=<URL>&strategy=mobile&category=performance` (ve `strategy=desktop`).
   URL'ler: `/`, `/season/2026`, `/grid`, `/drivers/norris`, `/circuits/spa`, `/machinery/ferrari-f2004`.
@@ -161,14 +161,14 @@ Her madde: **ne**, **ne zaman**, **nasıl**, **geçme ölçütü**, **başarıs�
 - **İki ölçüm öner:** yarış dışı sakin bir saatte ve yarış penceresinde (canlı tracker açıkken) — fark CWV riskini gösterir.
 - Sonuçlar `docs/reference/apex-reference.md` ölçüm tablosuna ve ilgili log'a işlenir.
 
-### F. Sentry (master-plan 6.3)
+### F. Sentry
 
 - Derleme tarafı zaten düzeltildi (`next build` çıktısında `Project not found` yok).
 
 ### G. Medya (migration uygulandıysa)
 
 - `curl -s "https://apex-seven-vert.vercel.app/api/media?type=driver&keys=norris,hamilton"` → her anahtar için `status: image|placeholder`.
-- İlerleme (salt-okunur): `select entity_type, status, count(*) from media_assets group by 1,2 order by 1,2;` — ayrıntılı sorgular `docs/reference/media-sistemi.md` Bölüm 13. Yanlış görsel gizleme ve kalite incelemesi sahibin site denetimine bırakıldı (master-plan 8.3).
+- İlerleme (salt-okunur): `select entity_type, status, count(*) from media_assets group by 1,2 order by 1,2;` — ayrıntılı sorgular `docs/reference/media-sistemi.md` Bölüm 13. Yanlış görsel gizleme ve kalite incelemesi sahibin site denetimine bırakıldı.
 
 ---
 
@@ -185,4 +185,4 @@ Her madde: **ne**, **ne zaman**, **nasıl**, **geçme ölçütü**, **başarıs�
 | 6.2 CWV | E | R17: — · R18: ölçülmedi | Session F kapsamı dışı |
 | 6.3 Sentry | F (sahip) | R17: — · R18: ölçülmedi | Session F kapsamı dışı |
 
-Doldurduktan sonra: `logs/YYYY-MM-DD.md` bölümü + `docs/plans/master-plan.md` (yalnız ölçülenler `[x]` → silinir) + gerekirse `apex-reference.md` ölçüm satırları. Bu rehberin kendisi, tüm maddeler kapandığında silinir (git geçmişi arşivdir).
+Doldurduktan sonra: `logs/YYYY-MM-DD.md` bölümü + gerekirse `apex-reference.md` ölçüm satırları. Bu rehberin kendisi, tüm maddeler kapandığında silinir (git geçmişi arşivdir).

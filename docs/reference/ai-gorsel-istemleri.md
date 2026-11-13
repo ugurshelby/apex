@@ -1,4 +1,4 @@
-# Yapay zekâ yer tutucu görselleri — istem taslakları (master-plan 8.15)
+# Yapay zekâ yer tutucu görselleri — istem taslakları
 
 - Yalnız lisanslı fotoğrafı olmayan varlıklar için. Görseller varlık başına değil, tür ya da dönem başına üretilir.
 - Gerçek kişi, yüz, takım renk düzeni (livery), logo, sponsor, numara ya da yazı yok.

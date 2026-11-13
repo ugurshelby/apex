@@ -15,15 +15,15 @@
 Veritabanında kullanıcı verisi veya doğrudan bir açık bulunmasa bile uygulama katmanı (Next.js serverless lambdaları ve sunucu kaynakları) dış isteklerle tüketilebilir:
 
 #### A. Canlı Haber Toplama (RSS & Görsel Taraması)
-> **Durum (2026-10-28):** Kapatıldı. `app/api/news/route.ts` silindi (master-plan 14.5); haber yalnızca `news_stories` → `news_cache` → `public/news-fallback.json` zincirinden okunur, RSS taraması yalnızca `sync-news` cron'unda çalışır. Aşağıdaki metin 2026-10-16 durumudur.
-* **İlgili Dosyalar:** [`app/api/news/route.ts`](../../app/api/news/route.ts), [`lib/news/aggregate.ts`](../../lib/news/aggregate.ts)
+> **Durum (2026-10-28):** Kapatıldı. `app/api/news/route.ts` silindi; haber yalnızca `news_stories` → `news_cache` → `public/news-fallback.json` zincirinden okunur, RSS taraması yalnızca `sync-news` cron'unda çalışır. Aşağıdaki metin 2026-10-16 durumudur.
+* **İlgili Dosyalar:** `app/api/news/route.ts`, [`lib/news/aggregate.ts`](../../lib/news/aggregate.ts)
 * **Mevcut Durum:**
-  * `GET /api/news` rotası çağrıldığında [`lib/news/aggregate.ts:37`](../../app/api/news/route.ts#L37) üzerinden `aggregate({ maxItems: 60 })` fonksiyonu tetiklenir.
+  * `GET /api/news` rotası çağrıldığında `lib/news/aggregate.ts:37` üzerinden `aggregate({ maxItems: 60 })` fonksiyonu tetiklenir.
   * Bu işlem [`lib/news/aggregate.ts:44-70`](../../lib/news/aggregate.ts#L44-L70) satırlarında tanımlı 5 bağımsız harici RSS kaynağına (`The Race`, `Autosport`, `Motorsport.com`, `BBC Sport F1`, `RaceFans`) eşzamanlı HTTP istekleri atar ve XML dokümanlarını JSDOM/XMLDOM polyfill ile ayrıştırır.
   * Ardından [`lib/news/aggregate.ts:400-415`](../../lib/news/aggregate.ts#L400-L415) (`verifyImagesReachable`) fonksiyonu ile çekilen tüm haberlerin görsellerine eşzamanlı HTTP HEAD/GET istekleri gönderilerek erişilebilirlik testi yapılır (`IMAGE_VERIFY_TOTAL_BUDGET_MS = 5000`, concurrency: 6).
 * **Mevcut Koruma:**
-  * Rota yanıtı `Cache-Control: s-maxage=300, stale-while-revalidate=600` başlığıyla Vercel Edge CDN üzerinde 5 dakika önbelleğe alınır ([`app/api/news/route.ts:40`](../../app/api/news/route.ts#L40)).
-  * Önbellek delme (cache-busting) girişimlerine karşı URL sorgu parametreleri tamamen reddedilir: `if ([...req.nextUrl.searchParams.keys()].length > 0) return 400` ([`app/api/news/route.ts:17-19`](../../app/api/news/route.ts#L17-L19)).
+  * Rota yanıtı `Cache-Control: s-maxage=300, stale-while-revalidate=600` başlığıyla Vercel Edge CDN üzerinde 5 dakika önbelleğe alınır (`app/api/news/route.ts:40`).
+  * Önbellek delme (cache-busting) girişimlerine karşı URL sorgu parametreleri tamamen reddedilir: `if ([...req.nextUrl.searchParams.keys()].length > 0) return 400` (`app/api/news/route.ts:17-19`).
 * **Kalan Risk:**
   * CDN önbellek ıskalamalarında (cache-miss) veya önbellek süresi dolduğunda gelen her istek, sunucunun 5 harici siteye RSS isteği ve onlarca görsele HTTP pingi atmasına neden olarak sunucu bant genişliğini ve CPU süresini tüketir.
 
@@ -80,7 +80,7 @@ Veritabanında kullanıcı verisi veya doğrudan bir açık bulunmasa bile uygul
   * Bu değişkenler eksikse veya Redis'e erişilemezse in-memory `Map` yapısına (`checkMemory`) düşülür ([`lib/rateLimit.ts:74-97, 117-120`](../../lib/rateLimit.ts#L74-L97)).
 * **İstemci IP Tespiti:**
   * [`lib/rateLimit.ts:31-40`](../../lib/rateLimit.ts#L31-L40) (`getClientIP`): Vercel'in bağlantı katmanında eklediği sahtelenemez `x-real-ip` başlığını okur. Bulamazsa `x-forwarded-for` başlığının en sağındaki IP'yi alır. Hiçbir başlık yoksa `'fallback:unknown'` döner.
-* **Rota Kullanımı (2026-10-20, master-plan 14.1 ile kapatıldı):**
+* **Rota Kullanımı (2026-10-20'de kapatıldı):**
   1. **Tek Fonksiyon:** 10 genel API rotasının tamamı `applyRateLimit(req.headers, { prefix, max, windowMs })` çağırır (`grep -rln "applyRateLimit" app/api` → 10). IP tespit edilemediğinde (`fallback:unknown`) istek ortak bir havuza alınır ve normal sınırın 1/5'i (`Math.floor(opts.max / 5)`) uygulanır; muafiyet yalnızca `NODE_ENV === 'test'` iken vardır ([`lib/rateLimit.ts`](../../lib/rateLimit.ts)). Eski `clientIP !== 'unknown'` korumaları kaldırıldı; `prefix`/`max`/`windowMs` değerleri değişmedi.
   2. **Kapatılan bypass (`app/api/push/register/route.ts`):** Rota eskiden `clientIP !== 'fallback:unknown'` koşuluyla başlıksız istekleri hız sınırından tamamen muaf tutuyordu. Artık başlıksız istekler ortak havuzda `10/5 = 2` istek/dk ile sınırlanır; [`tests/rate-limit-routes.test.ts`](../../tests/rate-limit-routes.test.ts) üçüncü istekte 429 döndüğünü, `x-real-ip` taşıyan isteğin tam kotayı (10) aldığını doğrular.
   3. **Serverless Çoklu Konteyner Riski:**
@@ -171,7 +171,7 @@ Sistemde yetki izolasyonu hem uygulama kodunda hem de veritabanı rol seviyesind
   * Upstash Redis REST API tabanlı kayan pencere mekanizması kodlanmıştır ([`lib/rateLimit.ts`](../../lib/rateLimit.ts)).
   * Cron rotalarında `isCronTriggerAllowed` ile atomik dağıtık kilit (`SET cron:lock:<route> 1 NX EX <ttl>`) uygulanmıştır ([`lib/cronAuth.ts:148-161`](../../lib/cronAuth.ts#L148-L161)).
 * **Uygulama Açıkları:**
-  * ~~`push/register` bypass açığı ve 7 rotada doğrudan `rateLimit` çağrısı~~: 2026-10-20'de kapatıldı (master-plan 14.1); 10 rotanın tamamı `applyRateLimit` kullanır.
+  * ~~`push/register` bypass açığı ve 7 rotada doğrudan `rateLimit` çağrısı~~: 2026-10-20'de kapatıldı; 10 rotanın tamamı `applyRateLimit` kullanır.
   * Canlı ortam değişkenlerinde Upstash'in eksik kalması durumunda sınırların sunucusuz konteyner belleğine düşerek etkisizleşmesi.
 
 ### 3.3 Input Validation (Girdi Doğrulama) ve SQL Injection

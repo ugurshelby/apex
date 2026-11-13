@@ -1,8 +1,8 @@
 # Apex — Mühendislik Dersleri ve Tuzaklar
 
 > **Amaç:** Geliştirme sırasında yaşanan hatalar, çözümleri ve mimari kararları tek yerde toplamak.  
-> Yeni geliştirici veya agent bu dosyayı okuyarak aynı tuzaklara düşmez.  
-> **Temel Amaç ve Vizyon:** `docs/vision/apex-vision.md` | **Canlı Plan & Açık İşler:** `docs/plans/master-plan.md`  
+> Yeni geliştirici bu dosyayı okuyarak aynı tuzaklara düşmez.  
+> **Temel Amaç ve Vizyon:** `docs/vision/apex-vision.md`  
 > **Not:** Bu döküman operasyonel bir yol haritası değil; yaşanmış tuzaklar ve kritik mimari hafıza referansıdır.
 
 ---
@@ -119,9 +119,7 @@ Yeni ortam kurulumu veya deploy sonrası:
 
 ---
 
-## 5. Yol haritası ve Açık İşler
-
-Tüm aktif yol haritası, öncelikler ve açık görevler `docs/vision/apex-vision.md` vizyonu doğrultusunda **`docs/plans/master-plan.md`** üzerinde yönetilmektedir. Tek canlı iş listesi orasıdır.
+## 5. Zamanlama notları
 
 ### Cron sıklığı notu
 
@@ -135,7 +133,6 @@ Hobby planda günde 1 cron → yarış haftası için **read-layer staleness** v
 |---------------|------------|
 | Temel Vizyon & Amaç | `docs/vision/apex-vision.md` |
 | Tasarım Sistemi (Master SSOT) | `docs/design/apex-design.md` |
-| Canlı Plan & Geliştirici Direktifleri | `docs/plans/master-plan.md` |
 | Sistem Referansı & Ölçümler | `docs/reference/apex-reference.md` |
 | Backend & Veri Mimarisi | `docs/reference/mimari.md` |
 | Operasyonel Prosedürler | `docs/procedures.md` |
@@ -165,4 +162,4 @@ Hobby planda günde 1 cron → yarış haftası için **read-layer staleness** v
 
 ---
 
-*Bu döküman canlıdır; büyük faz sonlarında `logs/AGENT_*` ile senkron güncellenmelidir.*
+*Bu döküman canlıdır; yeni bir tuzak yaşandığında güncellenir.*
