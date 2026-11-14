@@ -1,10 +1,16 @@
-# Yapay zekâ yer tutucu görselleri — istem taslakları
+# Yapay zekâ görselleri — kurallar ve istem taslakları
 
-- Yalnız lisanslı fotoğrafı olmayan varlıklar için. Görseller varlık başına değil, tür ya da dönem başına üretilir.
+İki kullanım vardır (vizyon §6); ikisinde de ortak kurallar geçerlidir:
+
 - Gerçek kişi, yüz, takım renk düzeni (livery), logo, sponsor, numara ya da yazı yok.
-- Her çıktı siteye girmeden önce sahibe gösterilir.
+- Her çıktı siteye girmeden önce sahibe gösterilir ve onaylanır.
+- Gösterildiği her yerde "yapay zekâ illüstrasyonu" etiketi taşır; gerçek bir olayın fotoğrafı gibi sunulmaz.
 - Cloud Vision `LOGO_DETECTION` + `SAFE_SEARCH` kontrolü yapılır.
-- `public/stories`'e asla girmez.
+- Takım logoları, pilot portreleri ve gerçek araç görselleri yapay zekâ ile **üretilmez**; onlar lisanslı gerçek varlıklardır.
+
+**1. Yer tutucular** (bu belgenin "Araç dönemleri" ve sonrası): yalnız lisanslı fotoğrafı olmayan varlıklar için; varlık başına değil, tür ya da dönem başına üretilir. `public/stories`'e girmez.
+
+**2. Özgün illüstrasyonlar** (2026-11-13): antoloji hikâyeleri, soyut arka planlar, pist atmosfer görselleri ve arayüz illüstrasyonları. Google Flow ile üretilir. Antoloji illüstrasyonu sahneyi ve dönemi anlatır, kişiyi değil; kayıt alanları: araç, üretim tarihi, istem başvurusu, onay tarihi. İstemler bu belgenin "Antoloji illüstrasyonları" bölümüne hikâye başına yazılır (bölüm, görsel planı çıkınca eklenir).
 
 ## Neden dönem başına araç
 

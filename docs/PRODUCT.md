@@ -10,11 +10,13 @@ product
 
 ## Users
 
-Formula 1 takipçileri, köklü motor sporları mirasını keşfetmek isteyenler, sezon sonuçlarını ve pilot/takım performansını masaüstünde derinlemesine incelemek veya mobilde hızlıca kontrol etmek isteyen yarış tutkunları ve veri meraklıları.
+Birincil kitle: teknik işe alım uzmanları ve mühendislik ekipleri. Siteyi bir sistem tasarımı örneği olarak inceler; çoğu birkaç dakika ayırır ve canlı yarış ekranına, sistem görünümüne ve kaynak koda bakar.
+
+İkincil kitle: Formula 1 takipçileri ve veri meraklıları. Sezonu, pilot ve takım performansını, pistleri ve sporun tarihini masaüstünde derinlemesine ya da mobilde hızlıca inceler. Vitrin, onların gerçekten kullanabildiği dolu bir ürün üzerinde durur.
 
 ## Product Purpose
 
-Apex; Formula 1 ve motor sporları kültürünü yalnızca anlık yarış sonuçlarından ibaret olmaktan çıkarıp köklü tarihini, teknik dinamiklerini, ikonik araçlarını ve insan hikayelerini arka planda saat mekanizması gibi harmonik işleyen bir veri mimarisiyle sunan, resmi olmayan, telif-güvenli, hızlı ve akıcı bir dijital arşiv-ekosistemdir. Kullanıcıların yarış, pilot, takım, pist ve efsanevi araç verilerini güvenilir, kesintisiz bir arayüzde keşfetmesini sağlar.
+Apex, Formula 1 verisi üzerine kurulmuş bir sistem tasarımı ve veri orkestrasyonu vitrinidir (engineering showcase). Çoklu dış veri kaynağını (Jolpica, F1DB, OpenF1, Open-Meteo, RSS, Groq/Gemini) kesintisiz, tutarlı ve deterministik yedek kademeleriyle, saat mekanizması gibi birlikte çalıştırır ve bunu kanıtlar: canlı seans yokken bile çalışan Canlı Yarış / Tekrar ekranı, herkese açık sistem sağlığı görünümü ve hata senaryolarını sınayan uçtan uca testler. Resmî olmayan, ticari olmayan, telif konusunda hassas bir projedir; ticari bir son kullanıcı ürünü ya da trafik hedefleyen bir medya portalı değildir.
 
 ## Brand Personality
 
