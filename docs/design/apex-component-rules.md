@@ -10,7 +10,7 @@
 ### 1.1 Önem sırası — tek kaynak
 - Sayfalar anlam ve önemlerine göre **tek bir listede** sıralanır: `NAV_PAGES_BY_RANK` (`components/layout/nav-items.ts`). Masaüstü ve mobil düzen bu listeden türetilir; hiçbir yüzeyde sıra elle verilmez.
 - Yeni sayfa bu listeye **önemine göre doğru sıraya** eklenir; bir tarafa elle eklenmez.
-- Güncel sıra (sahip değiştirebilir): Sezon, Grid, Haberler, Pistler, Antoloji, Araçlar, Sözlük.
+- Güncel sıra (sahip değiştirebilir): Canlı, Sezon, Grid, Haberler, Pistler, Antoloji, Araçlar, Sözlük. (Sahip, 2026-11-15: "Canlı" Yarış Merkezi'dir; canlı seans yoksa son yarışların tekrarını açar.)
 
 ### 1.2 Masaüstü (md ve üstü)
 - **Ana sayfa (APEX ARŞİV) her zaman merkezde:** hem navbar'ın hem sayfanın yatay merkezinde. Ölçü: logonun merkezi ile sayfanın merkezi arasındaki fark en fazla 1 px.
@@ -58,6 +58,7 @@ Testler: `tests/on-this-day-image.test.ts`.
 - Her satırda seans adı, gün/tarih ve büyük saat bulunur. Pistin yerel saati küçük olarak "Pist …" diye yazılır ("Yerel" kelimesi kullanılmaz; kimin yereli olduğu belirsizdir).
 - Yarış satırı accent ile vurgulanır; bitmiş seanslar soluklaşır ve "Bitti" yazar.
 - Gösterilen seanslar: FP1, Sprint (varsa), Sıralama, Yarış; zaman sırasıyla.
+- **Acil durum yedeği (sahip, 2026-11-15):** canlı seans yokken ya da canlı veri erişimi yokken hero'da tekrar modülü durur; aşağıdaki "Lights out" paneli yalnız ne canlı ne tekrar çizilebildiğinde (paket yok, yükleme hatası, tekrar kapalı) ve gerçek bir yarış koşarken görünür.
 - **Yarış sırasında (sahip, 2026-10-11):** canlı sıralama yoksa (OpenF1 ücretsiz plan) "kilitli" denmez; geri sayımın yerinde **"Lights out"** paneli durur: beş start ışığı yanıp birlikte söner, yeşil ışıktan beri işleyen yarış saati ve sonuçların bayraktan birkaç dakika sonra burada olacağı yazar. "Lights out" her dilde İngilizce kalır (F1'in kendi ifadesi). Bayraktan sonra "Bayrak düştü" ve yarış sayfasına bağlantı.
 
 ### 2.4 Paddock bento: sağ sütun
