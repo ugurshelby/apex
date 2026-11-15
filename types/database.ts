@@ -173,6 +173,27 @@ export type NewsStoryInsert = Omit<NewsStoryRow, 'cached_at' | 'title_tr' | 'sum
   Partial<Pick<NewsStoryRow, 'cached_at' | 'title_tr' | 'summary_tr' | 'image_url'>>;
 export type NewsStoryUpdate = Partial<NewsStoryInsert>;
 
+// ── race_stories ─────────────────────────────────────────────────────────────
+// Facts, milestones and (later) the TR/EN narrative of one finished session.
+// See migration 20261115090000 and lib/pulse/buildStory.ts.
+export type RaceStorySession = 'race' | 'sprint' | 'qualifying';
+export type RaceStoryStatus = 'facts_only' | 'published';
+export interface RaceStoryRow {
+  season: number;
+  round: number;
+  session: RaceStorySession;
+  facts: Json;
+  facts_hash: string;
+  milestones: Json;
+  narrative: Json | null;
+  status: RaceStoryStatus;
+  source_final: boolean;
+  generated_at: string;
+}
+export type RaceStoryInsert = Omit<RaceStoryRow, 'milestones' | 'narrative' | 'source_final' | 'generated_at'> &
+  Partial<Pick<RaceStoryRow, 'milestones' | 'narrative' | 'source_final' | 'generated_at'>>;
+export type RaceStoryUpdate = Partial<RaceStoryInsert>;
+
 export interface CircuitWeatherRow {
   id: number;
   circuit_id: string;
@@ -347,6 +368,12 @@ export interface Database {
         Row: Plain<NewsStoryRow>;
         Insert: Plain<NewsStoryInsert>;
         Update: Plain<NewsStoryUpdate>;
+        Relationships: never[];
+      };
+      race_stories: {
+        Row: Plain<RaceStoryRow>;
+        Insert: Plain<RaceStoryInsert>;
+        Update: Plain<RaceStoryUpdate>;
         Relationships: never[];
       };
       circuit_weather: {

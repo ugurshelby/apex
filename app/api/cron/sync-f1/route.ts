@@ -24,10 +24,10 @@
  *   provisionalSessions: { qualifying, sprint }, raceEvents, errors, durationMs }
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { after, NextRequest, NextResponse } from 'next/server';
 import { revalidateSitePages } from '@/lib/cache/revalidate';
 import { isCronAuthorized, isCronTriggerAllowed } from '@/lib/cronAuth';
-import { CURRENT_SEASON, isRaceWeekend, getLiveOrNextRace, type CalendarRace } from '@/lib/f1Calendar';
+import { CURRENT_SEASON, isRaceWeekend, getLiveOrNextRace, raceStartMs, type CalendarRace } from '@/lib/f1Calendar';
 import { getCircuitFacts } from '@/data/circuits/facts';
 import { fetchLiveCircuitWeather, circuitLocationFromCalendar, fetchTimeZoneForCoords } from '@/lib/data/circuits';
 import {
@@ -73,6 +73,7 @@ import {
   type ProvisionalOutcome,
 } from '@/lib/f1/provisionalSync';
 import { syncRaceEventsFromOpenF1 } from '@/lib/f1/raceEventsSync';
+import { buildRaceStory, storyNeedsBuild } from '@/lib/pulse/buildStory';
 import { sendExpoPushNotifications } from '@/lib/push/sendExpoPush';
 import type { ExpoPushMessage } from 'expo-server-sdk';
 import type { Json, SnapshotType } from '@/types/database';
@@ -80,6 +81,11 @@ import type { Json, SnapshotType } from '@/types/database';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 300;
+
+/** A race without a final story is retried on every run from this long after its start (the race is over) ... */
+const STORY_RETRY_AFTER_MS = 3 * 60 * 60 * 1000;
+/** ... until this long after it. */
+const STORY_RETRY_WINDOW_MS = 3 * 24 * 60 * 60 * 1000;
 
 function authError(): NextResponse {
   return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -209,6 +215,10 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     const scope: 'live' | 'season' = forcedScope ?? (onRaceWeekend ? 'live' : 'season');
 
     const now = new Date();
+
+    // Rounds whose race result (or its OpenF1 events) changed this run; their stories are built after the response.
+    // Finality is read from the stored results row, not from this run: an ingest write can fail without throwing.
+    const storyRounds = new Set<number>();
 
     // Which snapshots are already final? One query; fails open (empty map).
     const force = searchParams.get('force') === '1';
@@ -342,6 +352,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
           const results = await fetchResults(CURRENT_SEASON, round);
           if (hasResults(results)) {
             await ingestRoundSnapshot(CURRENT_SEASON, round, 'results', results as unknown as Json, 'jolpica', stats);
+            storyRounds.add(round);
           }
         } catch (err) {
           const msg = `R${round} results: ${err instanceof Error ? err.message : String(err)}`;
@@ -477,6 +488,34 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     // 8) OpenF1 race control messages and lap-by-lap order for the race that just finished (Faz 21.1).
     // Not a page input yet, so it does not trigger a revalidation.
     const raceEvents = await syncRaceEventsFromOpenF1({ races, now, stats });
+
+    // 9) Race stories (Faz 21.4): built after the response, so the cron never waits on them.
+    if (provisional.status === 'written' && provisional.results && provisional.round !== null) storyRounds.add(provisional.round);
+    if (raceEvents.status === 'written' && raceEvents.round !== null) storyRounds.add(raceEvents.round);
+    // Retry path: a build that failed or never ran leaves no trigger behind once the result is settled.
+    // Every race inside the window that ended at least STORY_RETRY_AFTER_MS ago and has no final story yet.
+    for (const race of races) {
+      const round = Number(race.round);
+      const start = raceStartMs(race);
+      if (!round || start === null || storyRounds.has(round)) continue;
+      const age = now.getTime() - start;
+      if (age < STORY_RETRY_AFTER_MS || age > STORY_RETRY_WINDOW_MS) continue;
+      if (await storyNeedsBuild({ season: CURRENT_SEASON, round, session: 'race' })) storyRounds.add(round);
+    }
+    if (storyRounds.size > 0) {
+      const jobs = [...storyRounds];
+      try {
+        after(async () => {
+          for (const round of jobs) {
+            const status = await buildRaceStory({ season: CURRENT_SEASON, round, session: 'race' });
+            console.log(`[sync-f1] race story R${String(round)}: ${status}`);
+          }
+        });
+      } catch (err) {
+        // A story is never worth failing the ingest; the watchdog (Faz 21.10) builds a missing one.
+        console.warn('[sync-f1] race story not scheduled:', err instanceof Error ? err.message : err);
+      }
+    }
 
     // A new provisional classification shows on its next request instead of after the revalidate window.
     // Not on `stats.upserted`: every run rewrites the calendar and standings rows whether or not they

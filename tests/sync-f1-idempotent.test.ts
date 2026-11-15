@@ -70,6 +70,21 @@ const mockFetchConstructorStandings = vi.fn();
 const mockIngestSeason = vi.fn();
 const mockIngestRound = vi.fn();
 const mockLoadFetchTimes = vi.fn();
+const mockAfter = vi.fn<(job: () => Promise<void>) => void>();
+const mockBuildRaceStory = vi.fn<(opts: unknown) => Promise<string>>();
+const mockStoryNeedsBuild = vi.fn<(key: unknown) => Promise<boolean>>();
+
+// `after` needs a request scope; capture the job so the test can run it.
+vi.mock('next/server', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('next/server')>()),
+  after: (job: () => Promise<void>) => {
+    mockAfter(job);
+  },
+}));
+vi.mock('@/lib/pulse/buildStory', () => ({
+  buildRaceStory: (opts: unknown) => mockBuildRaceStory(opts),
+  storyNeedsBuild: (key: unknown) => mockStoryNeedsBuild(key),
+}));
 
 vi.mock('@/lib/cronAuth', () => ({
   isCronAuthorized: () => true,
@@ -196,6 +211,10 @@ describe('GET /api/cron/sync-f1 — settled snapshots are not re-fetched', () =>
     mockFetchCalendar.mockResolvedValue({ MRData: { RaceTable: { Races: CALENDAR } } });
     mockLoadFetchTimes.mockReset();
     mockLoadFetchTimes.mockResolvedValue(new Map());
+    mockAfter.mockReset();
+    mockBuildRaceStory.mockReset();
+    mockStoryNeedsBuild.mockReset();
+    mockStoryNeedsBuild.mockResolvedValue(false);
     vi.spyOn(console, 'warn').mockImplementation(() => {});
     vi.spyOn(console, 'error').mockImplementation(() => {});
   });
@@ -215,6 +234,68 @@ describe('GET /api/cron/sync-f1 — settled snapshots are not re-fetched', () =>
     expect(mockFetchDriverStandings).toHaveBeenCalledTimes(1);
     expect(mockFetchConstructorStandings).toHaveBeenCalledTimes(1);
     expect(body.settled).toBe(0);
+  });
+
+  it('schedules a final race story per round whose results were written, after the response', async () => {
+    await runSync();
+
+    expect(mockAfter).toHaveBeenCalledTimes(1);
+    expect(mockBuildRaceStory).not.toHaveBeenCalled(); // not before the response
+    await mockAfter.mock.calls[0]?.[0]();
+    // Finality is read from the stored results row, never from this run.
+    expect(mockBuildRaceStory.mock.calls.map((c) => c[0])).toEqual([
+      { season: 2026, round: 1, session: 'race' },
+      { season: 2026, round: 2, session: 'race' },
+    ]);
+  });
+
+  it('a story that cannot be scheduled does not fail the ingest', async () => {
+    mockAfter.mockImplementation(() => {
+      throw new Error('outside a request scope');
+    });
+    const { res } = await runSync();
+    expect(res.status).toBe(200);
+  });
+
+  it('retries the latest race when its story is missing, even though nothing was fetched', async () => {
+    vi.setSystemTime(new Date('2026-03-30T12:00:00Z')); // a day after round 2, results settled
+    mockLoadFetchTimes.mockResolvedValue(allSettled());
+    mockStoryNeedsBuild.mockResolvedValue(true);
+    await runSync();
+
+    expect(mockStoryNeedsBuild).toHaveBeenCalledWith({ season: 2026, round: 2, session: 'race' });
+    await mockAfter.mock.calls[0]?.[0]();
+    expect(mockBuildRaceStory.mock.calls.map((c) => c[0])).toEqual([{ season: 2026, round: 2, session: 'race' }]);
+  });
+
+  it('retries every race inside the window, not just the latest', async () => {
+    vi.setSystemTime(new Date('2026-03-30T12:00:00Z'));
+    mockLoadFetchTimes.mockResolvedValue(allSettled());
+    mockStoryNeedsBuild.mockResolvedValue(true);
+    await runSync();
+    // Round 1 (2026-03-15) is outside the three-day window; round 2 is inside.
+    expect(mockStoryNeedsBuild.mock.calls.map((c) => c[0])).toEqual([{ season: 2026, round: 2, session: 'race' }]);
+  });
+
+  it('does not retry a race that is still running', async () => {
+    vi.setSystemTime(new Date('2026-03-29T16:00:00Z')); // one hour after the start
+    mockLoadFetchTimes.mockResolvedValue(allSettled());
+    mockStoryNeedsBuild.mockResolvedValue(true);
+    await runSync();
+    expect(mockStoryNeedsBuild).not.toHaveBeenCalled();
+  });
+
+  it('does not retry when the latest race already has its final story', async () => {
+    vi.setSystemTime(new Date('2026-03-30T12:00:00Z'));
+    mockLoadFetchTimes.mockResolvedValue(allSettled());
+    await runSync();
+    expect(mockAfter).not.toHaveBeenCalled();
+  });
+
+  it('schedules no story when no result was written (everything settled)', async () => {
+    mockLoadFetchTimes.mockResolvedValue(allSettled());
+    await runSync();
+    expect(mockAfter).not.toHaveBeenCalled();
   });
 
   it('when everything is settled, only the calendar is refreshed — zero session fetches', async () => {
